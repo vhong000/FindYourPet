@@ -24,34 +24,46 @@ List of git commands that will be most used:
 
 **Merge with master branch:** *while not on master...* `git merge master`
 
+**Compare changes:** `git diff <file name>` or `git diff . ` for all changes
+
 ### Common git usage
-Update current branch
+To update current branch
 
 ```
 git checkout master
 git pull
 git checkout <branch name>
 git merge master
-git push
+git push // to push to own remote branch
 ```
 
-push changes to current branch
+To push changes to current branch
 
 ```
 git status
+git add .
 git commit -m '<message>'
 git push
 ```
 
-merge with master *(Be careful with this. PR recommended)*
+To merge with master *(Be careful with this. PR recommended)*
 
 *on own branch*
 ```
 git checkout master
 git pull
 git checkout <branch name>
-git merge master
+git merge master // merge local with current master
 git push
 git checkout master
-git merge <branch name>
+git merge <branch name> // merge master with local
 ```
+
+To create pull request
+
+1. push changes to own branch
+2. go to github project page
+3. "new pull request"
+4. select your branch
+5. give info on code changes
+6. wait for code review

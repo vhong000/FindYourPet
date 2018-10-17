@@ -5,7 +5,9 @@
     padding-top: 150px;
     text-align: center;
   }
-  
+  h2{
+    padding-bottom: 30px;
+  }
   img{
     margin-bottom: 30px;
     margin-left: auto;

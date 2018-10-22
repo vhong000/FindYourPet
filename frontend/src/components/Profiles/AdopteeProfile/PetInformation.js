@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-import MultipleImagesUploader from '../ImageUploaders/MultipleImagesUploder/MultipleImagesUploader';
 
 export default class PetInformation extends Component {
   render() {
     return (
-      <div>
-      <h4>Pet Information</h4>
-      <MultipleImagesUploader/>    
-      <hr/>
-            <div class="row">
+      <div>        
+        <hr/>
+        <h4>Pet Information</h4>
+        <div class="row">
             <div class="col-md-12">
                 <form id="AdopteePetInfo">                                     
                     <div class="form-group row">
@@ -54,7 +52,7 @@ export default class PetInformation extends Component {
                 </form>
             </div>
         </div>        
-      </div>
+    </div>
     )
   }
 }

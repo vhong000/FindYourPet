@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Settings from '../Settings/Settings';
-import AvatarUploader from '../ImageUploaders/AvatarUploder/AvatarUploader';
 import CommonInfoSection from '../Common/CommonInfoSectiom';
 import UpdateDelete from '../Common/UpdateDelete/UpdateDelete';
+import AvatarUploder from '../Common/AvatarUploader/AvatarUploader';
 
 export default class AdopterProfile extends Component {
   render() {
@@ -16,11 +16,10 @@ export default class AdopterProfile extends Component {
                 <div class="card">
                     <div class="card-body">
                        <div class="row">
-                            <div class="col-md-12">                                
-                                <AvatarUploader/>
+                            <div class="col-md-12"> 
+                                <AvatarUploder/>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-12">
                                 <CommonInfoSection/>

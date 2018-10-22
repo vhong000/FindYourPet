@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './UserCard.css';
-import cardphoto from '../../../images/paw.png';
+import cardphoto from '../../../Images/paw.png';
 
 export default class UserCard extends Component {
   render() {

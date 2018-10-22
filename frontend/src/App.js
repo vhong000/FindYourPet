@@ -6,10 +6,11 @@ import DashboardBody from './components/MainDashboard/DashboardBody/DashboardBod
 import AdopterProfile from './components/Profiles/AdopterProfile/AdopterProfile';
 import AdopteeProfile from './components/Profiles/AdopteeProfile/AdopteeProfile';
 
-class App extends Component {
+class App extends Component { 
+ 
   render() {
     return (
-      <div> 
+      <div>       
         nav bar
         <Navbar />
         login page

@@ -2,15 +2,15 @@ import React from 'react';
 import {BrowserRouter,Route,Switch} from "react-router-dom";
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import HomePage from './components/HomePage';
-import LoginPage from './components/LoginPage';
+import LoginPage from './components/Login/LoginPage';
 import NavBar from './components/NavBar';
-import FindPetPage from './components/FindPetPage';
-import AdopterProfile from './components/AdopterProfile';
-import AdopteeProfile from './components/AdopteeProfile';
+import FindPetPage from './components/MainDashboard/DashboardBody/DashboardBody';
+import AdopterProfile from './components/Profiles/AdopterProfile/AdopterProfile';
+import AdopteeProfile from './components/Profiles/AdopteeProfile/AdopteeProfile';
 
 ReactDOM.render(
 	<BrowserRouter>

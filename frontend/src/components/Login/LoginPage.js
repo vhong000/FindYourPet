@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import styles from './Login/Login.css';
-import logo from '../Images/paw.png';
+import styles from './Login.css';
+import logo from '../../Images/paw.png';
 
 export default class LoginPage extends Component {
   render() {

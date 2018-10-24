@@ -18,7 +18,6 @@ ReactDOM.render(
 			<NavBar/> 
 			<Switch>
 				<Route exact path='/' component={HomePage} />
-				<Route path='/HomePage' component={HomePage} />
 				<Route path='/FindPetPage' component={FindPetPage} />
 				<Route path='/LoginPage' component={LoginPage} />
 				<Route path='/AdopterProfile' component={AdopterProfile} />

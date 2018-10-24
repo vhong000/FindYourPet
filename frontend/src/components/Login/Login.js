@@ -18,7 +18,7 @@ export default class Login extends Component {
               <div className="forgot">
               <a href="reset.html">Forgot password?</a>               																	
               </div>            
-              <button type="submit" className="btn btn-primary">Login</button>                  
+              <button type="submit" className="btn btn">Login</button>                  
             </form>
       </div>       
     )

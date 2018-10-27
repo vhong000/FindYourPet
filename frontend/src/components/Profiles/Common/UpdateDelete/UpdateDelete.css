@@ -1,6 +1,11 @@
 #delete{
-    background-color: red;
-    border-color: gray;
-    
+    background-color: orangered;
+    border-color: orangered;    
 }
-button{margin: 5px;}
+button{
+    margin: 5px;
+}
+#update{
+    background-color: lightseagreen;
+    border-color: lightseagreen;
+}

@@ -15,8 +15,7 @@ export default class UserCard extends Component {
                     descriptionpet descriptionpet description</div>
                 </div>
             </div>
-        </div>        
-      
+        </div>      
     )
   }
 }

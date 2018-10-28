@@ -5,14 +5,15 @@ import './App.css';
 import DashboardBody from './components/MainDashboard/DashboardBody/DashboardBody';
 import AdopterProfile from './components/Profiles/AdopterProfile/AdopterProfile';
 import AdopteeProfile from './components/Profiles/AdopteeProfile/AdopteeProfile';
-
+import MainBody from './components/LandingPage/MainBody/MainBody';
 class App extends Component { 
  
   render() {
     return (
-      <div>       
-        nav bar
+      <div>      
         <Navbar />
+        landing page
+        <MainBody />
         login page
         <Login />
         main page

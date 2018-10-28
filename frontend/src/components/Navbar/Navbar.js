@@ -8,9 +8,9 @@ export default class Navbar extends Component {
     <div>
       <ul className = "topnav">
         <li><a className = "active" href="#home"><img src={logo} className="App-logo" alt="logo" id="logo"/>Home</a></li>        
-        <li><a href="#news">Liked Pets</a></li>  
-        <li className="right"><a href="#about">Sign Out</a></li>
-      </ul>
+        <li><a href="#news">Useful Resources</a></li>  
+        <li className="right"><a href="#about">Register | Sign In</a></li>
+      </ul>      
     </div> 	 
     )
   }

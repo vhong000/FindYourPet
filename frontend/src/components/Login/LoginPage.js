@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './Login.css';
 import logo from '../../Images/paw.png';
 
-export default class Login extends Component {
+export default class LoginPage extends Component {
   render() {
     return (
       <div className="panel">

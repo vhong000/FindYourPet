@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Login from './components/Login/Login';
-import Navbar from './components/Navbar/Navbar';
+import Login from './components/Login/LoginPage';
+import Navbar from './components/NavBar';
 import './App.css';
 import DashboardBody from './components/MainDashboard/DashboardBody/DashboardBody';
 import AdopterProfile from './components/Profiles/AdopterProfile/AdopterProfile';

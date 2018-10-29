@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
-//import HomePage from './HomePage';
-//import Login from './LoginPage';
+
 // I got the navbar code from Bootstrap documentation
 export default class NavBar extends Component {
   render() {
@@ -26,5 +25,3 @@ export default class NavBar extends Component {
     }
 
 }
-//<a className="nav-item nav-link active" href="#">Post a Pet</a>
-//<a className="nav-item nav-link active" href="#">Profile</a>

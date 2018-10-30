@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import HomePage from './components/HomePage';
+import MainBody from './components/LandingPage/MainBody/MainBody';
 import LoginPage from './components/Login/LoginPage';
 import NavBar from './components/NavBar';
 import FindPetPage from './components/MainDashboard/DashboardBody/DashboardBody';
@@ -17,7 +17,7 @@ ReactDOM.render(
 		<div>
 			<NavBar/> 
 			<Switch>
-				<Route exact path='/' component={HomePage} />
+				<Route exact path='/' component={MainBody} />
 				<Route path='/FindPetPage' component={FindPetPage} />
 				<Route path='/LoginPage' component={LoginPage} />
 				<Route path='/AdopterProfile' component={AdopterProfile} />

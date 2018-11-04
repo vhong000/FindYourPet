@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import pic1 from '../../../Images/pic1.png';
+import pic1 from '../../../Images/cat.jpg';
+import pic2 from '../../../Images/dog.jpg';
+import pic3 from '../../../Images/adultcat.jpg';
 import './Carusel.css';
 
 
@@ -14,13 +16,13 @@ export default class Carusel extends Component {
         </ol>
         <div className="carousel-inner" >
           <div className="carousel-item active"  id="pic1">
-            <img className="d-block w-100" src={pic1} alt="First slide"/>
+            <img className="img-fluid" src={pic2} alt="First slide"/>
           </div>
           <div className="carousel-item"  id="pic1">
-            <img className="d-block w-100" src={pic1} alt="Second slide"/>
+            <img className="img-fluid" src={pic1} alt="Second slide"/>
           </div>
           <div className="carousel-item"  id="pic1">
-            <img className="d-block w-100" src={pic1} alt="Third slide"/>
+            <img className="img-fluid" src={pic3} alt="Third slide"/>
           </div>
         </div>
         <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -1,6 +1,15 @@
-#space{
-    text-align: center;
+#space {
+  text-align: center;
 }
+
+.mainNavigation {
+  padding: 50px 0;
+}
+
+.img-size {
+  width: 50%;
+  padding-top: 15px;
+  /* border: 1px solid red; */
 h4{
     position: relative;
     padding-top: 0px;

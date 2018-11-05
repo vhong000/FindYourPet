@@ -9,8 +9,15 @@
 .img-size {
   width: 50%;
   padding-top: 15px;
+<<<<<<< HEAD
 }
 h4 {
   position: relative;
   padding-top: 0px;
+=======
+  /* border: 1px solid red; */
+h4{
+    position: relative;
+    padding-top: 0px;
+>>>>>>> master
 }

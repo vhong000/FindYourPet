@@ -1,9 +1,23 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 import "./Carusel.css";
 
 import logo1 from "../../../Images/logo1.png";
 import logo2 from "../../../Images/logo2.png";
 import logo3 from "../../../Images/logo3.png";
+=======
+
+import React, { Component } from "react";
+import "./Carusel.css";
+
+import logo1 from "../../../Images/logo1.png";
+import logo2 from "../../../Images/logo2.png";
+import logo3 from "../../../Images/logo3.png";
+// second options
+import pic1 from '../../../Images/cat.jpg';
+import pic2 from '../../../Images/dog.jpg';
+import pic3 from '../../../Images/adultcat.jpg';
+>>>>>>> master
 
 export default class Carusel extends Component {
   render() {
@@ -31,6 +45,19 @@ export default class Carusel extends Component {
           </div>
           <div className="carousel-item" id="pic3">
             <img className="d-block w-100" src={logo3} alt="Third slide" />
+<<<<<<< HEAD
+=======
+// ======= options2
+//         <div className="carousel-inner" >
+//           <div className="carousel-item active"  id="pic1">
+//             <img className="img-fluid" src={pic2} alt="First slide"/>
+//           </div>
+//           <div className="carousel-item"  id="pic1">
+//             <img className="img-fluid" src={pic1} alt="Second slide"/>
+//           </div>
+//           <div className="carousel-item"  id="pic1">
+//             <img className="img-fluid" src={pic3} alt="Third slide"/>
+>>>>>>> master
           </div>
         </div>
         <a

@@ -23,28 +23,42 @@ export default class NavBar extends Component {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-item nav-link active" to="/FindPetPage">
-                  Find a Pet <span className="sr-only">(current)</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item nav-link active" to="/AdopterProfile">
-                  Adopter Profile
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item nav-link active" to="/AdopteeProfile">
-                  Adoptee Profile
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-item nav-link active" to="/LoginPage">
-                  Sign In
-                </Link>
-              </li>
-            </ul>
+            <div className="navbar-nav ml-auto">
+              <Link className="nav-item nav-link active" to="/FindPetPage">
+                Find a Pet <span className="sr-only">(current)</span>
+              </Link>
+              <Link className="nav-item nav-link active" to="/AdopterProfile">
+                Adopter Profile
+              </Link>
+              <Link className="nav-item nav-link active" to="/AdopteeProfile">
+                Adoptee Profile
+              </Link>
+              <Link className="nav-item nav-link active" to="/LoginPage">
+                Sign In
+              </Link>
+            </div>
+//             <ul className="navbar-nav ml-auto">
+//               <li className="nav-item">
+//                 <Link className="nav-item nav-link active" to="/FindPetPage">
+//                   Find a Pet <span className="sr-only">(current)</span>
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link className="nav-item nav-link active" to="/AdopterProfile">
+//                   Adopter Profile
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link className="nav-item nav-link active" to="/AdopteeProfile">
+//                   Adoptee Profile
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link className="nav-item nav-link active" to="/LoginPage">
+//                   Sign In
+//                 </Link>
+//               </li>
+//             </ul>
           </div>
         </div>
       </nav>

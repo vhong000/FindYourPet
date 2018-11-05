@@ -8,6 +8,7 @@ export default class Settings extends Component {
       showSettings: false      
     }   
   }
+  
   handleStttingsShow = () => {
     const doesShow = this.state.showSettings;
     this.setState({ showSettings: !doesShow });

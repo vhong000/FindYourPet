@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import "./Navbar/Navbar.css";
 
 // I got the navbar code from Bootstrap documentation
 export default class NavBar extends Component {
@@ -22,6 +21,7 @@ export default class NavBar extends Component {
           >
             <span className="navbar-toggler-icon" />
           </button>
+
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ml-auto">
               <Link className="nav-item nav-link active" to="/FindPetPage">
@@ -37,6 +37,28 @@ export default class NavBar extends Component {
                 Sign In
               </Link>
             </div>
+//             <ul className="navbar-nav ml-auto">
+//               <li className="nav-item">
+//                 <Link className="nav-item nav-link active" to="/FindPetPage">
+//                   Find a Pet <span className="sr-only">(current)</span>
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link className="nav-item nav-link active" to="/AdopterProfile">
+//                   Adopter Profile
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link className="nav-item nav-link active" to="/AdopteeProfile">
+//                   Adoptee Profile
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link className="nav-item nav-link active" to="/LoginPage">
+//                   Sign In
+//                 </Link>
+//               </li>
+//             </ul>
           </div>
         </div>
       </nav>

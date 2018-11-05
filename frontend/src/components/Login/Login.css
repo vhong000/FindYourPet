@@ -2,12 +2,15 @@
     width:40%;
     margin: auto;
     padding: auto;
-    padding-top: 150px;
+    padding-top: 3%;
     text-align: center;
   }
-  
+  #logo{
+    width: 20%;
+  }
   img{
-    margin-bottom: 30px;
+    width: 1%;    
+    margin-bottom: 5%;
     margin-left: auto;
     margin-right: auto;
   }

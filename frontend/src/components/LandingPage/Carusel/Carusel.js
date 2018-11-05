@@ -26,10 +26,10 @@ export default class Carusel extends Component {
           <div className="carousel-item active" id="pic1">
             <img className="d-block w-100" src={logo1} alt="First slide" />
           </div>
-          <div className="carousel-item" id="pic1">
+          <div className="carousel-item" id="pic2">
             <img className="d-block w-100" src={logo2} alt="Second slide" />
           </div>
-          <div className="carousel-item" id="pic1">
+          <div className="carousel-item" id="pic3">
             <img className="d-block w-100" src={logo3} alt="Third slide" />
           </div>
         </div>

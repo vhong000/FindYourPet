@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+// import "./Navbar/Navbar.css";
 
 // I got the navbar code from Bootstrap documentation
 export default class NavBar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
             FindYourPet

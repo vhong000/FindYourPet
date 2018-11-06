@@ -1,17 +1,17 @@
 #pic1 {
-  height: 92vh;
-  /* border: 1px solid black; */
+  height: 92vh; /* to make it full screen */
+  /* height: 100%; */
   background: url("../../../Images/logo1.png");
 }
 
 #pic2 {
-  height: 92vh;
-  /* border: 1px solid black; */
+  height: 92vh; /* to make it full screen */
+  /* height: 100%; */
   background: url("../../../Images/logo2.png");
 }
 #pic3 {
-  height: 92vh;
-  /* border: 1px solid black; */
+  height: 92vh; /* to make it full screen */
+  /* height: 100%; */
   background: url("../../../Images/logo3.png");
 }
 

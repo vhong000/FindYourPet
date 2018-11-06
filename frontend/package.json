@@ -30,7 +30,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {
-    "prettier": "^1.14.3"
-  }
+  "devDependencies": {}
 }

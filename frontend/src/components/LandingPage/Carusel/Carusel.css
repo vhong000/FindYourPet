@@ -1,33 +1,21 @@
 #pic1 {
-  height: 100vh;
+  height: 92vh;
   /* border: 1px solid black; */
   background: url("../../../Images/logo1.png");
 }
 
 #pic2 {
-  height: 100vh;
+  height: 92vh;
   /* border: 1px solid black; */
   background: url("../../../Images/logo2.png");
 }
 #pic3 {
-  height: 100vh;
+  height: 92vh;
   /* border: 1px solid black; */
   background: url("../../../Images/logo3.png");
 }
 
-/* #pic1 img {
-  height: 100%;
-  width: 100%;
-} */
-
 #carouselExampleIndicators {
-  /* border: 1px solid black; */
   padding: 0;
   margin: 0;
-}
-#pic1{
-    height: 300px;   
-}
-img {
-    width: 100%;
 }

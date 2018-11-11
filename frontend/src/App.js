@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Login from './components/Login/LoginPage';
+import Login from './components/Login/LoginPageBody';
 import Navbar from './components/NavBar';
 import './App.css';
 import DashboardBody from './components/MainDashboard/DashboardBody/DashboardBody';

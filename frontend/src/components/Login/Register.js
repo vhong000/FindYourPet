@@ -8,6 +8,14 @@ export default class Register extends Component {
       <form id="loginform">
         <h2>Register</h2>
         <br/>
+            <div class="form-group">                           
+                <select id="select" name="select" class="custom-select">
+                    <option value='Null' selected>Select account type</option>    
+                    <option value="">Adoptee</option>
+                    <option value="">Adopter</option>
+                    <option value="">Shelter</option>
+                </select>                
+            </div>
             <div className="form-group">
                 <input type="email" className="form-control" id="inputEmail" placeholder="Email Address" />
             </div> 
@@ -23,8 +31,9 @@ export default class Register extends Component {
             <div className="form-group">
                 <input type="password" className="form-control" id="inputPassword" placeholder="Confirm Password" />
             </div>            
-            <button type="submit" className="btn btn">Register</button>                  
+            <button type="submit" className="btn btn" id="register">Register</button>                  
        </form>
+       <br/>
     </div>       
     )
   }

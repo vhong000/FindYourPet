@@ -21,8 +21,7 @@ module.exports = {
       email: req.body.email,
       password: req.body.password,
     }).then((user) => {
-			console.log(user);
-			res.send(user.id);
+			res.sendStatus(200);
     }).catch(() => {
       console.log('error')
     });

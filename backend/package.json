@@ -4,13 +4,27 @@
   "description": "backend for FindYourPet",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon -L app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Victor Hong",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "0.1.1",
+    "cookie-parser": "1.4.3",
     "express": "^4.16.4",
-    "nodemon": "^1.18.4"
+    "express-handlebars": "^3.0.0",
+    "express-session": "1.15.6",
+    "method-override": "2.3.10",
+    "nodemon": "^1.18.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.13.3",
+    "sequelize-cli": "^3.0.0",
+    "speakingurl": "14.0.1"
   }
 }

@@ -10,6 +10,8 @@ export default class AdopteeProfile extends Component {
   render() {
     return (
     <div class="container">
+    <br/>
+    <h2>Adoptee Profile</h2>
         <div class="row">
             <div class="col-md-3 ">
                 <Settings />

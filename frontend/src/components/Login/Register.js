@@ -7,15 +7,7 @@ export default class Register extends Component {
     <div className="panel">            
       <form id="loginform">
         <h2>Register</h2>
-        <br/>
-            <div class="form-group">                           
-                <select id="select" name="select" class="custom-select">
-                    <option value='Null' selected>Select account type</option>    
-                    <option value="">Adoptee</option>
-                    <option value="">Adopter</option>
-                    <option value="">Shelter</option>
-                </select>                
-            </div>
+        <br/>          
             <div className="form-group">
                 <input type="email" className="form-control" id="inputEmail" placeholder="Email Address" />
             </div> 

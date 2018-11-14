@@ -6,7 +6,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import MainBody from './components/LandingPage/MainBody/MainBody';
-import LoginPage from './components/Login/LoginPage';
+import LoginPage from './components/Login/LoginPageBody';
 import NavBar from './components/NavBar';
 import FindPetPage from './components/MainDashboard/DashboardBody/DashboardBody';
 import AdopterProfile from './components/Profiles/AdopterProfile/AdopterProfile';

@@ -9,8 +9,8 @@ function passwordsMatch(passwordSubmitted, storedPassword) {
 }
 
 passport.use(new LocalStrategy({
-    usernameField: 'email',
-  },
+		usernameField: 'email',
+	},
   (email, password, done) => {
     User.findOne({
       where: { email },

@@ -6,6 +6,7 @@ import {
   Redirect,
   withRouter
 } from "react-router-dom";
+import Register from "./Register";
 import "./Login.css";
 
 const sendData = {
@@ -40,28 +41,33 @@ const sendData = {
 
 export default class Login extends Component {
   state = {
-    redirectToReferrer: false,
-    email: "",
-    password: ""
+    emailChildren: "",
+    passwordChildren: ""
   };
 
+  constructor(props) {
+    super(props);
+  }
+
   submit = () => {
-    sendData.send(this.state.email, this.state.password, () => {
-      this.setState({ redirectToReferrer: true });
-    });
+    sendData.send(
+      this.state.emailChildren,
+      this.state.passwordChildren,
+      this.props.authenticated
+    );
   };
 
   handleEmailChange = event => {
-    this.setState({ email: event.target.value });
+    this.setState({ emailChildren: event.target.value });
   };
 
   handlePassChange = event => {
-    this.setState({ password: event.target.value });
+    this.setState({ passwordChildren: event.target.value });
   };
 
   render() {
-    let { from } = { pathname: "/" };
-    let { redirectToReferrer } = this.state;
+    let { from } = { pathname: "/FindPetPage" };
+    let { redirectToReferrer } = this.props.redirectToReferrer;
 
     if (redirectToReferrer) return <Redirect to={from} />;
 
@@ -77,7 +83,7 @@ export default class Login extends Component {
               id="inputEmail"
               placeholder="Email Address"
               onChange={this.handleEmailChange}
-              value={this.state.email}
+              value={this.state.emailChildren}
             />
           </div>
           <div className="form-group">
@@ -87,16 +93,23 @@ export default class Login extends Component {
               id="inputPassword"
               placeholder="Password"
               onChange={this.handlePassChange}
-              value={this.state.password}
+              value={this.state.passwordChildren}
             />
           </div>
-          <div className="forgot">
-            <a href="reset.html">Forgot password?</a>
+          <div className="btn-float">
+            <div className="right-float">
+              <a href="reset.html">Forgot password?</a>
+            </div>
+            <div className="left-float">
+              <Link to="/signup">Don't have an account? Register here | </Link>
+            </div>
           </div>
         </form>
+
         <button type="submit" className="btn btn" onClick={this.submit}>
           Login
         </button>
+        <Route path="signup" component={Register} />
       </div>
     );
   }

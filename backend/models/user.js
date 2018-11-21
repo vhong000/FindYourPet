@@ -17,6 +17,14 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    phoneNumber: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -40,6 +48,12 @@ module.exports = (sequelize, DataTypes) => {
 				user.password_hash = hashedPw;
 			})
 		);
+
+	User.associate = function(models) {
+    User.belongsToMany(models.Pet, { as: 'LikedPets', through: 'liked_pets' })
+
+		User.hasMany(models.Pet);
+	};
 
   return User;
 };

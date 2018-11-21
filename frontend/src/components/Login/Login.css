@@ -21,10 +21,6 @@
   float: left;
 }
 
-.btn-float::after {
-  clear: both;
-}
-
 button {
   background-color: lightseagreen;
   color: white;

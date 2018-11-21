@@ -40,11 +40,16 @@ ul.topnav li.right {
     float: none;
   }
 }
-#logo {
+/* #logo {
   width: 20%;
   margin: auto;
   padding-right: 10px;
 }
-/* .navbar {
+.navbar {
   margin-right: 100px;
 } */
+
+.transparent-btn {
+  background: transparent;
+  border: transparent;
+}

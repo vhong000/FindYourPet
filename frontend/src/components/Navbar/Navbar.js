@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./Navbar.css";
+import sendData from "../../auth";
 
 let navigationIn = <div />;
 
@@ -9,9 +11,15 @@ export default class NavBar extends Component {
     super(props);
   }
 
+  logMeOut = () => {
+    sendData.logOut(this.props.logout, this.props.history);
+  };
+
+  //check if user in.
+  //if user is in, shows full navigation bar.
+  //if not, only shows findpet and sign in
   autoCheckIfUserIn = () => {
-    console.log("email is" + this.props.redirectToReferrer);
-    if (this.props.redirectToReferrer === false) {
+    if (this.props.auth === false) {
       navigationIn = (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
@@ -44,10 +52,29 @@ export default class NavBar extends Component {
               Adoptee Profile
             </Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-item nav-link active" to="/LoginPage">
-              {this.props.redirectToReferrer} You're logged in: [accountname]
-            </Link>
+          <li className="nav-item dropdown">
+            <div
+              className="nav-link nav-item dropdown-toggle active"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              User
+            </div>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link className="dropdown-item" to="/ViewProfile">
+                View profile (placeholder)
+              </Link>
+              <Link className="dropdown-item" to="/Settings">
+                Settings (placeholder)
+              </Link>
+              <div className="dropdown-divider" />
+              <button className="dropdown-item" onClick={this.logMeOut}>
+                Logout
+              </button>
+            </div>
           </li>
         </ul>
       );
@@ -56,6 +83,7 @@ export default class NavBar extends Component {
 
   render() {
     this.autoCheckIfUserIn();
+
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">

@@ -25,8 +25,7 @@ export default class PetImages extends Component {
         onChange={this.onDrop}
         imgExtension={['.jpg', '.gif', '.png', '.gif']}
         maxFileSize={5242880}
-    /> 
-      <PetInformation/>    
+    />         
       </div>
       
     )

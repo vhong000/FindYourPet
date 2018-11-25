@@ -1,16 +1,16 @@
 #pic1 {
-  height: 92vh; /* to make it full screen */
+  height: 60vh; /* to make it full screen is 92 */
   /* height: 100%; */
   background: url("../../../Images/logo1.png");
 }
 
 #pic2 {
-  height: 92vh; /* to make it full screen */
+  height: 60vh; /* to make it full screen is 92 */
   /* height: 100%; */
   background: url("../../../Images/logo2.png");
 }
 #pic3 {
-  height: 92vh; /* to make it full screen */
+  height: 60vh; /* to make it full screen is 92 */
   /* height: 100%; */
   background: url("../../../Images/logo3.png");
 }

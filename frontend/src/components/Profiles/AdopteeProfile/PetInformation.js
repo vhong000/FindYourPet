@@ -24,12 +24,13 @@ export default class PetInformation extends Component {
                             </div>
                     </div>
                     <div class="form-group row">
-                            <label for="text" class="col-4 col-form-label">Pet Bread*</label>
+                            <label for="text" class="col-4 col-form-label">Pet Breed*</label>
                             <div class="col-8">
-                                <input id="text" name="text" placeholder="Pet Bread" class="form-control here"
+                                <input id="text" name="text" placeholder="Pet Breed" class="form-control here"
                                     required="required" type="text"/>
                             </div>
                     </div> 
+                    
                     <div class="form-group row">
                         <label for="text" class="col-4 col-form-label">Pet Age</label>
                         <div class="col-8">
@@ -38,7 +39,7 @@ export default class PetInformation extends Component {
                         </div>
                     </div>  
                     <div class="form-group row">
-                        <label for="text" class="col-4 col-form-label">Medical history</label>
+                        <label for="text" class="col-4 col-form-label">Pet history</label>
                         <div class="col-8">
                             <textarea id="publicinfo" name="med" cols="40" rows="4" class="form-control"></textarea>
                         </div>

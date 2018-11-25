@@ -7,10 +7,11 @@ import * as serviceWorker from './serviceWorker';
 
 import MainBody from './components/LandingPage/MainBody/MainBody';
 import LoginPage from './components/Login/LoginPageBody';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import FindPetPage from './components/MainDashboard/DashboardBody/DashboardBody';
 import AdopterProfile from './components/Profiles/AdopterProfile/AdopterProfile';
 import AdopteeProfile from './components/Profiles/AdopteeProfile/AdopteeProfile';
+import PostPet from './components/PostPet/PostPet';
 
 ReactDOM.render(
 	<BrowserRouter>
@@ -19,6 +20,7 @@ ReactDOM.render(
 			<Switch>
 				<Route exact path='/' component={MainBody} />
 				<Route path='/FindPetPage' component={FindPetPage} />
+				<Route path='/PostPet' component={PostPet} />
 				<Route path='/LoginPage' component={LoginPage} />
 				<Route path='/AdopterProfile' component={AdopterProfile} />
 				<Route path='/AdopteeProfile' component={AdopteeProfile} />

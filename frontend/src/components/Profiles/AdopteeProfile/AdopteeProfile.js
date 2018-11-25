@@ -3,13 +3,11 @@ import Settings from '../Settings/Settings';
 import CommonInfoSection from '../Common/CommonInfoSectiom';
 import PetImages from './PetImages';
 import UpdateDelete from '../Common/UpdateDelete/UpdateDelete';
-import AvatarUploader from '../Common/AvatarUploader/AvatarUploader';
-
 
 export default class AdopteeProfile extends Component {
   render() {
     return (
-    <div class="container">
+    <div class="container">   
     <br/>
     <h2>Adoptee Profile</h2>
         <div class="row">
@@ -20,14 +18,13 @@ export default class AdopteeProfile extends Component {
                 <div class="card">
                     <div class="card-body">                    
                        <div class="row">
-                            <div class="col-md-12">                                
-                            <AvatarUploader/>
+                            <div class="col-md-12">                     
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">                                
-                                <CommonInfoSection/>                                
-                                <PetImages />
+                            <div class="col-md-12">
+                                <PetImages />                                
+                                <CommonInfoSection/>                          
                                 <UpdateDelete />
                             </div>
                         </div>                

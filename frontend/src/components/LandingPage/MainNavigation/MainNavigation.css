@@ -16,3 +16,9 @@ h4 {
     position: relative;
     padding-top: 0px;
 }
+#postpet{
+  display: block;
+  width: 40%;
+  padding-right: auto;
+  padding-left: auto;
+}

@@ -18,14 +18,13 @@ export default class AdopteeProfile extends Component {
                 <div class="card">
                     <div class="card-body">                    
                        <div class="row">
-                            <div class="col-md-12">                                
-                            
+                            <div class="col-md-12">                     
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">                                
-                                <CommonInfoSection/>                                
-                                <PetImages />
+                            <div class="col-md-12">
+                                <PetImages />                                
+                                <CommonInfoSection/>                          
                                 <UpdateDelete />
                             </div>
                         </div>                

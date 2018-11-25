@@ -15,8 +15,7 @@ export default class PetCard extends Component {
                 <img class="img-thumbnail" id="petpicture" src={logo}  alt="logo" />
                     <div className="card">               
                         <div className="card-body">
-                            <h5 className="card-title">Pet name • Age • Bread • Location </h5>
-                                              
+                            <h5 className="card-title">Pet name • Age • Bread • Location </h5>                                              
                         </div>
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item">Medical info</li>

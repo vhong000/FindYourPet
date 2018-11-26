@@ -1,26 +1,30 @@
-.panel{
-    width:50%;
-    margin: auto;
-    padding: auto;
-    padding-top: 3%;
-    text-align: center;
-  }
-  #logo{
-    width: 5%;
-    padding-bottom: 5%;
-  }
- 
-  .forgot{
-    width: 100%; 
-    height: 30px;
-  }
-  a{float: right;}
-  
-  button{
-    background-color: lightseagreen;
-    color: white;
-  }
-  #register{
-    margin-bottom: 15%;
-  }
-  
+.panel {
+  width: 50%;
+  margin: auto;
+  padding: auto;
+  padding-top: 3%;
+  text-align: center;
+}
+#logo {
+  width: 5%;
+  padding-bottom: 5%;
+}
+
+.forgot {
+  width: 100%;
+  height: 30px;
+}
+.right-float {
+  float: right;
+}
+.left-float {
+  float: left;
+}
+
+button {
+  background-color: lightseagreen;
+  color: white;
+}
+#register {
+  margin-bottom: 15%;
+}

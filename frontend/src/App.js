@@ -1,31 +1,73 @@
-import React, { Component } from 'react';
-import Login from './components/Login/LoginPageBody';
-import Navbar from './components/NavBar/NavBar';
-import './App.css';
-import DashboardBody from './components/MainDashboard/DashboardBody/DashboardBody';
-import AdopterProfile from './components/Profiles/AdopterProfile/AdopterProfile';
-import AdopteeProfile from './components/Profiles/AdopteeProfile/AdopteeProfile';
-import MainBody from './components/LandingPage/MainBody/MainBody';
-class App extends Component { 
- 
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter,
+  Switch
+} from "react-router-dom";
+import "./App.css";
+import MainBody from "./components/LandingPage/MainBody/MainBody";
+import LoginPage from "./components/Login/LoginPageBody";
+import Navbar from "./components/Navbar/Navbar";
+import FindPetPage from "./components/MainDashboard/DashboardBody/DashboardBody";
+import AdopterProfile from "./components/Profiles/AdopterProfile/AdopterProfile";
+import AdopteeProfile from "./components/Profiles/AdopteeProfile/AdopteeProfile";
+import Register from "./components/Login/Register";
+// import LogOut from "./LogOut";
+
+class App extends React.Component {
+  state = {
+    auth: false
+  };
+
+  authenticated = () => {
+    this.setState({ auth: true });
+  };
+
+  logout = () => {
+    this.setState({ auth: false });
+  };
+
   render() {
     return (
-      <div>      
-        <Navbar />
-        landing page
-        <MainBody />
-        login page
-        <Login />
-        main page
-        <DashboardBody />
-        Adopter Profile         
-        <AdopterProfile />  
-        Adoptee Profile 
-        <AdopteeProfile />                         
+      <div>
+        <Navbar auth={this.state.auth} logout={this.logout} />
+
+        <Switch>
+          <Route exact path="/" component={MainBody} />
+          <Route path="/FindPetPage" component={FindPetPage} />
+
+          <Route
+            path="/LoginPage"
+            render={props => (
+              <LoginPage
+                {...props}
+                auth={this.state.auth}
+                authenticated={this.authenticated}
+              />
+            )}
+          />
+
+          <Route
+            path="/AdopterProfile"
+            render={props => (
+              <AdopterProfile {...props} auth={this.state.auth} />
+            )}
+          />
+          <Route
+            path="/AdopteeProfile"
+            render={props => (
+              <AdopteeProfile {...props} auth={this.state.auth} />
+            )}
+          />
+
+          <Route path="/SignUp" component={Register} />
+        </Switch>
       </div>
     );
   }
-} 
+}
 
 export default App;
-

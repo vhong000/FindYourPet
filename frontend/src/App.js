@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -15,9 +15,10 @@ import FindPetPage from "./components/MainDashboard/DashboardBody/DashboardBody"
 import AdopterProfile from "./components/Profiles/AdopterProfile/AdopterProfile";
 import AdopteeProfile from "./components/Profiles/AdopteeProfile/AdopteeProfile";
 import Register from "./components/Login/Register";
+import PostPet from "./components/PostPet/PostPet";
 // import LogOut from "./LogOut";
 
-class App extends React.Component {
+class App extends Component {
   state = {
     auth: false
   };
@@ -38,7 +39,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={MainBody} />
           <Route path="/FindPetPage" component={FindPetPage} />
-
+          <Route path="/PostPet" component={PostPet} />
           <Route
             path="/LoginPage"
             render={props => (

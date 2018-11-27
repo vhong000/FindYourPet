@@ -1,12 +1,12 @@
 body {
   margin: 0;
-  overflow: hidden;
+  overflow: auto;
 }
 ul.topnav {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: auto;
   background-color: #333;
 }
 
@@ -40,11 +40,16 @@ ul.topnav li.right {
     float: none;
   }
 }
-#logo {
+/* #logo {
   width: 20%;
   margin: auto;
   padding-right: 10px;
 }
-/* .navbar {
+.navbar {
   margin-right: 100px;
 } */
+
+.transparent-btn {
+  background: transparent;
+  border: transparent;
+}

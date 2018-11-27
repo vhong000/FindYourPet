@@ -2,39 +2,49 @@ import React, { Component } from 'react'
 import Settings from '../Settings/Settings';
 import CommonInfoSection from '../Common/CommonInfoSectiom';
 import UpdateDelete from '../Common/UpdateDelete/UpdateDelete';
-import AvatarUploder from '../Common/AvatarUploader/AvatarUploader';
+import AvatarUploader from '../Common/AvatarUploader/AvatarUploader';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter
+} from "react-router-dom";
 
 export default class AdopterProfile extends Component {
   render() {
-    return (
-        <div class="container">
-        <br/>
-        <h2>Adopter Profile</h2>
-        <div class="row">
-            <div class="col-md-3 ">
-                <Settings />
+    //if the user is not login, don't allow them to see the page
+    if (this.props.auth === false) {
+      return <Redirect to={"/"} />;
+    } else {
+      return (
+        <div className="container">
+          <br />
+          <h2>Adopter Profile</h2>
+          <div className="row">
+            <div className="col-md-3 ">
+              <Settings />
             </div>
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-body">
-                       <div class="row">
-                            <div class="col-md-12"> 
-                                <AvatarUploder/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <CommonInfoSection/>
-                                <UpdateDelete/> 
-                            </div>
-                        </div>                
+            <div className="col-md-9">
+              <div className="card">
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col">
+                      <AvatarUploader />
                     </div>
+                  </div>
+                  <div className="row">
+                    <div className="col">
+                      <CommonInfoSection />
+                      <UpdateDelete />
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-   
-
-    )
+      );
+    }
   }
 }

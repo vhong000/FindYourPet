@@ -16,16 +16,16 @@ export default class Settings extends Component {
   render() {
     return (
       <div>      
-        <div class="list-group ">
-            <a class="list-group-item list-group-item-action active" id="settings">Dashboard</a>                 
-            <a class="list-group-item list-group-item-action" onClick={this.handleStttingsShow}>Settings</a>
+        <div className="list-group ">
+            <a className="list-group-item list-group-item-action active" id="settings">Dashboard</a>                 
+            <a className="list-group-item list-group-item-action" onClick={this.handleStttingsShow}>Settings</a>
         </div>
         <br/>	
-        <div class="list-group">  
+        <div className="list-group">  
         {
           this.state.showSettings === true ?
            <div>
-           <a class="list-group-item list-group-item-action">
+           <a className="list-group-item list-group-item-action">
               <p>Settings Content</p>
               <p>Settings Content</p>
               <p>Settings Content</p>

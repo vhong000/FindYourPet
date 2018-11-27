@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './UserCard.css';
 import cardphoto from '../../../Images/paw.png';
 
+
 export default class UserCard extends Component {
   render() {
     return (      
@@ -12,7 +13,7 @@ export default class UserCard extends Component {
                     <hr className="my-4" />                     
                     <img className="img-fluid mb-5 d-block mx-auto" src={cardphoto} alt="usercard"/>             
                     <div className="small text-black-50"> pet description pet descriptionpet descriptionpet 
-                    descriptionpet descriptionpet description</div>
+                    descriptionpet descriptionpet description</div>                                        
                 </div>
             </div>
         </div>      

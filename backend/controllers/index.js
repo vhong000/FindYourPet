@@ -17,5 +17,6 @@ const basename = path.basename(module.filename);
 // router.use('/signup', require('./signup'));
 
 router.use('/api/auth', require('./auth'));
+router.use('/api/pet', require('./pets'));
 
 module.exports = router;

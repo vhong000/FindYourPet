@@ -11,11 +11,11 @@ export default class SearchingCriterias extends Component {
                 <div className="input-group">
                     <div className="btn-group btn-group-toggle" data-toggle="buttons">
                             <label className="btn btn-secondary active">
-                            <input type="radio" name="options" id="option1" autocomplete="off" checked /> Dog
+                            <input type="radio" name="options" id="option1" autoComplete="off" checked /> Dog
                             </label>
                         
                             <label className="btn btn-secondary">
-                            <input type="radio" name="options" id="option2" autocomplete="off" /> Cat
+                            <input type="radio" name="options" id="option2" autoComplete="off" /> Cat
                             </label>                           
                     </div>
                 

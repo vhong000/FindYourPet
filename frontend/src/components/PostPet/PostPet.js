@@ -31,7 +31,6 @@ export default class PostPet extends Component {
                                 <PetImages />  
                                 <PetInformation/>
                                 <EnergyLevel />                     
-                                <PostButton />
                             </div>
                         </div>                
                     </div>

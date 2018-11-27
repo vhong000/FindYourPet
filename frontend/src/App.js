@@ -41,7 +41,13 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={MainBody} />
           <Route path="/FindPetPage" component={FindPetPage} />
-          <Route path="/PostPet" component={PostPet}/>
+          <Route path="/PostPet"  render={props => (
+              <PostPet
+                {...props}
+                auth={this.state.auth}
+                authenticated={this.authenticated}
+              />
+            )}/>
           <Route
             path="/LoginPage"
             render={props => (

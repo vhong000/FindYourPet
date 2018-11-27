@@ -1,6 +1,6 @@
-
+'use strict';
 module.exports = (sequelize, DataTypes) => {
-	const Pet = sequelize.define('pet', {
+  const Pet = sequelize.define('pet', {
 		species: {
 			type: DataTypes.STRING,
 			allowNull: false,
@@ -40,12 +40,12 @@ module.exports = (sequelize, DataTypes) => {
 				notEmpty: true,
 			},
 		}
-	})
+  }, {});
 
 	Pet.associate = function(models) {
 		Pet.belongsTo(models.User);
 		Pet.belongsToMany(models.User, { as: 'Followers', through: 'liked_pets' })
 	};
 
-	return Pet;
+  return Pet;
 };

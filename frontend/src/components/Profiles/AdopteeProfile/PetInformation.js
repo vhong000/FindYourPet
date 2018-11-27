@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Redirect}  from "react-router-dom";
 
 const PostPet = {
   petName: "",
@@ -8,7 +9,7 @@ const PostPet = {
   petHistory: "",
   petInfo: "",
 
-  send(petName, petType, petBreed, petAge, petHistory, petInfo){
+  send(petName, petType, petBreed, petAge, petHistory, petInfo, history){
     fetch('api/pet/', {
       method: 'POST',
       headers: {
@@ -27,6 +28,11 @@ const PostPet = {
       if(response.status === 200){
         console.log("successful pet post")
       }
+    }).then( () => {
+        console.log("poushing");
+        history.push('/')
+    } ).catch(error => {
+        console.log(error)
     });
   }
 }
@@ -67,7 +73,7 @@ export default class PetInformation extends Component {
 
     submit = () => {
     PostPet.send(this.state.petName, this.state.petType, this.state.petBreed, 
-                  this.state.petAge, this.state.petHistory, this.state.petInfo);
+                  this.state.petAge, this.state.petHistory, this.state.petInfo, this.props.history);
     };
     render() {
         return (
@@ -78,23 +84,23 @@ export default class PetInformation extends Component {
                     <div class="col-md-12">
                         <form id="AdopteePetInfo">                                     
                         <div class="form-group row">
-                            <label for="text" class="col-4 col-form-label">Pet Name*</label>
+                            <label for="text" className="col-4 col-form-label">Pet Name*</label>
                             <div class="col-8">
-                                <input id="text" name="text" placeholder="Pet Name" class="form-control here"
+                                <input id="text" name="text" placeholder="Pet Name" className="form-control here"
                                 required="required" type="text" onChange={this.handlePetNameChange} value={this.state.petName}/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-4 col-form-label">Pet Type*</label>
+                            <label for="text" className="col-4 col-form-label">Pet Type*</label>
                             <div class="col-8">
-                                <input id="text" name="text" placeholder="Pet Type Cat/Dog?" class="form-control here"
+                                <input id="text" name="text" placeholder="Pet Type Cat/Dog?" className="form-control here"
                                     required="required" type="text" onChange={this.handlePetTypeChange} value={this.state.petType}/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="text" class="col-4 col-form-label">Pet Breed*</label>
+                            <label for="text" className="col-4 col-form-label">Pet Breed*</label>
                             <div class="col-8">
-                                <input id="text" name="text" placeholder="Pet Breed" class="form-control here"
+                                <input id="text" name="text" placeholder="Pet Breed" className="form-control here"
                                     required="required" type="text" onChange={this.handlePetBreedChange} value={this.state.petBreed}/>
                             </div>
                         </div> 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import ZipperSetter from '../ZipcodeSetter/ZipcodeSetter';
 import UserCard from '../UserCard/UserCard';
 import Pagination from '../Pagination/Pagination';
@@ -6,7 +6,7 @@ import SearchingCriterias from '../SearchingCriterias/SearchingCriterias';
 import LikedPets from '../LikedPets/LikedPets';
 import cardphoto from '../../../Images/paw.png';
 
-function petCard(props){
+function PetCard(props){
     return (      
         <div className="col-md-4 mb-3 mb-md-0"  id="usercard">
             <div className="card py-4 h-100">
@@ -35,6 +35,7 @@ export default class DashboardBody extends Component {
         this.state = {
             data: [],
         };
+        this.getPet = this.getPet.bind(this);
     }
 
     getPet(){
@@ -52,7 +53,10 @@ export default class DashboardBody extends Component {
             }
         }).then((jsonData) => {
             console.log(jsonData);
-            //this.setState({ data: jsonData });
+            // var data = [];
+            // data =  jsonData;
+            // console.log(data);
+            this.setState({data: jsonData}); 
         }).catch((error) => {
             console.log(error);
         });
@@ -64,7 +68,7 @@ export default class DashboardBody extends Component {
         for(let i = 0; i < this.state.data.length; i++){
             let item = this.state.data[i];
             pets.push(
-                <petCard key={i} name={item.name} species={item.species} breed={item.breed} dob={item.dob}
+                <PetCard key={i} name={item.name} species={item.species} breed={item.breed} dob={item.dob}
                 description={item.description} gender={item.gender}/>
             );
         }

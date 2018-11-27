@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -7,7 +7,9 @@ import {
   withRouter,
   Switch
 } from "react-router-dom";
+
 import "./App.css";
+
 import MainBody from "./components/LandingPage/MainBody/MainBody";
 import LoginPage from "./components/Login/LoginPageBody";
 import Navbar from "./components/Navbar/Navbar";
@@ -15,10 +17,10 @@ import FindPetPage from "./components/MainDashboard/DashboardBody/DashboardBody"
 import AdopterProfile from "./components/Profiles/AdopterProfile/AdopterProfile";
 import AdopteeProfile from "./components/Profiles/AdopteeProfile/AdopteeProfile";
 import Register from "./components/Login/Register";
-import PostPet from "./components/PostPet/PostPet";
+import PostPet from "./components/PostPet/PostPet"
 // import LogOut from "./LogOut";
 
-class App extends Component {
+class App extends React.Component {
   state = {
     auth: false
   };
@@ -39,7 +41,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={MainBody} />
           <Route path="/FindPetPage" component={FindPetPage} />
-          <Route path="/PostPet" component={PostPet} />
+          <Route path="/PostPet" component={PostPet}/>
           <Route
             path="/LoginPage"
             render={props => (

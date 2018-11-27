@@ -14,6 +14,15 @@ router.get('/', (req, res) => {
 	}).catch(e => res.sendStatus(500))
 })
 
+router.get('/user/:user', (req, res) => {
+	Pet.findAll({
+		where: {
+			userId: req.params.user,
+		},
+		attributes: { exclude: ['createdAt', 'updatedAt'] }
+	}).then((pets) => { res.json(pets); })
+})
+
 router.post('/', (req, res) => {
 	Pet.create({
 		userId: req.body.user_id,

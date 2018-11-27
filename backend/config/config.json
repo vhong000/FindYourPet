@@ -3,7 +3,7 @@
     "username": "ctp_user",
     "password": "ctp_user",
     "database": "fyp_database_dev",
-    "host": "localhost",
+    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {

@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 
 const PostPet = {
   petName: "",
   petType: "",
   petBreed: "",
   petAge: "",
-  petHistory: "",
+  petGender: "",
   petInfo: "",
 
-  send(petName, petType, petBreed, petAge, petHistory, petInfo, history) {
+  send(petName, petType, petBreed, petAge, petGender, petInfo, history) {
     fetch("api/pet/", {
       method: "POST",
       headers: {
@@ -20,7 +19,7 @@ const PostPet = {
         species: petType,
         breed: petBreed,
         dob: petAge,
-        gender: petHistory,
+        gender: petGender,
         description: petInfo
       })
     })
@@ -49,7 +48,7 @@ export default class PetInformation extends Component {
     petType: "",
     petBreed: "",
     petAge: "",
-    petHistory: "",
+    petGender: "",
     petInfo: ""
   };
 
@@ -70,7 +69,7 @@ export default class PetInformation extends Component {
   };
 
   handlePetGenderChange = event => {
-    this.setState({ petHistory: event.target.value });
+    this.setState({ petGender: event.target.value });
   };
 
   handlePetInfoChange = event => {
@@ -83,7 +82,7 @@ export default class PetInformation extends Component {
       this.state.petType,
       this.state.petBreed,
       this.state.petAge,
-      this.state.petHistory,
+      this.state.petGender,
       this.state.petInfo,
       this.props.history
     );
@@ -115,19 +114,11 @@ export default class PetInformation extends Component {
               </div>
               <div class="form-group row">
                 <label for="text" className="col-4 col-form-label">
-                  Pet Type*
+                  Pet species*
                 </label>
                 <div class="col-8">
-                  <input
-                    id="text"
-                    name="text"
-                    placeholder="Pet Type Cat/Dog?"
-                    className="form-control here"
-                    required="required"
-                    type="text"
-                    onChange={this.handlePetTypeChange}
-                    value={this.state.petType}
-                  />
+                    <input type="radio" name="gender" value="Dog" onClick={this.handlePetTypeChange}/> Dog <br></br>
+                    <input type="radio" name="gender" value="Cat" onClick={this.handlePetTypeChange}/> Cat
                 </div>
               </div>
               <div class="form-group row">
@@ -166,7 +157,7 @@ export default class PetInformation extends Component {
               </div>
               <div class="form-group row">
                 <label for="text" class="col-4 col-form-label">
-                  Pet history
+                  Pet Gender
                 </label>
                 <div class="col-8">
                     <input type="radio" name="gender" value="male" onClick={this.handlePetGenderChange}/> Male <br></br>

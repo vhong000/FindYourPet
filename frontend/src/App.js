@@ -12,7 +12,7 @@ import "./App.css";
 
 import MainBody from "./components/LandingPage/MainBody/MainBody";
 import LoginPage from "./components/Login/LoginPageBody";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/NavBar/Navbar";
 import FindPetPage from "./components/MainDashboard/DashboardBody/DashboardBody";
 import AdopterProfile from "./components/Profiles/AdopterProfile/AdopterProfile";
 import AdopteeProfile from "./components/Profiles/AdopteeProfile/AdopteeProfile";

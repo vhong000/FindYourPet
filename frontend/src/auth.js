@@ -16,15 +16,21 @@ module.exports = {
       body: JSON.stringify({
         email: email,
         password: password
-      }),
-    }).then((response) => {
+      })
+    })
+      .then(response => {
         if (response.status === 200) {
           console.log("Successful login");
           auth();
+          return response.json();
         } else {
-          console.log(response.status);
-          throw new Error("Sign-in failed");
+          console.log(response.status);  throw new Error("Sign-in failed");
         }
+      })
+      .then(jsonData => {
+        this.firstName = jsonData.firstName;
+        this.lastName = jsonData.lastName;
+        // console.log(jsonData);
       })
       .catch(err => {
         console.log(err);
@@ -32,7 +38,15 @@ module.exports = {
   },
 
   //for registration
-  sendRegister(firstName, lastName, email, address, phoneNumber, password, history) {
+  sendRegister(
+    firstName,
+    lastName,
+    email,
+    address,
+    phoneNumber,
+    password,
+    history
+  ) {
     fetch("/api/auth/register", {
       method: "POST",
       headers: {

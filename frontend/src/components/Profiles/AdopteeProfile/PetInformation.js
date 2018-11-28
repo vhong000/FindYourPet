@@ -20,14 +20,17 @@ const PostPet = {
         species: petType,
         breed: petBreed,
         dob: petAge,
-        description: petHistory,
-        gender: petInfo
+        gender: petHistory,
+        description: petInfo
       })
     })
       .then(response => {
         console.log(response.status);
         if (response.status === 200) {
           console.log("successful pet post");
+        }
+        else{
+            throw new Error("Bad post")
         }
       })
       .then(() => {
@@ -66,7 +69,7 @@ export default class PetInformation extends Component {
     this.setState({ petAge: event.target.value });
   };
 
-  handlePetHistoryChange = event => {
+  handlePetGenderChange = event => {
     this.setState({ petHistory: event.target.value });
   };
 
@@ -166,15 +169,8 @@ export default class PetInformation extends Component {
                   Pet history
                 </label>
                 <div class="col-8">
-                  <textarea
-                    id="publicinfo"
-                    name="med"
-                    cols="40"
-                    rows="4"
-                    class="form-control"
-                    onChange={this.handlePetHistoryChange}
-                    value={this.state.petHistory}
-                  />
+                    <input type="radio" name="gender" value="male" onClick={this.handlePetGenderChange}/> Male <br></br>
+                    <input type="radio" name="gender" value="female" onClick={this.handlePetGenderChange}/> Female
                 </div>
               </div>
               <div class="form-group row">

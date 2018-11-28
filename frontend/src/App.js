@@ -12,12 +12,11 @@ import "./App.css";
 
 import MainBody from "./components/LandingPage/MainBody/MainBody";
 import LoginPage from "./components/Login/LoginPageBody";
-import Navbar from "./components/NavBar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import FindPetPage from "./components/MainDashboard/DashboardBody/DashboardBody";
-import AdopterProfile from "./components/Profiles/AdopterProfile/AdopterProfile";
-import AdopteeProfile from "./components/Profiles/AdopteeProfile/AdopteeProfile";
+import UserProfile from "./components/Profiles/UserProfile";
 import Register from "./components/Login/Register";
-import PostPet from "./components/PostPet/PostPet"
+import PostPet from "./components/PostPet/PostPet";
 // import LogOut from "./LogOut";
 
 class App extends React.Component {
@@ -41,13 +40,16 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={MainBody} />
           <Route path="/FindPetPage" component={FindPetPage} />
-          <Route path="/PostPet"  render={props => (
+          <Route
+            path="/PostPet"
+            render={props => (
               <PostPet
                 {...props}
                 auth={this.state.auth}
                 authenticated={this.authenticated}
               />
-            )}/>
+            )}
+          />
           <Route
             path="/LoginPage"
             render={props => (
@@ -60,16 +62,8 @@ class App extends React.Component {
           />
 
           <Route
-            path="/AdopterProfile"
-            render={props => (
-              <AdopterProfile {...props} auth={this.state.auth} />
-            )}
-          />
-          <Route
-            path="/AdopteeProfile"
-            render={props => (
-              <AdopteeProfile {...props} auth={this.state.auth} />
-            )}
+            path="/ViewProfile"
+            render={props => <UserProfile {...props} auth={this.state.auth} />}
           />
 
           <Route path="/SignUp" component={Register} />

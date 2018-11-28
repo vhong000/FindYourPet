@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import sendData from "../../auth";
 
@@ -45,16 +45,6 @@ export default class NavBar extends Component {
           <li className="nav-item">
             <Link className="nav-item nav-link active" to="/PostPet">
               Post a Pet <span className="sr-only">(current)</span>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-item nav-link active" to="/AdopterProfile">
-              Adopter Profile
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-item nav-link active" to="/AdopteeProfile">
-              Adoptee Profile
             </Link>
           </li>
           <li className="nav-item dropdown">

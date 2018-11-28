@@ -25,7 +25,7 @@ router.get('/user/:user', (req, res) => {
 
 router.post('/', (req, res) => {
 	Pet.create({
-		userId: req.body.user_id,
+		userId: req.user.id,
 		species: req.body.species,
 		breed: req.body.breed,
 		name: req.body.name,

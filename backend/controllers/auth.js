@@ -17,6 +17,8 @@ router.post('/login',
 			firstName: req.user.firstName,
 			lastName: req.user.lastName,
 			email: req.user.email,
+			address: req.user.address,
+			phoneNumber: req.user.phoneNumber
 		});
 	});
  
@@ -48,6 +50,8 @@ router.post('/register', (req, res) => {
 				lastName: req.body.lastName,
 				email: req.body.email,
 				password_hash: req.body.password,
+				address: req.body.address,
+				phoneNumber: req.body.phoneNumber
 			})
 			.then((newUser) => {
 				res.json({ msg: "user created" });

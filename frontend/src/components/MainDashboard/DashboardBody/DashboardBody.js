@@ -53,9 +53,6 @@ export default class DashboardBody extends Component {
             }
         }).then((jsonData) => {
             console.log(jsonData);
-            // var data = [];
-            // data =  jsonData;
-            // console.log(data);
             this.setState({data: jsonData}); 
         }).catch((error) => {
             console.log(error);
@@ -69,7 +66,7 @@ export default class DashboardBody extends Component {
             let item = this.state.data[i];
             pets.push(
                 <PetCard key={i} name={item.name} species={item.species} breed={item.breed} dob={item.dob}
-                description={item.description} gender={item.gender}/>
+                gender={item.gender} description={item.description} />
             );
         }
 

@@ -23,6 +23,7 @@ module.exports = {
           auth();
         } else {
           console.log(response.status);
+          console.log(password)
           throw new Error("Sign-in failed");
         }
       })

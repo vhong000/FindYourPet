@@ -17,9 +17,9 @@ export default class Register extends Component {
       this.state.firstName,
       this.state.lastName,
       this.state.email,
-      this.state.password,
       this.state.address,
       this.state.phoneNumber,
+      this.state.password,
       this.props.history
     );
   };
@@ -41,11 +41,11 @@ export default class Register extends Component {
   };
 
   handlePNumberChange = event => {
-    this.setState({ phoneNumber: event.target.valuez });
+    this.setState({ phoneNumber: event.target.value });
   };
 
   handlePassChange = event => {
-    this.setState({ password: event.target.value });
+    this.setState({ password: event.target.value })
   };
 
   render() {

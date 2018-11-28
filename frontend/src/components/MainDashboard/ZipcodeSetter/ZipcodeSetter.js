@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './ZipcodeSetter.css';
 
 export default class ZipcodeSetter extends Component {
+
   render() {
     return (     
-           
           <div className="card my-4">
             <h5 className="card-header">Set your zip code:</h5>
             <div className="card-body">

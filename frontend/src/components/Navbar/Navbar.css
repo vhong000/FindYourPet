@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Black+Han+Sans");
+
 body {
   margin: 0;
   overflow: auto;
@@ -49,9 +51,71 @@ ul.topnav li.right {
 .nav{
   font-weight: 900;
 } 
-li{font-weight: 90;}
+li{font-weight: 90;
+}
 
+#heart{
+  float: left;
+  padding-top: 10px;
+  padding-right: 10px;
+}
 .transparent-btn {
   background: transparent;
   border: transparent;
 }
+
+.lds-heart {
+  display: inline-block;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  transform: rotate(45deg);
+  transform-origin: 16px 16px;
+}
+.lds-heart div {
+  top: 12px;
+  left: 10px;
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background: rgb(240, 95, 119);
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 13px;
+  height: 13px;
+  background:rgb(240, 95, 119);;
+}
+.lds-heart div:before {
+  left: -8px;
+  border-radius: 50% 0 0 50%;
+}
+.lds-heart div:after {
+  top: -8px;
+  border-radius: 50% 50% 0 0;
+}
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+

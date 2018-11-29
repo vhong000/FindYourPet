@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import logo from '../../Images/dog-logo.png';
 import sendData from "../../auth";
 
 let navigationIn = <div />;
@@ -38,7 +39,7 @@ export default class NavBar extends Component {
       navigationIn = (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <Link className="nav-item nav-link active" to="/FindPetPage">
+            <Link className="nav-item nav-link active" to="/FindPetPage">           
               Find a Pet <span className="sr-only">(current)</span>
             </Link>
           </li>
@@ -82,6 +83,10 @@ export default class NavBar extends Component {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
+          <img id="logo"          
+          src={logo}
+          alt="logo"
+          />
             findyourpet
           </Link>
           <button

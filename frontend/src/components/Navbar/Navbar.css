@@ -40,14 +40,16 @@ ul.topnav li.right {
     float: none;
   }
 }
-/* #logo {
-  width: 20%;
-  margin: auto;
+ #logo {
+  width: 8%;
+ padding-bottom: 5px;
   padding-right: 10px;
 }
-.navbar {
-  margin-right: 100px;
-} */
+
+.nav{
+  font-weight: 900;
+} 
+li{font-weight: 90;}
 
 .transparent-btn {
   background: transparent;

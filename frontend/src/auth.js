@@ -24,7 +24,8 @@ module.exports = {
           auth();
           return response.json();
         } else {
-          console.log(response.status);  throw new Error("Sign-in failed");
+          console.log(response.status);
+          throw new Error("Sign-in failed");
         }
       })
       .then(jsonData => {
@@ -41,9 +42,12 @@ module.exports = {
   sendRegister(
     firstName,
     lastName,
-    email,
     address,
+    city,
+    state,
+    zipcode,
     phoneNumber,
+    email,
     password,
     history
   ) {
@@ -57,6 +61,9 @@ module.exports = {
         lastName: lastName,
         email: email,
         address: address,
+        city: city,
+        state: state,
+        zipcode: zipcode,
         phoneNumber: phoneNumber,
         password: password
       })

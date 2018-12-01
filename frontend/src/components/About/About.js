@@ -10,9 +10,13 @@ function Card(props) {
             <div class="card">
               <div class="card-body text-center">
                 <p>
-                  <img class="img-fluid" src={props.imgSrc} alt="card image" />
+                  <img
+                    class="img-fluid"
+                    src={props.imgSrc}
+                    alt={props.imgAlt}
+                  />
                 </p>
-                <h4 class="card-title">{props.name}</h4>
+                <h4>{props.name}</h4>
                 <p class="card-text">{props.desc}</p>
                 <a href="#" class="btn btn-primary btn-sm">
                   <i class="fa fa-plus" />
@@ -50,7 +54,7 @@ export default class About extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col text-center">
+          <div className="col text-center p-5">
             <h2>Meet the team</h2>
           </div>
         </div>
@@ -63,6 +67,7 @@ export default class About extends React.Component {
               "https://media.licdn.com/dms/image/C4D03AQHlMvK4cVc1UQ/profile-displayphoto-shrink_800_800/0?e=1548892800&v=beta&t=qBb6oFls84J4g0rw5xj_JBxwrEt0nTgk1eKdndAQTVw"
             }
             githubLink={"https://github.com/FrancoJ101"}
+            imgAlt={"Joel photo"}
           />
           <Card
             name={"Daniel Constantine"}
@@ -72,6 +77,7 @@ export default class About extends React.Component {
               "https://media.licdn.com/dms/image/C4E03AQE-iIenirJDGw/profile-displayphoto-shrink_200_200/0?e=1548892800&v=beta&t=pz8-tcB84NNMnt8mWhekhjXDRUDhpRV0Wtqc3x15eEs"
             }
             githubLink={"https://github.com/daniel-constantine"}
+            imgAlt={"Daniel photo"}
           />
           <Card
             name={"Victor Hong"}
@@ -81,6 +87,7 @@ export default class About extends React.Component {
             }
             imgSrc={"."}
             githubLink={"https://github.com/vhong000"}
+            imgAlt={"Victor photo"}
           />
           <Card
             name={"Irina Fedorova"}
@@ -90,6 +97,7 @@ export default class About extends React.Component {
               "https://media.licdn.com/dms/image/C4D03AQH75_OyZk3IKw/profile-displayphoto-shrink_800_800/0?e=1548892800&v=beta&t=f-yQll6HfCUJnqICakdZkaWGu9QiYWsdlG9by3bPGaA"
             }
             githubLink={"https://github.com/irinafedorovacisc"}
+            imgAlt={"Irina photo"}
           />
         </div>
       </div>

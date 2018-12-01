@@ -70,7 +70,7 @@ export default class NavBar extends Component {
             </div>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link className="dropdown-item" to="/ViewProfile">
-                View profile (placeholder)
+                View profile
               </Link>
               <Link className="dropdown-item" to="/Settings">
                 Settings (placeholder)

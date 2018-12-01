@@ -7,27 +7,16 @@
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #108d6f;
-  border-color: #108d6f;
+  background-color: #00b2ee;
+  border-color: #00b2ee;
   box-shadow: none;
   outline: none;
 }
 
 .btn-primary {
   color: #fff;
-  background-color: #007b5e;
-  border-color: #007b5e;
-}
-
-section {
-  padding: 60px 0;
-}
-
-section .section-title {
-  text-align: center;
-  color: #007b5e;
-  margin-bottom: 50px;
-  text-transform: uppercase;
+  background-color: #00b2ee;
+  border-color: #00b2ee;
 }
 
 #team .card {
@@ -114,12 +103,12 @@ section .section-title {
 
 .backside .card a {
   font-size: 18px;
-  color: #007b5e !important;
+  color: #00b2ee !important;
 }
 
 .frontside .card .card-title,
 .backside .card .card-title {
-  color: #007b5e !important;
+  color: #00b2ee !important;
 }
 
 .frontside .card .card-body img {

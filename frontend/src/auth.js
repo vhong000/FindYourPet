@@ -3,6 +3,9 @@ module.exports = {
   lastName: "",
   email: "",
   address: "",
+  city: "",
+  state: "",
+  zipcode: "",
   phoneNumber: "",
   password: "",
 
@@ -31,7 +34,14 @@ module.exports = {
       .then(jsonData => {
         this.firstName = jsonData.firstName;
         this.lastName = jsonData.lastName;
-        // console.log(jsonData);
+        this.address = jsonData.address;
+        this.city = jsonData.city;
+        this.state = jsonData.state;
+        this.zipcode = jsonData.zipcode;
+        this.phoneNumber = jsonData.phoneNumber;
+        this.address = jsonData.address;
+        this.email = jsonData.email;
+        console.log(jsonData);
       })
       .catch(err => {
         console.log(err);

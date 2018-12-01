@@ -17,6 +17,11 @@ router.post('/login',
 			firstName: req.user.firstName,
 			lastName: req.user.lastName,
 			email: req.user.email,
+			address: req.user.address,
+			city: req.user.city,
+			state: req.user.state,
+			zipcode: req.user.zipcode,
+			phoneNumber: req.user.phoneNumber
 		});
 	});
  

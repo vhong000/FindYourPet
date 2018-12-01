@@ -32,6 +32,15 @@ export default class UserProfile extends React.Component {
               <strong>Address</strong>: {data.address}
             </p>
             <p>
+              <strong>City</strong>: {data.city}
+            </p>
+            <p>
+              <strong>State</strong>: {data.state}
+            </p>
+            <p>
+              <strong>Zipcode</strong>: {data.zipcode}
+            </p>
+            <p>
               <strong>PhoneNumber</strong>: {data.phoneNumber}
             </p>
             <p>

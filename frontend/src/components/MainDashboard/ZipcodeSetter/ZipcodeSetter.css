@@ -1,11 +1,13 @@
-#maincolor{
-    background-color: lightseagreen;
-}
+
 input{
     margin-top: 5px;
 }
 #setbutton{
-    width: 100%;
-    color: white;   
+    width: 100%;    
+    color: black;    
+}
+#some{
+    background-color: #ffcc66; 
+    color: red;
 }
 

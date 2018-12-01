@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Settings from "../Profiles/Settings/Settings";
-import PetImages from "../Profiles/AdopteeProfile/PetImages";
+//import PetImages from "../Profiles/AdopteeProfile/PetImages";
 import PostButton from "./PostButton";
 import "./PostPet.css";
-import PetInformation from "../Profiles/AdopteeProfile/PetInformation";
+import PetInformation from "./PetInformation";
 import EnergyLevel from "./EnergyLevel";
 import { Redirect } from "react-router-dom";
 
@@ -28,7 +28,7 @@ export default class PostPet extends Component {
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <PetImages />
+                      
                       <PetInformation history={this.props.history} />
                       <EnergyLevel />
                     </div>

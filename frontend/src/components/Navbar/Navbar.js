@@ -1,6 +1,7 @@
-import React, {Component} from "react";
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
+import logo from '../../Images/dog-logo.png';
 import sendData from "../../auth";
 
 let navigationIn = <div />;
@@ -28,6 +29,11 @@ export default class NavBar extends Component {
             </Link>
           </li>
           <li className="nav-item">
+            <Link className="nav-item nav-link active" to="/About">
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link className="nav-item nav-link active" to="/LoginPage">
               Sign In | Register
             </Link>
@@ -38,7 +44,7 @@ export default class NavBar extends Component {
       navigationIn = (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <Link className="nav-item nav-link active" to="/FindPetPage">
+            <Link className="nav-item nav-link active" to="/FindPetPage">           
               Find a Pet <span className="sr-only">(current)</span>
             </Link>
           </li>
@@ -48,13 +54,8 @@ export default class NavBar extends Component {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-item nav-link active" to="/AdopterProfile">
-              Adopter Profile
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-item nav-link active" to="/AdopteeProfile">
-              Adoptee Profile
+            <Link className="nav-item nav-link active" to="/About">
+              About
             </Link>
           </li>
           <li className="nav-item dropdown">
@@ -70,7 +71,7 @@ export default class NavBar extends Component {
             </div>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link className="dropdown-item" to="/ViewProfile">
-                View profile (placeholder)
+                View profile
               </Link>
               <Link className="dropdown-item" to="/Settings">
                 Settings (placeholder)
@@ -92,6 +93,11 @@ export default class NavBar extends Component {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <Link className="navbar-brand" to="/">
+          <div id="heart"> <div class="lds-heart"><div></div></div></div>         
+          <img id="logo"          
+          src={logo}
+          alt="logo"
+          />
             findyourpet
           </Link>
           <button

@@ -101,7 +101,7 @@ export default class Login extends Component {
               </div>
             </div>
           </form>
-          <div className="div">
+          <div className="div p-2">
             <button type="submit" className="btn btn" onClick={this.submit}>
               Login
             </button>

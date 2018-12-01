@@ -28,6 +28,11 @@ export default class NavBar extends Component {
             </Link>
           </li>
           <li className="nav-item">
+            <Link className="nav-item nav-link active" to="/About">
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link className="nav-item nav-link active" to="/LoginPage">
               Sign In | Register
             </Link>
@@ -45,6 +50,11 @@ export default class NavBar extends Component {
           <li className="nav-item">
             <Link className="nav-item nav-link active" to="/PostPet">
               Post a Pet <span className="sr-only">(current)</span>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-item nav-link active" to="/About">
+              About
             </Link>
           </li>
           <li className="nav-item dropdown">

@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 
 import "./App.css";
-
 import MainBody from "./components/LandingPage/MainBody/MainBody";
 import LoginPage from "./components/Login/LoginPageBody";
 import Navbar from "./components/Navbar/Navbar";
@@ -18,6 +17,7 @@ import UserProfile from "./components/Profiles/UserProfile";
 import Register from "./components/Login/Register";
 import PostPet from "./components/PostPet/PostPet";
 // import LogOut from "./LogOut";
+import About from "./components/About/About";
 
 class App extends React.Component {
   state = {
@@ -40,6 +40,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={MainBody} />
           <Route path="/FindPetPage" component={FindPetPage} />
+          <Route path="/About" component={About}/>
           <Route
             path="/PostPet"
             render={props => (

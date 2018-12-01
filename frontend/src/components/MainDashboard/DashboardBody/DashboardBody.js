@@ -5,6 +5,7 @@ import Pagination from '../Pagination/Pagination';
 import SearchingCriterias from '../SearchingCriterias/SearchingCriterias';
 import LikedPets from '../LikedPets/LikedPets';
 import cardphoto from '../../../Images/paw.png';
+import './DashboardBody.css';
 
 function PetCard(props){
     return (      
@@ -77,8 +78,9 @@ export default class DashboardBody extends Component {
                 <h5 className="card-header">Set your zip code:</h5>
                 <div className="card-body">
                     <div className="row">
-                        <div className="col-md-10"><input className="form-control" placeholder="Set your zip code..." id="setbutton"/></div>
-                        <div className="col-md-2"><button type="submit" className="btn btn" id="setbutton" onClick={this.getPet}>Set!</button></div>
+                        <div className="col-md-10"><input className="form-control" placeholder="Set your zip code..."/></div>
+                        <div className="col-md-2">                        
+                        <button type="submit" className="btn btn-outline-warning" id="setbutton" onClick={this.getPet}>Find!</button></div>
                     </div>            
                 </div>
             </div>    

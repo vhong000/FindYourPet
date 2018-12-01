@@ -28,6 +28,11 @@ export default class NavBar extends Component {
             </Link>
           </li>
           <li className="nav-item">
+            <Link className="nav-item nav-link active" to="/About">
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link className="nav-item nav-link active" to="/LoginPage">
               Sign In | Register
             </Link>
@@ -47,6 +52,11 @@ export default class NavBar extends Component {
               Post a Pet <span className="sr-only">(current)</span>
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-item nav-link active" to="/About">
+              About
+            </Link>
+          </li>
           <li className="nav-item dropdown">
             <div
               className="nav-link nav-item dropdown-toggle active"
@@ -60,7 +70,7 @@ export default class NavBar extends Component {
             </div>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link className="dropdown-item" to="/ViewProfile">
-                View profile (placeholder)
+                View profile
               </Link>
               <Link className="dropdown-item" to="/Settings">
                 Settings (placeholder)

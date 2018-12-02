@@ -3,6 +3,9 @@ module.exports = {
   lastName: "",
   email: "",
   address: "",
+  city: "",
+  state: "",
+  zipcode: "",
   phoneNumber: "",
   password: "",
 
@@ -24,13 +27,21 @@ module.exports = {
           auth();
           return response.json();
         } else {
-          console.log(response.status);  throw new Error("Sign-in failed");
+          console.log(response.status);
+          throw new Error("Sign-in failed");
         }
       })
       .then(jsonData => {
         this.firstName = jsonData.firstName;
         this.lastName = jsonData.lastName;
-        // console.log(jsonData);
+        this.address = jsonData.address;
+        this.city = jsonData.city;
+        this.state = jsonData.state;
+        this.zipcode = jsonData.zipcode;
+        this.phoneNumber = jsonData.phoneNumber;
+        this.address = jsonData.address;
+        this.email = jsonData.email;
+        console.log(jsonData);
       })
       .catch(err => {
         console.log(err);
@@ -41,9 +52,12 @@ module.exports = {
   sendRegister(
     firstName,
     lastName,
-    email,
     address,
+    city,
+    state,
+    zipcode,
     phoneNumber,
+    email,
     password,
     history
   ) {
@@ -57,6 +71,9 @@ module.exports = {
         lastName: lastName,
         email: email,
         address: address,
+        city: city,
+        state: state,
+        zipcode: zipcode,
         phoneNumber: phoneNumber,
         password: password
       })

@@ -17,6 +17,11 @@ router.post('/login',
 			firstName: req.user.firstName,
 			lastName: req.user.lastName,
 			email: req.user.email,
+			address: req.user.address,
+			city: req.user.city,
+			state: req.user.state,
+			zipcode: req.user.zipcode,
+			phoneNumber: req.user.phoneNumber
 		});
 	});
  
@@ -26,7 +31,6 @@ router.post('/logout', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-    
 	function isEmailUsed(email) {
 		return User.count({ where: { email: email }})
 		.then(count => {
@@ -46,6 +50,11 @@ router.post('/register', (req, res) => {
 			User.create({
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
+				address: req.body.address,
+				city: req.body.city,
+				state: req.body.state,
+				zipcode: req.body.zipcode,
+				phoneNumber: req.body.phoneNumber,
 				email: req.body.email,
 				password_hash: req.body.password,
 			})

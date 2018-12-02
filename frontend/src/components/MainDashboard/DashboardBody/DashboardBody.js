@@ -138,19 +138,21 @@ export default class DashboardBody extends Component {
             <div className="col-md-9">
               <div className="card my-4">
                 <div className="container">
-									<div className="row">{data ? (
-										data.map(pet => {
-											return (
-												<PetCard
-													name={pet.name}
-													species={pet.species}
-													breed={pet.breed}
-													dob={pet.dob}
-													gender={pet.gender}
-													description={pet.description}
-												/>
-											)
-										})) : ( null )}
+									<div className="row">
+										{data ? (
+											data.map(pet => {
+												return (
+													<PetCard
+														name={pet.name}
+														species={pet.species}
+														breed={pet.breed}
+														dob={pet.dob}
+														gender={pet.gender}
+														description={pet.description}
+													/>
+												)})
+											) : ( null )
+										}
 									</div>
                 </div>
               </div>

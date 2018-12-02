@@ -26,4 +26,15 @@ router.get('/interested', (req, res) => {
 	} else { res.sendStatus(404); }
 });
 
+router.get('/interested/:pet_id', (req, res) => {
+	Pet.findById(req.params.pet_id).then(pet => {
+		if (req.user.id === pet.userId) {
+			pet.getInterested({
+				attributes: { exclude: ['createdAt', 'updatedAt', 'password_hash'] },
+			}).then(users => { res.json(users); })
+				.catch(e => res.sendStatus(500))
+		} else { res.sendStatus(404) }
+	})
+})
+
 module.exports = router;

@@ -47,4 +47,13 @@ router.post('/', (req, res) => {
 	}).catch(e => res.sendStatus(500));
 });
 
+router.get('/owner/:pet_id', (req, res) => {
+	User.find({
+		through: User.InterestedPets,
+		where: { id: req.params.pet_id },
+		attributes: { exclude: ['createdAt', 'updatedAt', 'password_hash'] }
+	}).then(user => { res.json(user); })
+		.catch(e => { res.sendStatus(500) })
+})
+
 module.exports = router;

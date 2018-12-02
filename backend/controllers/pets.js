@@ -37,4 +37,13 @@ router.post('/', (req, res) => {
 	}).catch(e => res.sendStatus(500));
 });
 
+router.post('/interest', (req, res) => {
+	if (req.user) {
+		Pet.findById(req.body.petId).then((pet) => {
+			req.user.addInterestedPets(pet).then(() => res.json({ msg: "requested interest" }))
+				.catch(e => res.sendStatus(500));
+		})
+	} else { res.sendStatus(404); }
+})
+
 module.exports = router;

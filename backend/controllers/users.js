@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/interested', (req, res) => {
 	if (req.user) {
-		req.user.getInterestedPets().then(pets => { console.log(req.user.id); res.json(pets); })
+		req.user.getInterestedPets().then(pets => { res.json(pets); })
 			.catch(e => res.sendStatus(500));
 	} else { res.sendStatus(404); }
 });

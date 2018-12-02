@@ -6,10 +6,9 @@
   padding: 50px 0;
 }
 
-.img-size {
+#pic{
   width: 50%;
-  padding-top: 15px;
-  /* border: 1px solid red; */
+  bottom: 0px;
 }
 
 h4 {
@@ -21,4 +20,26 @@ h4 {
   width: 40%;
   padding-right: auto;
   padding-left: auto;
+}
+
+.item1 { grid-area: menu; }
+.item2 { grid-area: main; }
+.item3 { grid-area: right; }
+
+
+.grid-container {
+  display: grid;
+  grid-template-areas:    
+    'menu menu main main right right';
+ 
+  grid-gap: 1px;
+  background-color: rgb(35, 35, 54);
+  padding-top: 20px;
+}
+.grid-container > div {
+  background-color: white;
+  text-align: center;
+  padding: 0px 0;
+  font-size: 30px;
+  font-weight: bold;
 }

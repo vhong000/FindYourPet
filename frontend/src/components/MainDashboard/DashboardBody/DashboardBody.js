@@ -5,6 +5,7 @@ import Pagination from "../Pagination/Pagination";
 import SearchingCriterias from "../SearchingCriterias/SearchingCriterias";
 import LikedPets from "../LikedPets/LikedPets";
 import cardphoto from "../../../Images/paw.png";
+import "./DashboardBody.css";
 
 function PetCard(props) {
   return (

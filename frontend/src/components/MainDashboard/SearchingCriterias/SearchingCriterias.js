@@ -5,8 +5,8 @@ export default class SearchingCriterias extends Component {
   render() {
     return (
       <div>
-        <div className="card my-4">
-            <h5 className="card-header">Searching criterias:</h5>
+        <div className="card my-4" id="cardbody">
+            <h5 className="card-header" id="option1">Searching criterias:</h5>
             <div className="card-body">
                 <div className="input-group">
                     <div className="btn-group btn-group-toggle" data-toggle="buttons">

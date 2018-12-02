@@ -21,6 +21,7 @@ router.get('/user/:user', (req, res) => {
 		},
 		attributes: { exclude: ['createdAt', 'updatedAt'] }
 	}).then((pets) => { res.json(pets); })
+		.catch(e => res.sendStatus(500))
 })
 
 router.get('/zipcode/:zipcode', (req, res) => {
@@ -30,6 +31,7 @@ router.get('/zipcode/:zipcode', (req, res) => {
 		},
 		attributes: { exclude: ['createdAt', 'updatedAt'] }
 	}).then((pets) => { res.json(pets); })
+		.catch(e => res.sendStatus(500))
 })
 
 router.post('/', (req, res) => {

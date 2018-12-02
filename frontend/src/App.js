@@ -40,7 +40,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={MainBody} />
           <Route path="/FindPetPage" component={FindPetPage} />
-          <Route path="/About" component={About}/>
+          <Route path="/About" component={About} />
           <Route
             path="/PostPet"
             render={props => (
@@ -67,7 +67,16 @@ class App extends React.Component {
             render={props => <UserProfile {...props} auth={this.state.auth} />}
           />
 
-          <Route path="/SignUp" component={Register} />
+          <Route
+            path="/SignUp"
+            render={props => (
+              <Register
+                {...props}
+                auth={this.state.auth}
+                authenticated={this.state.authenticated}
+              />
+            )}
+          />
         </Switch>
       </div>
     );

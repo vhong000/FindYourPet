@@ -38,9 +38,11 @@ export default class DashboardBody extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+			data: [],
+			zipcode: '',
     };
     this.getPet = this.getPet.bind(this);
+    this.getPetByZipcode = this.getPetByZipcode.bind(this);
   }
 
 	componentDidMount() {
@@ -53,41 +55,57 @@ export default class DashboardBody extends Component {
       headers: {
         "Content-Type": "application/json; charset=utf-8"
       }
-    })
-      .then(response => {
+    }).then(response => {
         console.log(response.status);
         if (response.status === 200) {
           return response.json();
         } else {
           console.log("Something went wrong");
         }
-      })
-      .then(jsonData => {
+      }).then(jsonData => {
         console.log(jsonData);
         this.setState({ data: jsonData });
-      })
-      .catch(error => {
+      }).catch(error => {
         console.log(error);
       });
   }
 
-  render() {
-    let pets = [];
+	getPetByZipcode(zipcode) {
+		console.log('zip', zipcode);
+		fetch("/api/pet/zipcode/" + zipcode, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json; charset=utf-8"
+			}
+		}).then(response => {
+			if (response.status === 200) {
+				return response.json();
+			} else {
+				console.log("Something went wrong");
+			}
+		}).then(jsonData => {
+        console.log(jsonData);
+        this.setState({ data: jsonData });
+      }).catch(error => {
+        console.log(error);
+      });
+	}
 
-    for (let i = 0; i < this.state.data.length; i++) {
-      let item = this.state.data[i];
-      pets.push(
-        <PetCard
-          key={i}
-          name={item.name}
-          species={item.species}
-          breed={item.breed}
-          dob={item.dob}
-          gender={item.gender}
-          description={item.description}
-        />
-      );
-    }
+	handleZipChange(e) {
+		const input = e.target.value;
+		this.setState({ zipcode: input })
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+		const { zipcode } = this.state;
+		if (zipcode) {
+			this.getPetByZipcode(this.state.zipcode);
+		} else { this.getPet(); }
+	}
+
+  render() {
+		const { data } = this.state;
 
     return (
       <div>
@@ -100,6 +118,7 @@ export default class DashboardBody extends Component {
                   <input
                     className="form-control"
                     placeholder="Set your zip code..."
+										onChange={(e) => this.handleZipChange(e)}
                   />
                 </div>
                 <div className="col-md-2">
@@ -107,7 +126,7 @@ export default class DashboardBody extends Component {
                     type="submit"
                     className="btn btn-outline-warning"
                     id="setbutton"
-                    onClick={this.getPet}
+										onClick={(e) => this.handleSubmit(e)}
                   >
                     Find!
                   </button>
@@ -119,7 +138,20 @@ export default class DashboardBody extends Component {
             <div className="col-md-9">
               <div className="card my-4">
                 <div className="container">
-                  <div className="row">{pets}</div>
+									<div className="row">{data ? (
+										data.map(pet => {
+											return (
+												<PetCard
+													name={pet.name}
+													species={pet.species}
+													breed={pet.breed}
+													dob={pet.dob}
+													gender={pet.gender}
+													description={pet.description}
+												/>
+											)
+										})) : ( null )}
+									</div>
                 </div>
               </div>
               <Pagination />

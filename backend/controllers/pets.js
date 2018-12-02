@@ -23,6 +23,15 @@ router.get('/user/:user', (req, res) => {
 	}).then((pets) => { res.json(pets); })
 })
 
+router.get('/zipcode/:zipcode', (req, res) => {
+	Pet.findAll({
+		where: {
+			zipcode: req.params.zipcode,
+		},
+		attributes: { exclude: ['createdAt', 'updatedAt'] }
+	}).then((pets) => { res.json(pets); })
+})
+
 router.post('/', (req, res) => {
 	Pet.create({
 		userId: req.user.id,
@@ -32,6 +41,7 @@ router.post('/', (req, res) => {
 		dob: req.body.dob,
 		description: req.body.description,
 		gender: req.body.gender,
+		zipcode: req.user.zipcode
 	}).then((newPet) => {
 	res.json({ msg: "pet posted" });
 	}).catch(e => res.sendStatus(500));

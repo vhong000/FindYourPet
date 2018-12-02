@@ -35,7 +35,12 @@ export default class NavBar extends Component {
           </li>
           <li className="nav-item">
             <Link className="nav-item nav-link active" to="/LoginPage">
-              Sign In | Register
+              Sign In
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-item nav-link active" to="/SignUp">
+              Register
             </Link>
           </li>
         </ul>

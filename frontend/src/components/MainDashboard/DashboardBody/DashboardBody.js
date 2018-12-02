@@ -10,7 +10,7 @@ import "./DashboardBody.css";
 function PetCard(props) {
   return (
     <div className="col-md-4 mb-3 mb-md-0" id="usercard">
-      <div className="card py-4 h-100">
+      <div className="card h-100">
         <h4 className="text-uppercase m-0 card-header">{props.name}</h4>
         <div className="card-body text-center">
           <hr className="my-4" />
@@ -42,6 +42,10 @@ export default class DashboardBody extends Component {
     };
     this.getPet = this.getPet.bind(this);
   }
+
+	componentDidMount() {
+		this.getPet();
+	}
 
   getPet() {
     fetch("/api/pet/", {

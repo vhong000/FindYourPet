@@ -38,16 +38,77 @@ export default class DashboardBody extends Component {
   constructor(props) {
     super(props);
     this.state = {
-			data: [],
-			zipcode: '',
+      data: [],
+      zipcode: ""
     };
     this.getPet = this.getPet.bind(this);
     this.getPetByZipcode = this.getPetByZipcode.bind(this);
   }
 
-	componentDidMount() {
-		this.getPet();
-	}
+  handleChangeYoungToOld = () => {
+    if (this.state.zipcode === "") {
+      console.log("Success getting ordered from young to oldest");
+
+      //if there is no zipcode
+      fetch("/api/pet/asc", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+        .then(response => {
+          console.log(response.status);
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            console.log("Something went wrong");
+          }
+        })
+        .then(jsonData => {
+          console.log(jsonData);
+          this.setState({ data: jsonData });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } else {
+      //if there is zipcode
+    }
+  };
+
+  handleChangeOldToYoung = () => {
+    if (this.state.zipcode === "") {
+      //if there is no zipcode
+      console.log("Success getting ordered from oldest to youngest");
+      fetch("/api/pet/desc", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+        .then(response => {
+          console.log(response.status);
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            console.log("Something went wrong");
+          }
+        })
+        .then(jsonData => {
+          console.log(jsonData);
+          this.setState({ data: jsonData });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } else {
+      //if there is zipcode
+    }
+  };
+
+  componentDidMount() {
+    this.getPet();
+  }
 
   getPet() {
     fetch("/api/pet/", {
@@ -55,57 +116,65 @@ export default class DashboardBody extends Component {
       headers: {
         "Content-Type": "application/json; charset=utf-8"
       }
-    }).then(response => {
+    })
+      .then(response => {
         console.log(response.status);
         if (response.status === 200) {
           return response.json();
         } else {
           console.log("Something went wrong");
         }
-      }).then(jsonData => {
+      })
+      .then(jsonData => {
         console.log(jsonData);
         this.setState({ data: jsonData });
-      }).catch(error => {
+      })
+      .catch(error => {
         console.log(error);
       });
   }
 
-	getPetByZipcode(zipcode) {
-		console.log('zip', zipcode);
-		fetch("/api/pet/zipcode/" + zipcode, {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json; charset=utf-8"
-			}
-		}).then(response => {
-			if (response.status === 200) {
-				return response.json();
-			} else {
-				console.log("Something went wrong");
-			}
-		}).then(jsonData => {
+  getPetByZipcode(zipcode) {
+    console.log("zip", zipcode);
+    fetch("/api/pet/zipcode/" + zipcode, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    })
+      .then(response => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          console.log("Something went wrong");
+        }
+      })
+      .then(jsonData => {
         console.log(jsonData);
         this.setState({ data: jsonData });
-      }).catch(error => {
+      })
+      .catch(error => {
         console.log(error);
       });
-	}
+  }
 
-	handleZipChange(e) {
-		const input = e.target.value;
-		this.setState({ zipcode: input })
-	}
+  handleZipChange(e) {
+    const input = e.target.value;
+    this.setState({ zipcode: input });
+  }
 
-	handleSubmit(e) {
-		e.preventDefault();
-		const { zipcode } = this.state;
-		if (zipcode) {
-			this.getPetByZipcode(this.state.zipcode);
-		} else { this.getPet(); }
-	}
+  handleSubmit(e) {
+    e.preventDefault();
+    const { zipcode } = this.state;
+    if (zipcode) {
+      this.getPetByZipcode(this.state.zipcode);
+    } else {
+      this.getPet();
+    }
+  }
 
   render() {
-		const { data } = this.state;
+    const { data } = this.state;
 
     return (
       <div>
@@ -118,7 +187,7 @@ export default class DashboardBody extends Component {
                   <input
                     className="form-control"
                     placeholder="Set your zip code..."
-										onChange={(e) => this.handleZipChange(e)}
+                    onChange={e => this.handleZipChange(e)}
                   />
                 </div>
                 <div className="col-md-2">
@@ -126,7 +195,7 @@ export default class DashboardBody extends Component {
                     type="submit"
                     className="btn btn-outline-warning"
                     id="setbutton"
-										onClick={(e) => this.handleSubmit(e)}
+                    onClick={e => this.handleSubmit(e)}
                   >
                     Find!
                   </button>
@@ -138,28 +207,32 @@ export default class DashboardBody extends Component {
             <div className="col-md-9">
               <div className="card my-4">
                 <div className="container">
-									<div className="row">
-										{data ? (
-											data.map(pet => {
-												return (
-													<PetCard
-														name={pet.name}
-														species={pet.species}
-														breed={pet.breed}
-														dob={pet.dob}
-														gender={pet.gender}
-														description={pet.description}
-													/>
-												)})
-											) : ( null )
-										}
-									</div>
+                  <div className="row">
+                    {data
+                      ? data.map(pet => {
+                          return (
+                            <PetCard
+                              name={pet.name}
+                              species={pet.species}
+                              breed={pet.breed}
+                              dob={pet.dob}
+                              gender={pet.gender}
+                              description={pet.description}
+                              key={pet.id}
+                            />
+                          );
+                        })
+                      : null}
+                  </div>
                 </div>
               </div>
               <Pagination />
             </div>
             <div className="col-md-3">
-              <SearchingCriterias />
+              <SearchingCriterias
+                handleChangeOldToYoung={this.handleChangeOldToYoung}
+                handleChangeYoungToOld={this.handleChangeYoungToOld}
+              />
               <LikedPets />
             </div>
           </div>

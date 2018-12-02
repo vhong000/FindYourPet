@@ -6,7 +6,6 @@ import sendData from "../../auth";
 
 let navigationIn = <div />;
 
-// I got the navbar code from Bootstrap documentation
 export default class NavBar extends Component {
   constructor(props) {
     super(props);
@@ -100,7 +99,7 @@ export default class NavBar extends Component {
           <Link className="navbar-brand" to="/">
             <div id="heart">
               {" "}
-              <div class="lds-heart">
+              <div className="lds-heart">
                 <div />
               </div>
             </div>

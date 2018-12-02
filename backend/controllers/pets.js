@@ -6,9 +6,36 @@ const User = models.User;
 
 const router = express.Router();
 
+//getting all the pets
 router.get('/', (req, res) => {
 	Pet.findAll({
 		attributes: { exclude: ['createdAt', 'updatedAt'] }
+	}).then(pets => {
+		res.json(pets);
+	}).catch(e => res.sendStatus(500))
+})
+
+//getting all the pets based on age ascending order
+router.get('/asc', (req, res) => {
+	Pet.findAll({
+		attributes: { exclude: ['createdAt', 'updatedAt'] },
+
+		order: [
+			['dob','ASC'], //this is working
+		],
+	}).then(pets => {
+		res.json(pets);
+	}).catch(e => res.sendStatus(500))
+})
+
+//getting all the pets based on age descending order
+router.get('/desc', (req, res) => {
+	Pet.findAll({
+		attributes: { exclude: ['createdAt', 'updatedAt'] },
+
+		order: [
+			['dob','DESC'], //this is working
+		],
 	}).then(pets => {
 		res.json(pets);
 	}).catch(e => res.sendStatus(500))
@@ -24,11 +51,26 @@ router.get('/user/:user', (req, res) => {
 		.catch(e => res.sendStatus(500))
 })
 
+//getting all the pets based on zipcode
 router.get('/zipcode/:zipcode', (req, res) => {
 	Pet.findAll({
 		where: {
 			zipcode: req.params.zipcode,
 		},
+		attributes: { exclude: ['createdAt', 'updatedAt'] }
+	}).then((pets) => { res.json(pets); })
+		.catch(e => res.sendStatus(500))
+})
+
+//zipcode with descending order depends on age
+router.get('/zipcode/:zipcode', (req, res) => {
+	Pet.findAll({
+		where: {
+			zipcode: req.params.zipcode,
+		},
+		order: [
+			['dob','desc'], //this is working
+		],
 		attributes: { exclude: ['createdAt', 'updatedAt'] }
 	}).then((pets) => { res.json(pets); })
 		.catch(e => res.sendStatus(500))

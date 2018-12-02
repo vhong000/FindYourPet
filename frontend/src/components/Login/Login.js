@@ -10,30 +10,6 @@ import {
 import "./Login.css";
 import sendData from "../../auth";
 
-// const sendData = {
-//   email: "",
-//   password: "",
-
-//   send(email, password, cb) {
-//     fetch("/api/auth/login", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json; charset=utf-8"
-//       },
-//       body: JSON.stringify({
-//         email: email,
-//         password: password
-//       })
-//     }).then(response => {
-//       console.log("sign-in response status " + response.status);
-//       if (response.status === 200) {
-//         console.log("success");
-//         cb();
-//       }
-//     });
-//   }
-// };
-
 export default class Login extends Component {
   constructor(props) {
     super(props);

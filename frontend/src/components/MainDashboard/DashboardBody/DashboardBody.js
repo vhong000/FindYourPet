@@ -96,17 +96,16 @@ export default class DashboardBody extends Component {
                   <input
                     className="form-control"
                     placeholder="Set your zip code..."
-                    id="setbutton"
                   />
                 </div>
                 <div className="col-md-2">
                   <button
                     type="submit"
-                    className="btn btn"
+                    className="btn btn-outline-warning"
                     id="setbutton"
                     onClick={this.getPet}
                   >
-                    Set!
+                    Find!
                   </button>
                 </div>
               </div>

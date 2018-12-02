@@ -19,7 +19,7 @@ function PetCard(props) {
             src={cardphoto}
             alt="usercard"
           />
-          <div className="small text-black-50">
+          <div className="small text-black-50 text-left">
             <ul className="card-text">
               <li> Species: {props.species}</li>
               <li> Breed: {props.breed}</li>
@@ -73,6 +73,26 @@ export default class DashboardBody extends Component {
         });
     } else {
       //if there is zipcode
+      fetch("/api/pet/zipcodeASC/" + this.state.zipcode, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+        .then(response => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            console.log("Something went wrong");
+          }
+        })
+        .then(jsonData => {
+          console.log(jsonData);
+          this.setState({ data: jsonData });
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   };
 
@@ -103,6 +123,26 @@ export default class DashboardBody extends Component {
         });
     } else {
       //if there is zipcode
+      fetch("/api/pet/zipcodeDESC/" + this.state.zipcode, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+        .then(response => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            console.log("Something went wrong");
+          }
+        })
+        .then(jsonData => {
+          console.log(jsonData);
+          this.setState({ data: jsonData });
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   };
 

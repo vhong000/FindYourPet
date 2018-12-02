@@ -62,8 +62,22 @@ router.get('/zipcode/:zipcode', (req, res) => {
 		.catch(e => res.sendStatus(500))
 })
 
-//zipcode with descending order depends on age
-router.get('/zipcode/:zipcode', (req, res) => {
+//getting all the pets based on zipcode with ascending order depends on age
+router.get('/zipcodeASC/:zipcode', (req, res) => {
+	Pet.findAll({
+		where: {
+			zipcode: req.params.zipcode,
+		},
+		order: [
+			['dob','asc'], //this is working
+		],
+		attributes: { exclude: ['createdAt', 'updatedAt'] }
+	}).then((pets) => { res.json(pets); })
+		.catch(e => res.sendStatus(500))
+})
+
+//getting all the pets based on zipcode with descending order depends on age
+router.get('/zipcodeDESC/:zipcode', (req, res) => {
 	Pet.findAll({
 		where: {
 			zipcode: req.params.zipcode,

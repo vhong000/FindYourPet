@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import "./SearchingCriterias.css";
 
 export default class SearchingCriterias extends Component {
-  clicked = () => {
-    console.log("cat");
-  };
-
   render() {
     return (
       <div>
@@ -13,6 +9,33 @@ export default class SearchingCriterias extends Component {
           <h5 className="card-header" id="option1">
             Searching criterias:
           </h5>
+
+          <div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckboxDog"
+                value="option1"
+                onChange={this.clicked}
+              />
+              <label class="form-check-label" htmlFor="inlineCheckboxDog">
+                Dog
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="inlineCheckboxCat"
+                value="option2"
+                onChange={this.clicked2}
+              />
+              <label class="form-check-label" htmlFor="inlineCheckboxCat">
+                Cat
+              </label>
+            </div>
+          </div>
 
           <div className="card-body">
             <div className="input-group">
@@ -77,8 +100,8 @@ export default class SearchingCriterias extends Component {
                     type="radio"
                     name="inlineRadioOptions"
                     id="inlineRadio1"
-                    value="option1"
-                    onChange={this.props.handleChangeYoungToOld}
+                    value="yto"
+                    onChange={this.props.handleSort}
                   />
                   <label className="form-check-label" htmlFor="inlineRadio1">
                     Youngest to Oldest
@@ -90,8 +113,8 @@ export default class SearchingCriterias extends Component {
                     type="radio"
                     name="inlineRadioOptions"
                     id="inlineRadio2"
-                    value="option2"
-                    onChange={this.props.handleChangeOldToYoung}
+                    value="oty"
+                    onChange={this.props.handleSort}
                   />
                   <label className="form-check-label" htmlFor="inlineRadio2">
                     Oldest to Youngest

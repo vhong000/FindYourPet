@@ -25,7 +25,8 @@ function PetCard(props) {
               <li> Breed: {props.breed}</li>
               <li> Gender: {props.gender}</li>
               <li> DoB: {props.dob}</li>
-              <li> description: {props.description}</li>
+              <li> Description: {props.description}</li>
+              <li> Zipcode: {props.zipcode}</li>
             </ul>
           </div>
         </div>
@@ -45,105 +46,22 @@ export default class DashboardBody extends Component {
     this.getPetByZipcode = this.getPetByZipcode.bind(this);
   }
 
-  handleChangeYoungToOld = () => {
-    if (this.state.zipcode === "") {
-      console.log("Success getting ordered from young to oldest");
-
-      //if there is no zipcode
-      fetch("/api/pet/asc", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
-        .then(response => {
-          console.log(response.status);
-          if (response.status === 200) {
-            return response.json();
-          } else {
-            console.log("Something went wrong");
-          }
-        })
-        .then(jsonData => {
-          console.log(jsonData);
-          this.setState({ data: jsonData });
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    } else {
-      //if there is zipcode
-      fetch("/api/pet/zipcodeASC/" + this.state.zipcode, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
-        .then(response => {
-          if (response.status === 200) {
-            return response.json();
-          } else {
-            console.log("Something went wrong");
-          }
-        })
-        .then(jsonData => {
-          console.log(jsonData);
-          this.setState({ data: jsonData });
-        })
-        .catch(error => {
-          console.log(error);
-        });
+  handleSort = e => {
+    console.log(this.state.data);
+    let value = e.target.value;
+    let temp = this.state.data;
+    if (value === "yto") {
+      temp.sort((a, b) => {
+        return a.dob - b.dob;
+      });
+    } else if (value === "oty") {
+      temp.sort((a, b) => {
+        return b.dob - a.dob;
+      });
     }
-  };
-
-  handleChangeOldToYoung = () => {
-    if (this.state.zipcode === "") {
-      //if there is no zipcode
-      console.log("Success getting ordered from oldest to youngest");
-      fetch("/api/pet/desc", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
-        .then(response => {
-          console.log(response.status);
-          if (response.status === 200) {
-            return response.json();
-          } else {
-            console.log("Something went wrong");
-          }
-        })
-        .then(jsonData => {
-          console.log(jsonData);
-          this.setState({ data: jsonData });
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    } else {
-      //if there is zipcode
-      fetch("/api/pet/zipcodeDESC/" + this.state.zipcode, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
-        .then(response => {
-          if (response.status === 200) {
-            return response.json();
-          } else {
-            console.log("Something went wrong");
-          }
-        })
-        .then(jsonData => {
-          console.log(jsonData);
-          this.setState({ data: jsonData });
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
+    this.setState({
+      data: temp
+    });
   };
 
   componentDidMount() {
@@ -258,6 +176,7 @@ export default class DashboardBody extends Component {
                               dob={pet.dob}
                               gender={pet.gender}
                               description={pet.description}
+                              zipcode={pet.zipcode}
                               key={pet.id}
                             />
                           );
@@ -269,10 +188,7 @@ export default class DashboardBody extends Component {
               <Pagination />
             </div>
             <div className="col-md-3">
-              <SearchingCriterias
-                handleChangeOldToYoung={this.handleChangeOldToYoung}
-                handleChangeYoungToOld={this.handleChangeYoungToOld}
-              />
+              <SearchingCriterias handleSort={this.handleSort} />
               <LikedPets />
             </div>
           </div>

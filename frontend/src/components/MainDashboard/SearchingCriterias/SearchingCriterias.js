@@ -11,7 +11,7 @@ export default class SearchingCriterias extends Component {
           </h5>
 
           <div className="card-body">
-            <h3>Species</h3>
+            <h5>Species</h5>
             <div className="input-group">
               <div className="form-check">
                 <input

@@ -24,7 +24,7 @@ function PetCard(props) {
               <li> Species: {props.species}</li>
               <li> Breed: {props.breed}</li>
               <li> Gender: {props.gender}</li>
-              <li> DoB: {props.dob}</li>
+              <li> Age: {props.dob}</li>
               <li> Description: {props.description}</li>
               <li> Zipcode: {props.zipcode}</li>
             </ul>
@@ -40,46 +40,37 @@ export default class DashboardBody extends Component {
     super(props);
     this.state = {
       data: [],
-      zipcode: ""
+      zipcode: "",
+      dog: false,
+      cat: false
     };
     this.getPet = this.getPet.bind(this);
     this.getPetByZipcode = this.getPetByZipcode.bind(this);
   }
 
   handleSort = e => {
-    // console.log(this.state.data);
     let value = e.target.value;
     let temp = this.state.data;
-    let temp2 = temp;
     if (value === "yto") {
       temp.sort((a, b) => {
         return a.dob - b.dob;
-      });
-      this.setState({
-        data: temp
       });
     } else if (value === "oty") {
       temp.sort((a, b) => {
         return b.dob - a.dob;
       });
-      this.setState({
-        data: temp
-      });
     } else if (value === "Dog") {
-      let abc = temp2.filter(function(curr, index, arr) {
-        if (curr.species === "Dog") return curr;
-      });
       this.setState({
-        data: abc
+        dog: !this.state.dog
       });
     } else if (value === "Cat") {
-      let abc = temp2.filter(function(curr, index, arr) {
-        if (curr.species === "Cat") return curr;
-      });
       this.setState({
-        data: abc
+        cat: !this.state.cat
       });
     }
+    this.setState({
+      data: temp
+    });
   };
 
   componentDidMount() {
@@ -185,20 +176,35 @@ export default class DashboardBody extends Component {
                 <div className="container">
                   <div className="row">
                     {data
-                      ? data.map(pet => {
-                          return (
-                            <PetCard
-                              name={pet.name}
-                              species={pet.species}
-                              breed={pet.breed}
-                              dob={pet.dob}
-                              gender={pet.gender}
-                              description={pet.description}
-                              zipcode={pet.zipcode}
-                              key={pet.id}
-                            />
-                          );
-                        })
+                      ? data
+                          .filter(pet => {
+                            if (
+                              (this.state.dog === true &&
+                                this.state.cat === true) ||
+                              (this.state.dog === false &&
+                                this.state.cat === false)
+                            ) {
+                              return pet;
+                            } else if (this.state.dog) {
+                              return pet.species === "Dog";
+                            } else if (this.state.cat) {
+                              return pet.species === "Cat";
+                            }
+                          })
+                          .map(pet => {
+                            return (
+                              <PetCard
+                                name={pet.name}
+                                species={pet.species}
+                                breed={pet.breed}
+                                dob={pet.dob}
+                                gender={pet.gender}
+                                description={pet.description}
+                                zipcode={pet.zipcode}
+                                key={pet.id}
+                              />
+                            );
+                          })
                       : null}
                   </div>
                 </div>

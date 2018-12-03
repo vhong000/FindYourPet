@@ -47,21 +47,39 @@ export default class DashboardBody extends Component {
   }
 
   handleSort = e => {
-    console.log(this.state.data);
+    // console.log(this.state.data);
     let value = e.target.value;
     let temp = this.state.data;
+    let temp2 = temp;
     if (value === "yto") {
       temp.sort((a, b) => {
         return a.dob - b.dob;
+      });
+      this.setState({
+        data: temp
       });
     } else if (value === "oty") {
       temp.sort((a, b) => {
         return b.dob - a.dob;
       });
+      this.setState({
+        data: temp
+      });
+    } else if (value === "Dog") {
+      let abc = temp2.filter(function(curr, index, arr) {
+        if (curr.species === "Dog") return curr;
+      });
+      this.setState({
+        data: abc
+      });
+    } else if (value === "Cat") {
+      let abc = temp2.filter(function(curr, index, arr) {
+        if (curr.species === "Cat") return curr;
+      });
+      this.setState({
+        data: abc
+      });
     }
-    this.setState({
-      data: temp
-    });
   };
 
   componentDidMount() {

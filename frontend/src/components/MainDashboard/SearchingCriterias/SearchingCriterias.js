@@ -10,36 +10,41 @@ export default class SearchingCriterias extends Component {
             Searching criterias:
           </h5>
 
-          <div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckboxDog"
-                value="option1"
-                onChange={this.clicked}
-              />
-              <label class="form-check-label" htmlFor="inlineCheckboxDog">
-                Dog
-              </label>
+          <div className="card-body">
+            <h3>Species</h3>
+            <div className="input-group">
+              <div className="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckboxDog"
+                  value="Dog"
+                  onChange={this.props.handleSort}
+                />
+                <label className="form-check-label" htmlFor="inlineCheckboxDog">
+                  Dog
+                </label>
+              </div>
             </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckboxCat"
-                value="option2"
-                onChange={this.clicked2}
-              />
-              <label class="form-check-label" htmlFor="inlineCheckboxCat">
-                Cat
-              </label>
+            <div className="input-group">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckboxCat"
+                  value="Cat"
+                  onChange={this.props.handleSort}
+                />
+                <label class="form-check-label" htmlFor="inlineCheckboxCat">
+                  Cat
+                </label>
+              </div>
             </div>
           </div>
 
           <div className="card-body">
             <div className="input-group">
-              <div className="btn-group btn-group-toggle" data-toggle="buttons">
+              {/* <div className="btn-group btn-group-toggle" data-toggle="buttons">
                 <label className="btn btn-secondary active">
                   <input
                     type="radio"
@@ -61,10 +66,9 @@ export default class SearchingCriterias extends Component {
                   />
                   Cat
                 </label>
-              </div>
+              </div> */}
 
               <div className="dropdown" id="catdog">
-                <br />
                 <button
                   className="btn btn-secondary dropdown-toggle"
                   type="button"
@@ -94,7 +98,7 @@ export default class SearchingCriterias extends Component {
             <div className="input-group">
               <div className="col">
                 <h5> Age: </h5>
-                <div className="form-check ">
+                <div className="form-check">
                   <input
                     className="form-check-input"
                     type="radio"

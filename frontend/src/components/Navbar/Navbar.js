@@ -98,7 +98,6 @@ export default class NavBar extends Component {
         <div className="container">
           <Link className="navbar-brand" to="/">
             <div id="heart">
-              {" "}
               <div className="lds-heart">
                 <div />
               </div>

@@ -22,6 +22,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    zipcode: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     phoneNumber: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -51,9 +63,9 @@ module.exports = (sequelize, DataTypes) => {
 		);
 
 	User.associate = function(models) {
-    User.belongsToMany(models.Pet, { as: 'LikedPets', through: 'liked_pets' })
-
 		User.hasMany(models.Pet);
+    User.belongsToMany(models.Pet, { as: 'LikedPets', through: 'liked_pets' });
+		User.belongsToMany(models.Pet, { as: 'InterestedPets', through: 'interested_pets' });
 	};
 
   return User;

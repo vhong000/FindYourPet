@@ -16,10 +16,14 @@ export default class DashboardBody extends Component {
       dog: false,
       cat: false,
       breed: "",
-      active: 0
+      active: "0"
     };
     this.getPet = this.getPet.bind(this);
     this.getPetByZipcode = this.getPetByZipcode.bind(this);
+  }
+
+  componentDidMount() {
+    this.getPet();
   }
 
   //handle sorting pet
@@ -67,10 +71,7 @@ export default class DashboardBody extends Component {
     });
   };
 
-  componentDidMount() {
-    this.getPet();
-  }
-
+  //getting all the pet from the DB
   getPet() {
     fetch("/api/pet/", {
       method: "GET",
@@ -83,10 +84,11 @@ export default class DashboardBody extends Component {
         if (response.status === 200) {
           return response.json();
         } else {
-          console.log("Something went wrong");
+          console.log("Something went wrong in GETPET function");
         }
       })
       .then(jsonData => {
+        // console.log("Fetching all information");
         console.log(jsonData);
         this.setState({ data: jsonData });
       })
@@ -95,8 +97,9 @@ export default class DashboardBody extends Component {
       });
   }
 
+  //getting all the pet from the DB based on ZIPCODE
   getPetByZipcode(zipcode) {
-    console.log("zip", zipcode);
+    // console.log("zip", zipcode);
     fetch("/api/pet/zipcode/" + zipcode, {
       method: "GET",
       headers: {
@@ -107,11 +110,12 @@ export default class DashboardBody extends Component {
         if (response.status === 200) {
           return response.json();
         } else {
-          console.log("Something went wrong");
+          console.log("Something went wrong in GETPETBYZIPCODE function");
         }
       })
       .then(jsonData => {
-        console.log(jsonData);
+        // console.log("Fetching all information based on zipcode");
+        // console.log(jsonData);
         this.setState({ data: jsonData });
       })
       .catch(error => {
@@ -189,6 +193,13 @@ export default class DashboardBody extends Component {
                               return pet.breed === this.state.breed;
                             }
                           })
+                          .filter(pet => {
+                            if (this.state.active === pet.energy) {
+                              return pet;
+                            } else if (this.state.active === "0") {
+                              return pet;
+                            }
+                          })
                           .map(pet => {
                             return (
                               <PetCard
@@ -200,6 +211,7 @@ export default class DashboardBody extends Component {
                                 description={pet.description}
                                 zipcode={pet.zipcode}
                                 key={pet.id}
+                                energy={pet.energy}
                               />
                             );
                           })
@@ -219,7 +231,6 @@ export default class DashboardBody extends Component {
                 breed={this.state.breed}
                 active={this.state.active}
               />
-
               <LikedPets />
             </div>
           </div>

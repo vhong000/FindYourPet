@@ -13,10 +13,10 @@ export default class SearchingCriterias extends Component {
           </h5>
           <div className="card-body">
             <h5>Species:</h5>
-            <div class="form-check form-check-inline">
-              <label class="form-check-label">
+            <div className="form-check form-check-inline">
+              <label className="form-check-label">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                   id="inlineCheckboxDog"
                   value="Dog"
@@ -25,10 +25,10 @@ export default class SearchingCriterias extends Component {
                 Dog
               </label>
             </div>
-            <div class="form-check form-check-inline">
-              <label class="form-check-label">
+            <div className="form-check form-check-inline">
+              <label className="form-check-label">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                   id="inlineCheckboxDog"
                   value="Cat"
@@ -84,13 +84,15 @@ export default class SearchingCriterias extends Component {
             </div>
           </div>
 
-          <div class="card-body pt-0">
-            <label for="formControlRange">
-              <h5>Pet Energy</h5>
+          <div className="card-body pt-0">
+            <label htmlFor="formControlRange">
+              <h5>
+                Pet Energy<span id="defaultValue"> (0 for default value)</span>
+              </h5>
             </label>
             <input
               type="range"
-              class="form-control-range"
+              className="form-control-range"
               id="formControlRange"
               min="0"
               max="10"

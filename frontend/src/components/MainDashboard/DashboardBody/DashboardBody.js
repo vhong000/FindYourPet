@@ -42,20 +42,25 @@ export default class DashboardBody extends Component {
       data: [],
       zipcode: "",
       dog: false,
-      cat: false
+      cat: false,
+      breed: ""
     };
     this.getPet = this.getPet.bind(this);
     this.getPetByZipcode = this.getPetByZipcode.bind(this);
   }
 
+  //handle sorting pet
   handleSort = e => {
-    let value = e.target.value;
+    const value = e.target.value;
+    console.log(value);
     let temp = this.state.data;
     if (value === "yto") {
+      //getting the young to oldest
       temp.sort((a, b) => {
         return a.dob - b.dob;
       });
     } else if (value === "oty") {
+      //getting the oldest to youngest
       temp.sort((a, b) => {
         return b.dob - a.dob;
       });
@@ -70,6 +75,15 @@ export default class DashboardBody extends Component {
     }
     this.setState({
       data: temp
+    });
+  };
+
+  //handle getting the pet breed
+  handleSelection = e => {
+    const value = e.target.value;
+    console.log(value);
+    this.setState({
+      breed: value
     });
   };
 
@@ -178,6 +192,7 @@ export default class DashboardBody extends Component {
                     {data
                       ? data
                           .filter(pet => {
+                            //filter based on species
                             if (
                               (this.state.dog === true &&
                                 this.state.cat === true) ||
@@ -189,6 +204,14 @@ export default class DashboardBody extends Component {
                               return pet.species === "Dog";
                             } else if (this.state.cat) {
                               return pet.species === "Cat";
+                            }
+                          })
+                          .filter(pet => {
+                            //filter pet based on breed
+                            if (this.state.breed === "") {
+                              return pet;
+                            } else {
+                              return pet.breed === this.state.breed;
                             }
                           })
                           .map(pet => {
@@ -211,8 +234,15 @@ export default class DashboardBody extends Component {
               </div>
               <Pagination />
             </div>
+
             <div className="col-md-3">
-              <SearchingCriterias handleSort={this.handleSort} />
+              <SearchingCriterias
+                handleSort={this.handleSort}
+                handleSelection={this.handleSelection}
+                data={this.state.data}
+                breed={this.state.breed}
+              />
+
               <LikedPets />
             </div>
           </div>

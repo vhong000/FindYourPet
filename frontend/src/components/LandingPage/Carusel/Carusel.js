@@ -5,6 +5,7 @@ import logo1 from "../../../Images/logo1.png";
 import logo2 from "../../../Images/logo2.png";
 import logo3 from "../../../Images/logo3.png";
 
+
 export default class Carusel extends Component {
   render() {
     return (

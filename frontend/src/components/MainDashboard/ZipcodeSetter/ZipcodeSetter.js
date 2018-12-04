@@ -7,7 +7,7 @@ export default class ZipcodeSetter extends Component {
   render() {
     return (     
           <div className="card my-4" id="some">
-            <h5 className="card-header" id="some">Set your zip code:</h5>
+            <h5 className="card-header" id="some">Search by zip code:</h5>
             <div className="card-body">
               <div className="row">
                 <div className="col-md-10" id="maincolor"><input className="form-control" placeholder="Set your zip code..." /></div>

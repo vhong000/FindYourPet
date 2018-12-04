@@ -1,4 +1,9 @@
 #settings{
-    background-color: lightseagreen;
+    background-color: #ffcc66;
     border-color: #999999;
+}
+#box{
+    border: solid black 2px;
+    border-radius: 5px;
+    font-weight: bolder;
 }

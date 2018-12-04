@@ -1,11 +1,13 @@
-#delete{
+#delete {
     background-color: orangered;
-    border-color: orangered;    
+    border-color: white;
 }
-button{
+
+button {
     margin: 5px;
 }
-#update{
-    background-color: lightseagreen;
-    border-color: lightseagreen;
+
+#update {
+    background-color: rgb(19, 19, 37);
+    border-color: white;
 }

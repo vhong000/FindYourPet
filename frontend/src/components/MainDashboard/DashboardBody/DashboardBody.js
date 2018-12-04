@@ -6,6 +6,7 @@ import SearchingCriterias from "../SearchingCriterias/SearchingCriterias";
 import LikedPets from "../LikedPets/LikedPets";
 import cardphoto from "../../../Images/paw.png";
 import "./DashboardBody.css";
+import UserProfile from "../../Profiles/UserProfile";
 
 function PetCard(props) {
   return (
@@ -111,7 +112,7 @@ export default class DashboardBody extends Component {
       <div>
         <div className="container">
           <div className="card my-4">
-            <h5 className="card-header">Set your zip code:</h5>
+            <h5 className="card-header">Search by zip code:</h5>
             <div className="card-body">
               <div className="row">
                 <div className="col-md-10">
@@ -133,7 +134,7 @@ export default class DashboardBody extends Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div>         
           <div className="row">
             <div className="col-md-9">
               <div className="card my-4">

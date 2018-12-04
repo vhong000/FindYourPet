@@ -16,7 +16,8 @@ export default class Settings extends Component {
   render() {
     return (
       <div>      
-        <div className="list-group ">
+        
+        <div className="list-group" id="box">
             <a className="list-group-item list-group-item-action active" id="settings">Dashboard</a>                 
             <a className="list-group-item list-group-item-action" onClick={this.handleStttingsShow}>Settings</a>
         </div>
@@ -28,16 +29,7 @@ export default class Settings extends Component {
            <a className="list-group-item list-group-item-action">
               <p>Settings Content</p>
               <p>Settings Content</p>
-              <p>Settings Content</p>
-              <p>Settings Content</p> 
-              <p>Settings Content</p>
-              <p>Settings Content</p>
-              <p>Settings Content</p>
-              <p>Settings Content</p> 
-              <p>Settings Content</p>
-              <p>Settings Content</p>
-              <p>Settings Content</p>
-              <p>Settings Content</p> 
+             
             </a>  
           </div> : null
         }	                           

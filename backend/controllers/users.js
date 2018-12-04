@@ -37,4 +37,16 @@ router.get('/interested/:pet_id', (req, res) => {
 	})
 })
 
+router.delete('/remove/:id', (req, res) => {
+	if (req.user) {
+		Pet.findById(req.params.id).then(pet => { 
+			if (pet.userId === req.user.id) {
+				Pet.destroy({
+					where: { id: req.params.id }
+				}).then(() => { res.json({ msg: "pet removed from db" }) })
+			} else { res.sendStatus(400) }
+		}).catch(e => { res.sendStatus(500) })
+	} else { res.sendStatus(404) }
+})
+
 module.exports = router;

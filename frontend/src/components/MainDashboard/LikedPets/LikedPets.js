@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './LikedPets.css';
-import Interested from '../../Interested/Interested';
+import Interested from './InterestedForm/Interested';
 
 export default class LikedPets extends Component {
   render() {
@@ -9,9 +9,9 @@ export default class LikedPets extends Component {
         <div className="card my-4" id="boxstyle">
         <h5 className="card-header" id="maincolor">Liked Pets</h5>
         <div className="card-body">
-            <Interested />
-            <Interested />
-            <Interested />
+        <Interested/>
+        <Interested/>
+        <Interested/>
         </div>
         </div>        
       </div>

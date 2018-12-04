@@ -3,6 +3,8 @@ import "./SearchingCriterias.css";
 
 export default class SearchingCriterias extends Component {
   render() {
+    let breed = [...new Set(this.props.data.map(breed => breed.breed))]; //removes duplicate breed
+
     return (
       <div>
         <div className="card my-4" id="cardbody">
@@ -11,81 +13,92 @@ export default class SearchingCriterias extends Component {
           </h5>
           <div className="card-body">
             <h5>Species:</h5>
-            <div className="input-group">
-              <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="inlineCheckboxDog"
-                    value="Dog"
-                    onChange={this.props.handleSort}
-                  />
-                  Dog
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="inlineCheckboxDog"
-                    value="Cat"
-                    onChange={this.props.handleSort}
-                  />
-                  Cat
-                </label>
-              </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckboxDog"
+                  value="Dog"
+                  onChange={this.props.handleSort}
+                />
+                Dog
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckboxDog"
+                  value="Cat"
+                  onChange={this.props.handleSort}
+                />
+                Cat
+              </label>
             </div>
           </div>
 
-          <div className="card-body pt-2">
+          <div className="card-body pt-0">
             <h5>Breed:</h5>
             <select
               value={this.props.breed}
               onChange={this.props.handleSelection}
             >
               <option value=""> </option>
-              {this.props.data
-                ? this.props.data.map(one => {
-                    return <option value={one.breed}>{one.breed}</option>;
+              {breed
+                ? breed.map(curr => {
+                    return <option value={curr}>{curr}</option>;
                   })
                 : null}
             </select>
           </div>
 
-          <div className="card-body pt-2">
-            <div className="input-group">
-              <div className="col">
-                <h5> Age: </h5>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="inlineRadioOptions"
-                    id="inlineRadio1"
-                    value="yto"
-                    onChange={this.props.handleSort}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio1">
-                    Youngest to Oldest
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    name="inlineRadioOptions"
-                    id="inlineRadio2"
-                    value="oty"
-                    onChange={this.props.handleSort}
-                  />
-                  <label className="form-check-label" htmlFor="inlineRadio2">
-                    Oldest to Youngest
-                  </label>
-                </div>
-              </div>
+          <div className="card-body pt-0">
+            <h5> Age: </h5>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                value="yto"
+                onChange={this.props.handleSort}
+              />
+              <label className="form-check-label" htmlFor="inlineRadio1">
+                Youngest to Oldest
+              </label>
             </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio2"
+                value="oty"
+                onChange={this.props.handleSort}
+              />
+              <label className="form-check-label" htmlFor="inlineRadio2">
+                Oldest to Youngest
+              </label>
+            </div>
+          </div>
+
+          <div class="card-body pt-0">
+            <label for="formControlRange">
+              <h5>Pet Energy</h5>
+            </label>
+            <input
+              type="range"
+              class="form-control-range"
+              id="formControlRange"
+              min="0"
+              max="10"
+              step="1"
+              value={this.props.active}
+              onChange={this.props.handleControl}
+            />
+            {this.props.active}
           </div>
 
           {/* I find the code below quite difficult to work around, so I just comment it in case we want to use it later on */}

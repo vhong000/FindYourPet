@@ -4,7 +4,7 @@ import UserCard from "../UserCard/UserCard";
 import Pagination from "../Pagination/Pagination";
 import SearchingCriterias from "../SearchingCriterias/SearchingCriterias";
 import LikedPets from "../LikedPets/LikedPets";
-import PetCard from '../../PetProfile/PetCard';
+import PetCard from "../../PetProfile/PetCard";
 import "./DashboardBody.css";
 
 export default class DashboardBody extends Component {
@@ -15,7 +15,8 @@ export default class DashboardBody extends Component {
       zipcode: "",
       dog: false,
       cat: false,
-      breed: ""
+      breed: "",
+      active: 0
     };
     this.getPet = this.getPet.bind(this);
     this.getPetByZipcode = this.getPetByZipcode.bind(this);
@@ -56,6 +57,13 @@ export default class DashboardBody extends Component {
     console.log(value);
     this.setState({
       breed: value
+    });
+  };
+
+  //handle the active level of the pet
+  handleControl = e => {
+    this.setState({
+      active: e.target.value
     });
   };
 
@@ -165,17 +173,12 @@ export default class DashboardBody extends Component {
                       ? data
                           .filter(pet => {
                             //filter based on species
-                            if (
-                              (this.state.dog === true &&
-                                this.state.cat === true) ||
-                              (this.state.dog === false &&
-                                this.state.cat === false)
-                            ) {
-                              return pet;
-                            } else if (this.state.dog) {
+                            if (this.state.dog && !this.state.cat) {
                               return pet.species === "Dog";
-                            } else if (this.state.cat) {
+                            } else if (this.state.cat && !this.state.dog) {
                               return pet.species === "Cat";
+                            } else {
+                              return pet;
                             }
                           })
                           .filter(pet => {
@@ -211,8 +214,10 @@ export default class DashboardBody extends Component {
               <SearchingCriterias
                 handleSort={this.handleSort}
                 handleSelection={this.handleSelection}
+                handleControl={this.handleControl}
                 data={this.state.data}
                 breed={this.state.breed}
+                active={this.state.active}
               />
 
               <LikedPets />

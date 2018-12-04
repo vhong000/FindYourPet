@@ -16,7 +16,9 @@ export default class DashboardBody extends Component {
       dog: false,
       cat: false,
       breed: "",
-      active: "0"
+      active: "0",
+      male: false,
+      female: false
     };
     this.getPet = this.getPet.bind(this);
     this.getPetByZipcode = this.getPetByZipcode.bind(this);
@@ -49,6 +51,14 @@ export default class DashboardBody extends Component {
       this.setState({
         cat: !this.state.cat
       });
+    } else if (value === "Male") {
+      this.setState({
+        male: !this.state.male
+      });
+    } else if (value === "Female") {
+      this.setState({
+        female: !this.state.female
+      });
     }
     this.setState({
       data: temp
@@ -68,6 +78,13 @@ export default class DashboardBody extends Component {
   handleControl = e => {
     this.setState({
       active: e.target.value
+    });
+    console.log("a");
+  };
+
+  handleGender = e => {
+    this.setState({
+      gender: e.target.value
     });
   };
 
@@ -186,6 +203,15 @@ export default class DashboardBody extends Component {
                             }
                           })
                           .filter(pet => {
+                            if (this.state.male && !this.state.female) {
+                              return pet.gender === "Male";
+                            } else if (this.state.female && !this.state.male) {
+                              return pet.gender === "Female";
+                            } else {
+                              return pet;
+                            }
+                          })
+                          .filter(pet => {
                             //filter pet based on breed
                             if (this.state.breed === "") {
                               return pet;
@@ -227,6 +253,7 @@ export default class DashboardBody extends Component {
                 handleSort={this.handleSort}
                 handleSelection={this.handleSelection}
                 handleControl={this.handleControl}
+                handleGender={this.handleGender}
                 data={this.state.data}
                 breed={this.state.breed}
                 active={this.state.active}

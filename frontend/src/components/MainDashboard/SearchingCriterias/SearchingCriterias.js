@@ -40,6 +40,34 @@ export default class SearchingCriterias extends Component {
           </div>
 
           <div className="card-body pt-0">
+            <h5>Gender:</h5>
+            <div className="form-check form-check-inline">
+              <label className="form-check-label">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckboxDog"
+                  value="Male"
+                  onChange={this.props.handleSort}
+                />
+                Male
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <label className="form-check-label">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckboxDog"
+                  value="Female"
+                  onChange={this.props.handleSort}
+                />
+                Female
+              </label>
+            </div>
+          </div>
+
+          <div className="card-body pt-0">
             <h5>Breed:</h5>
             <select
               value={this.props.breed}
@@ -109,11 +137,11 @@ export default class SearchingCriterias extends Component {
               <div className="btn-group btn-group-toggle" data-toggle="buttons">
                 <label className="btn btn-secondary active">
                   <input
-                    type="radio"
+                    type="checkbox"
                     name="options1"
                     id="option1"
-                    value="dog"
-                    onChange={this.clicked}
+                    value="Dog"
+                    onChange={this.props.handleSort}
                   />
                   Dog
                 </label>

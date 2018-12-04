@@ -1,10 +1,32 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import isEmpty from 'lodash/isEmpty';
 import data from "../../auth";
 import photoDefault from "../../Images/paw.png";
+import { getUserPets, getInterestedPets } from '../../fetches';
+import PetCard from '../PetProfile/PetCard';
 
 export default class UserProfile extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			userPets: [],
+			userInterestedPets: [],
+		}
+	}
+
+	componentDidMount() {
+		getUserPets().then(response => { 
+			this.setState({ userPets: response }) 
+		});
+		getInterestedPets().then(response => {
+			this.setState({ userInterestedPets: response })
+		});
+	}
+
   render() {
+		const { userPets, userInterestedPets } = this.state;
+
     if (this.props.auth === false) {
       return <Redirect to={"/"} />;
     }
@@ -52,7 +74,21 @@ export default class UserProfile extends React.Component {
         <div className="row">
           <div className="col">
             <p>
-              <strong>Pets I'm Interested in</strong>:{" "}
+              <strong>My Pets</strong>
+							{ !isEmpty(userPets) ? (
+								userPets.map(pet => {
+									return (
+										<PetCard 
+											name={pet.name}
+											species={pet.species}
+											breed={pet.breed}
+											dob={pet.dob}
+											gender={pet.gender}
+											description={pet.description}
+										/>
+									)
+								})
+							) : ( <p>No Pets</p> ) }
             </p>
           </div>
         </div>
@@ -60,10 +96,25 @@ export default class UserProfile extends React.Component {
         <div className="row">
           <div className="col">
             <p>
-              <strong>People interested in my pet</strong>
+              <strong>Pets I'm Interested in</strong>:{" "}
+							{ !isEmpty(userInterestedPets) ? (
+								userInterestedPets.map(pet => {
+									return (
+										<PetCard 
+											name={pet.name}
+											species={pet.species}
+											breed={pet.breed}
+											dob={pet.dob}
+											gender={pet.gender}
+											description={pet.description}
+										/>
+									)
+								})
+							) : ( <p>No Interested Pets</p> ) }
             </p>
           </div>
         </div>
+
       </div>
     );
   }

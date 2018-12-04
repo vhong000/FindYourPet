@@ -1,5 +1,6 @@
 import React from "react";
 import "./About.css";
+import Victor from "../../Images/victor.JPG";
 
 function Card(props) {
   return (
@@ -85,7 +86,7 @@ export default class About extends React.Component {
             job={
               "Working on the back-end using Sequelize, PostgreSQL, and Express"
             }
-            imgSrc={"."}
+            imgSrc={Victor}
             githubLink={"https://github.com/vhong000"}
             imgAlt={"Victor photo"}
           />

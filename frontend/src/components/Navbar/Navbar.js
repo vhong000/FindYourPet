@@ -71,8 +71,8 @@ export default class NavBar extends Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              User
-            </div>
+							{sendData.firstName}
+						</div>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link className="dropdown-item" to="/ViewProfile">
                 View profile

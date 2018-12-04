@@ -15,10 +15,10 @@ router.get('/', (req, res) => {
 	}).catch(e => res.sendStatus(500))
 })
 
-router.get('/user/:user', (req, res) => {
+router.get('/user', (req, res) => {
 	Pet.findAll({
 		where: {
-			userId: req.params.user,
+			userId: req.user.id,
 		},
 		attributes: { exclude: ['createdAt', 'updatedAt'] }
 	}).then((pets) => { res.json(pets); })

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import cardphoto from "../../Images/paw.png";
-import './PetCard.css';
+import "./PetCard.css";
 
 export default function PetCard(props) {
   return (
@@ -28,4 +28,3 @@ export default function PetCard(props) {
     </div>
   );
 }
-

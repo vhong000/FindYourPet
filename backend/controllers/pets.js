@@ -6,6 +6,7 @@ const User = models.User;
 
 const router = express.Router();
 
+//getting all the pets
 router.get('/', (req, res) => {
 	Pet.findAll({
 		attributes: { exclude: ['createdAt', 'updatedAt'] }
@@ -24,6 +25,7 @@ router.get('/user', (req, res) => {
 		.catch(e => res.sendStatus(500))
 })
 
+//getting all the pets based on zipcode
 router.get('/zipcode/:zipcode', (req, res) => {
 	Pet.findAll({
 		where: {
@@ -33,6 +35,7 @@ router.get('/zipcode/:zipcode', (req, res) => {
 	}).then((pets) => { res.json(pets); })
 		.catch(e => res.sendStatus(500))
 })
+
 
 router.post('/', (req, res) => {
 	Pet.create({

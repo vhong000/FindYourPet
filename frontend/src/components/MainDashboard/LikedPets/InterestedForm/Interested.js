@@ -9,13 +9,11 @@ export default class Interested extends Component {
           <b><p className="card-title">Pet Name</p></b>
           <p id="info">Pet Type</p>
           <p className="card-text" id="infosmall">Description Description Description Description</p>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option2" autocomplete="off"/> Show
+          <div class="btn-group btn-group-toggle" data-toggle="buttons" >
+            <label class="btn btn-secondary" id="option2">
+            <input type="radio" name="options"  autocomplete="off"/> Interested
             </label>
-            <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option3" autocomplete="off"/> Contact
-           </label>
+           
           </div>
         </div>
       </div>

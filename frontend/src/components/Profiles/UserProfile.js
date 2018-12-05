@@ -24,7 +24,7 @@ export default class UserProfile extends React.Component {
                         <div class="card-body">              
                             <div class="row">
                                 <div class="col-md-12">                                                       
-                                    <PetImages/>                               
+                                                                 
                                     <div className="row">
                                       <div className="col">                                    
                                         <h3>About me</h3>
@@ -39,8 +39,7 @@ export default class UserProfile extends React.Component {
                                         <p>Pets I'm Interested in:{" "}</p>                                             
                                         <p>People interested in my pet:</p>
                                       </div>
-                                    </div>
-                                    <UpdateDelete/>
+                                    </div>                                    
                                 </div>
                             </div>                
                         </div>

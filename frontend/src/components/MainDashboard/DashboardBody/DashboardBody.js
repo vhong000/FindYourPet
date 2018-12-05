@@ -31,7 +31,7 @@ export default class DashboardBody extends Component {
   //handle sorting pet
   handleSort = e => {
     const value = e.target.value;
-    console.log(value);
+    // console.log(value);
     let temp = this.state.data;
     if (value === "yto") {
       //getting the young to oldest
@@ -79,7 +79,7 @@ export default class DashboardBody extends Component {
     this.setState({
       active: e.target.value
     });
-    console.log("a");
+    // console.log("a");
   };
 
   handleGender = e => {

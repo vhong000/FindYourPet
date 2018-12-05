@@ -14,13 +14,15 @@ export default function PetCard(props) {
             src={cardphoto}
             alt="usercard"
           />
-          <div className="small text-black-50">
-            <ul className="card-text">
+          <div className="small text-black-50 text-left">
+            <ul className="">
               <li> Species: {props.species}</li>
               <li> Breed: {props.breed}</li>
               <li> Gender: {props.gender}</li>
-              <li> DoB: {props.dob}</li>
-              <li> description: {props.description}</li>
+              <li> Age: {props.dob}</li>
+              <li> Description: {props.description}</li>
+              <li> Energy level: {props.energy}</li>
+              <li> Zipcode: {props.zipcode}</li>
             </ul>
           </div>
         </div>

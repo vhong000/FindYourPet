@@ -46,7 +46,8 @@ router.post('/', (req, res) => {
 		dob: req.body.dob,
 		description: req.body.description,
 		gender: req.body.gender,
-		zipcode: req.user.zipcode
+		zipcode: req.user.zipcode,
+		energy: req.body.energy,
 	}).then((newPet) => {
 	res.json({ msg: "pet posted" });
 	}).catch(e => res.sendStatus(500));

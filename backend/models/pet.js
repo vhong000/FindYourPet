@@ -43,6 +43,10 @@ module.exports = (sequelize, DataTypes) => {
 		zipcode: {
 			type: DataTypes.STRING,
 			allowNull: true,
+		},
+		energy: {
+			type: DataTypes.STRING,
+			allowNull: true,
 		}
   }, {});
 

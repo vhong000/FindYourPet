@@ -2,8 +2,34 @@ import React, { Component } from "react";
 import "./SearchingCriterias.css";
 
 export default class SearchingCriterias extends Component {
+  breedBasedOnSpecies = array => {
+    if (this.props.dog && !this.props.cat) {
+      return this.props.data.filter(pet => pet.species === "Dog");
+    } else if (this.props.cat && !this.props.dog) {
+      return this.props.data.filter(pet => pet.species === "Cat");
+    } else {
+      return this.props.data;
+    }
+  };
+
+  breedBasedOnGender = array => {
+    if (this.props.male && !this.props.female) {
+      return array.filter(pet => pet.gender === "Male");
+    } else if (this.props.female && !this.props.male) {
+      return array.filter(pet => pet.gender === "Female");
+    } else {
+      return array;
+    }
+  };
+
   render() {
-    let breed = [...new Set(this.props.data.map(breed => breed.breed))]; //removes duplicate breed
+    //get only the cat or dog's breed only
+    let array = this.breedBasedOnSpecies(this.props.data);
+
+    //get the final breed based on the male/female gender
+    array = this.breedBasedOnGender(array);
+
+    let breed = [...new Set(array.map(breed => breed.breed))]; //removes duplicate breed
 
     return (
       <div>
@@ -13,10 +39,10 @@ export default class SearchingCriterias extends Component {
           </h5>
           <div className="card-body">
             <h5>Species:</h5>
-            <div class="form-check form-check-inline">
-              <label class="form-check-label">
+            <div className="form-check form-check-inline">
+              <label className="form-check-label">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                   id="inlineCheckboxDog"
                   value="Dog"
@@ -25,16 +51,44 @@ export default class SearchingCriterias extends Component {
                 Dog
               </label>
             </div>
-            <div class="form-check form-check-inline">
-              <label class="form-check-label">
+            <div className="form-check form-check-inline">
+              <label className="form-check-label">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="checkbox"
                   id="inlineCheckboxDog"
                   value="Cat"
                   onChange={this.props.handleSort}
                 />
                 Cat
+              </label>
+            </div>
+          </div>
+
+          <div className="card-body pt-0">
+            <h5>Gender:</h5>
+            <div className="form-check form-check-inline">
+              <label className="form-check-label">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckboxDog"
+                  value="Male"
+                  onChange={this.props.handleSort}
+                />
+                Male
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <label className="form-check-label">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckboxDog"
+                  value="Female"
+                  onChange={this.props.handleSort}
+                />
+                Female
               </label>
             </div>
           </div>
@@ -84,13 +138,15 @@ export default class SearchingCriterias extends Component {
             </div>
           </div>
 
-          <div class="card-body pt-0">
-            <label for="formControlRange">
-              <h5>Pet Energy</h5>
+          <div className="card-body pt-0">
+            <label htmlFor="formControlRange">
+              <h5>
+                Pet Energy<span id="defaultValue"> (0 for default value)</span>
+              </h5>
             </label>
             <input
               type="range"
-              class="form-control-range"
+              className="form-control-range"
               id="formControlRange"
               min="0"
               max="10"
@@ -107,11 +163,11 @@ export default class SearchingCriterias extends Component {
               <div className="btn-group btn-group-toggle" data-toggle="buttons">
                 <label className="btn btn-secondary active">
                   <input
-                    type="radio"
+                    type="checkbox"
                     name="options1"
                     id="option1"
-                    value="dog"
-                    onChange={this.clicked}
+                    value="Dog"
+                    onChange={this.props.handleSort}
                   />
                   Dog
                 </label>

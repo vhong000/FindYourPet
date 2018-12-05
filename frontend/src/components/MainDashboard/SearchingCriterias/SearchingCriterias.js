@@ -2,8 +2,34 @@ import React, { Component } from "react";
 import "./SearchingCriterias.css";
 
 export default class SearchingCriterias extends Component {
+  breedBasedOnSpecies = array => {
+    if (this.props.dog && !this.props.cat) {
+      return this.props.data.filter(pet => pet.species === "Dog");
+    } else if (this.props.cat && !this.props.dog) {
+      return this.props.data.filter(pet => pet.species === "Cat");
+    } else {
+      return this.props.data;
+    }
+  };
+
+  breedBasedOnGender = array => {
+    if (this.props.male && !this.props.female) {
+      return array.filter(pet => pet.gender === "Male");
+    } else if (this.props.female && !this.props.male) {
+      return array.filter(pet => pet.gender === "Female");
+    } else {
+      return array;
+    }
+  };
+
   render() {
-    let breed = [...new Set(this.props.data.map(breed => breed.breed))]; //removes duplicate breed
+    //get only the cat or dog's breed only
+    let array = this.breedBasedOnSpecies(this.props.data);
+
+    //get the final breed based on the male/female gender
+    array = this.breedBasedOnGender(array);
+
+    let breed = [...new Set(array.map(breed => breed.breed))]; //removes duplicate breed
 
     return (
       <div>

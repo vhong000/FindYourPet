@@ -68,7 +68,7 @@ export default class DashboardBody extends Component {
   //handle getting the pet breed
   handleSelection = e => {
     const value = e.target.value;
-    console.log(value);
+    // console.log(value);
     this.setState({
       breed: value
     });
@@ -257,6 +257,10 @@ export default class DashboardBody extends Component {
                 data={this.state.data}
                 breed={this.state.breed}
                 active={this.state.active}
+                dog={this.state.dog}
+                cat={this.state.cat}
+                male={this.state.male}
+                female={this.state.female}
               />
               <LikedPets />
             </div>

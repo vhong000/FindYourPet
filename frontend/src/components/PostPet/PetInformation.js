@@ -40,7 +40,7 @@ const PostPet = {
         console.log(response.status);
         if (response.status === 200) {
           console.log("successful pet post");
-        } else {
+        }else {
           throw new Error("Bad post");
         }
       })
@@ -70,7 +70,7 @@ export default class PetInformation extends Component {
   };
 
   handlePetTypeChange = event => {
-    this.setState({ petType: event.target.value });
+    this.setState({ petType: event.target.attributes.value.nodeValue });
   };
 
   handlePetBreedChange = event => {
@@ -82,7 +82,7 @@ export default class PetInformation extends Component {
   };
 
   handlePetGenderChange = event => {
-    this.setState({ petGender: event.target.value });
+    this.setState({ petGender: event.target.attributes.value.nodeValue });
   };
 
   handlePetInfoChange = event => {
@@ -115,7 +115,7 @@ export default class PetInformation extends Component {
           <div className="col-md-12">
             <form id="AdopteePetInfo">
               <div className="form-group row">
-                <label for="text" className="col-4 col-form-label">
+                <label htmlFor="text" className="col-4 col-form-label">
                   Pet Name*
                 </label>
                 <div className="col-8">
@@ -132,28 +132,22 @@ export default class PetInformation extends Component {
                 </div>
               </div>
               <div className="form-group row">
-                <label for="text" className="col-4 col-form-label">
+                <label htmlFor="text" className="col-4 col-form-label">
                   Pet species*
                 </label>
                 <div className="col-8">
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Dog"
-                    onClick={this.handlePetTypeChange}
-                  />
-                  Dog <br />
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Cat"
-                    onClick={this.handlePetTypeChange}
-                  />
-                  Cat
+                  <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label className="btn btn-secondary active" value="Dog" onClick={this.handlePetTypeChange}>
+                      <input type="radio" name="options" id="option1" value="Dog" autoComplete="off" /> Dog
+                    </label>
+                    <label className="btn btn-secondary " value="Cat" onClick={this.handlePetTypeChange}>
+                      <input type="radio" name="options" id="option2" value="Cat" autoComplete="off" /> Cat
+                    </label>
+                  </div>
                 </div>
               </div>
               <div className="form-group row">
-                <label for="text" className="col-4 col-form-label">
+                <label htmlFor="text" className="col-4 col-form-label">
                   Pet Breed*
                 </label>
                 <div className="col-8">
@@ -170,7 +164,7 @@ export default class PetInformation extends Component {
                 </div>
               </div>
               <div className="form-group row">
-                <label for="text" className="col-4 col-form-label">
+                <label htmlFor="text" className="col-4 col-form-label">
                   Pet Age
                 </label>
                 <div className="col-8">
@@ -187,37 +181,31 @@ export default class PetInformation extends Component {
                 </div>
               </div>
               <div className="form-group row">
-                <label for="text" className="col-4 col-form-label">
+                <label htmlFor="text" className="col-4 col-form-label">
                   Pet Gender
                 </label>
                 <div className="col-8">
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Male"
-                    onClick={this.handlePetGenderChange}
-                  />
-                  Male <br />
-                  <input
-                    type="radio"
-                    name="gender"
-                    value="Female"
-                    onClick={this.handlePetGenderChange}
-                  />
-                  Female
+                  <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label className="btn btn-secondary active" value="Male" onClick={this.handlePetGenderChange}>
+                      <input type="radio" name="options" id="option1" value="Dog" autoComplete="off" /> Male
+                    </label>
+                    <label className="btn btn-secondary " value="Female" onClick={this.handlePetGenderChange}>
+                      <input type="radio" name="options" id="option2" value="Cat" autoComplete="off" /> Female
+                    </label>
+                  </div>
                 </div>
               </div>
               <div className="form-group row">
-                <label for="publicinfo" class="col-4 col-form-label">
+                <label htmlFor="publicinfo" className="col-4 col-form-label">
                   Pet Info
                 </label>
-                <div class="col-8">
+                <div className="col-8">
                   <textarea
                     id="publicinfo"
                     name="publicinfo"
                     cols="40"
                     rows="4"
-                    class="form-control"
+                    className="form-control"
                     onChange={this.handlePetInfoChange}
                     value={this.state.petInfo}
                   />

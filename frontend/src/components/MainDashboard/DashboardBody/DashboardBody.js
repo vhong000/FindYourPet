@@ -229,6 +229,7 @@ export default class DashboardBody extends Component {
                           .map(pet => {
                             return (
                               <PetCard
+                                id = {pet.id}
                                 name={pet.name}
                                 species={pet.species}
                                 breed={pet.breed}

@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import cardphoto from "../../Images/paw.png";
 import "./PetCard.css";
+import { Link } from "react-router-dom";
 
 export default function PetCard(props) {
   return (
     <div className="col-md-4 mb-3 mb-md-0" id="usercard">
       <div className="card h-100">
+      <Link to={`/pet/${props.id}`} >
         <h4 className="text-uppercase m-0 card-header">{props.name}</h4>
+      </Link>
         <div className="card-body text-center">
           <hr className="my-4" />
           <img

@@ -71,8 +71,8 @@ export default class UserProfile extends React.Component {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col">
+        <div className="container">
+          <div className="row">
             <p>
               <strong>My Pets</strong>
 							{ !isEmpty(userPets) ? (

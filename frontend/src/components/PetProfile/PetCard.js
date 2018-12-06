@@ -4,7 +4,7 @@ import "./PetCard.css";
 import { Link } from "react-router-dom";
 
 export default function PetCard(props) {
-
+  console.log(props)
   return (
     <div className="col-md-4 mb-3 mb-md-0" id="usercard">
       <div className="card h-100">
@@ -24,7 +24,6 @@ export default function PetCard(props) {
               <li> Breed: {props.breed}</li>
               <li> Gender: {props.gender}</li>
               <li> Age: {props.dob}</li>
-              <li> description: {props.description}</li>
             </ul>
           </div>
         </div>

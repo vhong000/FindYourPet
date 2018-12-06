@@ -101,6 +101,7 @@ export default class UserProfile extends React.Component {
 								userInterestedPets.map(pet => {
 									return (
 										<PetCard 
+                      id={pet.id}
 											name={pet.name}
 											species={pet.species}
 											breed={pet.breed}

@@ -29,6 +29,7 @@ const PostPet = {
           console.log("successful pet post");
         }
         else{
+          console.log(this.breed)
             throw new Error("Bad post")
         }
       })
@@ -57,7 +58,7 @@ export default class PetInformation extends Component {
   };
 
   handlePetTypeChange = event => {
-    this.setState({ petType: event.target.value });
+    this.setState({ petType: event.target.attributes.value.nodeValue });
   };
 
   handlePetBreedChange = event => {
@@ -69,7 +70,7 @@ export default class PetInformation extends Component {
   };
 
   handlePetGenderChange = event => {
-    this.setState({ petGender: event.target.value });
+    this.setState({ petGender: event.target.attributes.value.nodeValue });
   };
 
   handlePetInfoChange = event => {
@@ -87,19 +88,22 @@ export default class PetInformation extends Component {
       this.props.history
     );
   };
+
+  // <input type="radio" name="gender" value="Dog" onClick={this.handlePetTypeChange}/> Dog <br></br>
+  //                   <input type="radio" name="gender" value="Cat" onClick={this.handlePetTypeChange}/> Cat
   render() {
     return (
       <div>
         <hr />
         <h4>Pet Information</h4>
-        <div class="row">
-          <div class="col-md-12">
+        <div className="row">
+          <div className="col-md-12">
             <form id="AdopteePetInfo">
-              <div class="form-group row">
-                <label for="text" className="col-4 col-form-label">
+              <div className="form-group row">
+                <label htmlFor="text" className="col-4 col-form-label">
                   Pet Name*
                 </label>
-                <div class="col-8">
+                <div className="col-8">
                   <input
                     id="text"
                     name="text"
@@ -112,20 +116,26 @@ export default class PetInformation extends Component {
                   />
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="text" className="col-4 col-form-label">
+              <div className="form-group row">
+                <label htmlFor="text" className="col-4 col-form-label">
                   Pet species*
                 </label>
-                <div class="col-8">
-                    <input type="radio" name="gender" value="Dog" onClick={this.handlePetTypeChange}/> Dog <br></br>
-                    <input type="radio" name="gender" value="Cat" onClick={this.handlePetTypeChange}/> Cat
+                <div className="col-8">
+                  <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label className="btn btn-secondary active" value="Dog" onClick={this.handlePetTypeChange}>
+                      <input type="radio" name="options" id="option1" value="Dog" autoComplete="off" /> Dog
+                    </label>
+                    <label className="btn btn-secondary " value="Cat" onClick={this.handlePetTypeChange}>
+                      <input type="radio" name="options" id="option2" value="Cat" autoComplete="off" /> Cat
+                    </label>
+                  </div>
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="text" className="col-4 col-form-label">
+              <div className="form-group row">
+                <label htmlFor="text" className="col-4 col-form-label">
                   Pet Breed*
                 </label>
-                <div class="col-8">
+                <div className="col-8">
                   <input
                     id="text"
                     name="text"
@@ -138,16 +148,16 @@ export default class PetInformation extends Component {
                   />
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="text" class="col-4 col-form-label">
+              <div className="form-group row">
+                <label htmlFor="text" className="col-4 col-form-label">
                   Pet Age
                 </label>
-                <div class="col-8">
+                <div className="col-8">
                   <input
                     id="text"
                     name="text"
                     placeholder="Pet Age"
-                    class="form-control here"
+                    className="form-control here"
                     required="required"
                     type="text"
                     onChange={this.handlePetAgeChange}
@@ -155,26 +165,32 @@ export default class PetInformation extends Component {
                   />
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="text" class="col-4 col-form-label">
+              <div className="form-group row">
+                <label htmlFor="text" className="col-4 col-form-label">
                   Pet Gender
                 </label>
-                <div class="col-8">
-                    <input type="radio" name="gender" value="male" onClick={this.handlePetGenderChange}/> Male <br></br>
-                    <input type="radio" name="gender" value="female" onClick={this.handlePetGenderChange}/> Female
+                <div className="col-8">
+                  <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label className="btn btn-secondary active" value="Male" onClick={this.handlePetGenderChange}>
+                      <input type="radio" name="options" id="option1" value="Dog" autoComplete="off" /> Male
+                    </label>
+                    <label className="btn btn-secondary " value="Female" onClick={this.handlePetGenderChange}>
+                      <input type="radio" name="options" id="option2" value="Cat" autoComplete="off" /> Female
+                    </label>
+                  </div>
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="publicinfo" class="col-4 col-form-label">
+              <div className="form-group row">
+                <label htmlFor="publicinfo" className="col-4 col-form-label">
                   Pet Info
                 </label>
-                <div class="col-8">
+                <div className="col-8">
                   <textarea
                     id="publicinfo"
                     name="publicinfo"
                     cols="40"
                     rows="4"
-                    class="form-control"
+                    className="form-control"
                     onChange={this.handlePetInfoChange}
                     value={this.state.petInfo}
                   />

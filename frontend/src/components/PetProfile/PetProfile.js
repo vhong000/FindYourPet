@@ -76,6 +76,7 @@ export default class PetProfile extends React.Component{
         if (response.status === 200) {
           console.log("requested interest")
         } else {
+          console.log(response.status)
           console.log("Something went wrong");
         }
       });

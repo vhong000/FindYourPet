@@ -28,9 +28,8 @@ export default class PostPet extends Component {
                   </div>
                   <div className="row">
                     <div className="col-md-12">
-                      
                       <PetInformation history={this.props.history} />
-                      <EnergyLevel />
+                      {/* <EnergyLevel /> */}
                     </div>
                   </div>
                 </div>

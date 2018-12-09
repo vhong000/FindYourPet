@@ -48,9 +48,11 @@ router.post('/', (req, res) => {
 		gender: req.body.gender,
 		zipcode: req.user.zipcode,
 		energy: req.body.energy,
+		attachment: req.body.attachment
 	}).then((newPet) => {
 	res.json({ msg: "pet posted" });
-	}).catch(e => res.sendStatus(500));
+	}).catch(e => 
+		res.sendStatus(500));
 });
 
 router.get('/owner/:pet_id', (req, res) => {

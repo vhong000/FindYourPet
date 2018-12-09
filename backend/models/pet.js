@@ -47,6 +47,10 @@ module.exports = (sequelize, DataTypes) => {
 		energy: {
 			type: DataTypes.STRING,
 			allowNull: true,
+		},
+		attachment: {
+			type: DataTypes.STRING,
+			allowNull: true,
 		}
   }, {});
 

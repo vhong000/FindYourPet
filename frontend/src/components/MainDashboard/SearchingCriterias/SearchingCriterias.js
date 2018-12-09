@@ -141,7 +141,7 @@ export default class SearchingCriterias extends Component {
           <div className="card-body pt-0">
             <label htmlFor="formControlRange">
               <h5>
-                Pet Energy<span id="defaultValue"> (0 for default value)</span>
+                Pet Energy<span id="defaultValue"> (0 for default value):</span>
               </h5>
             </label>
             <input
@@ -149,7 +149,7 @@ export default class SearchingCriterias extends Component {
               className="form-control-range"
               id="formControlRange"
               min="0"
-              max="10"
+              max="5"
               step="1"
               value={this.props.active}
               onChange={this.props.handleControl}
@@ -157,6 +157,22 @@ export default class SearchingCriterias extends Component {
             {this.props.active}
           </div>
 
+          <div className="card-body pt-0">
+            <label htmlFor="formControlRange">
+              <h5>Attachment level:</h5>
+            </label>
+            <input
+              type="range"
+              className="form-control-range"
+              id="formControlRange"
+              min="0"
+              max="5"
+              step="1"
+              value={this.props.attachment}
+              onChange={this.props.handleAttachment}
+            />
+            {this.props.attachment}
+          </div>
           {/* I find the code below quite difficult to work around, so I just comment it in case we want to use it later on */}
           {/* <div className="card-body">
             <div className="input-group">

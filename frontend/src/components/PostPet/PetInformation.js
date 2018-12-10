@@ -10,6 +10,7 @@ const PostPet = {
   petGender: "",
   petInfo: "",
   petEnergy: "",
+  petAttachment: "",
 
   send(
     petName,
@@ -19,6 +20,7 @@ const PostPet = {
     petGender,
     petInfo,
     petEnergy,
+    petAttachment,
     history
   ) {
     fetch("api/pet/", {
@@ -33,14 +35,15 @@ const PostPet = {
         dob: petAge,
         gender: petGender,
         description: petInfo,
-        energy: petEnergy
+        energy: petEnergy,
+        attachment: petAttachment
       })
     })
       .then(response => {
         console.log(response.status);
         if (response.status === 200) {
           console.log("successful pet post");
-        }else {
+        } else {
           throw new Error("Bad post");
         }
       })
@@ -62,7 +65,8 @@ export default class PetInformation extends Component {
     petAge: "",
     petGender: "",
     petInfo: "",
-    petEnergy: ""
+    petEnergy: "",
+    petAttachment: ""
   };
 
   handlePetNameChange = event => {
@@ -93,6 +97,12 @@ export default class PetInformation extends Component {
     this.setState({ petEnergy: event.target.value });
   };
 
+  handlePetAttachment = event => {
+    this.setState({
+      petAttachment: event.target.value
+    });
+  };
+
   submit = () => {
     PostPet.send(
       this.state.petName,
@@ -102,6 +112,7 @@ export default class PetInformation extends Component {
       this.state.petGender,
       this.state.petInfo,
       this.state.petEnergy,
+      this.state.petAttachment,
       this.props.history
     );
   };
@@ -136,12 +147,37 @@ export default class PetInformation extends Component {
                   Pet species*
                 </label>
                 <div className="col-8">
-                  <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label className="btn btn-secondary active" value="Dog" onClick={this.handlePetTypeChange}>
-                      <input type="radio" name="options" id="option1" value="Dog" autoComplete="off" /> Dog
+                  <div
+                    className="btn-group btn-group-toggle"
+                    data-toggle="buttons"
+                  >
+                    <label
+                      className="btn btn-secondary active"
+                      value="Dog"
+                      onClick={this.handlePetTypeChange}
+                    >
+                      <input
+                        type="radio"
+                        name="options"
+                        id="option1"
+                        value="Dog"
+                        autoComplete="off"
+                      />
+                      Dog
                     </label>
-                    <label className="btn btn-secondary " value="Cat" onClick={this.handlePetTypeChange}>
-                      <input type="radio" name="options" id="option2" value="Cat" autoComplete="off" /> Cat
+                    <label
+                      className="btn btn-secondary "
+                      value="Cat"
+                      onClick={this.handlePetTypeChange}
+                    >
+                      <input
+                        type="radio"
+                        name="options"
+                        id="option2"
+                        value="Cat"
+                        autoComplete="off"
+                      />
+                      Cat
                     </label>
                   </div>
                 </div>
@@ -185,12 +221,37 @@ export default class PetInformation extends Component {
                   Pet Gender
                 </label>
                 <div className="col-8">
-                  <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label className="btn btn-secondary active" value="Male" onClick={this.handlePetGenderChange}>
-                      <input type="radio" name="options" id="option1" value="Dog" autoComplete="off" /> Male
+                  <div
+                    className="btn-group btn-group-toggle"
+                    data-toggle="buttons"
+                  >
+                    <label
+                      className="btn btn-secondary active"
+                      value="Male"
+                      onClick={this.handlePetGenderChange}
+                    >
+                      <input
+                        type="radio"
+                        name="options"
+                        id="option1"
+                        value="Dog"
+                        autoComplete="off"
+                      />{" "}
+                      Male
                     </label>
-                    <label className="btn btn-secondary " value="Female" onClick={this.handlePetGenderChange}>
-                      <input type="radio" name="options" id="option2" value="Cat" autoComplete="off" /> Female
+                    <label
+                      className="btn btn-secondary "
+                      value="Female"
+                      onClick={this.handlePetGenderChange}
+                    >
+                      <input
+                        type="radio"
+                        name="options"
+                        id="option2"
+                        value="Cat"
+                        autoComplete="off"
+                      />{" "}
+                      Female
                     </label>
                   </div>
                 </div>
@@ -211,19 +272,33 @@ export default class PetInformation extends Component {
                   />
                 </div>
               </div>
-              <div className="">
+              <div className="form-group-row">
                 <label for="formControlRange">Pet Energy</label>
                 <input
                   type="range"
                   className="form-control-range"
                   id="formControlRange"
                   min="1"
-                  max="10"
+                  max="5"
                   step="1"
                   value={this.value}
                   onChange={this.handlePetEnergyChange}
                 />
                 {this.state.petEnergy}
+              </div>
+              <div className="form-group-row">
+                <label for="formControlRange">Pet Attachment</label>
+                <input
+                  type="range"
+                  className="form-control-range"
+                  id="formControlRange"
+                  min="1"
+                  max="5"
+                  step="1"
+                  value={this.value}
+                  onChange={this.handlePetAttachment}
+                />
+                {this.state.petAttachment}
               </div>
             </form>
           </div>

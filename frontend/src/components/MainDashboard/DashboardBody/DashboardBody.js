@@ -18,7 +18,8 @@ export default class DashboardBody extends Component {
       breed: "",
       active: "0",
       male: false,
-      female: false
+      female: false,
+      attachment: "0"
     };
     this.getPet = this.getPet.bind(this);
     this.getPetByZipcode = this.getPetByZipcode.bind(this);
@@ -79,7 +80,14 @@ export default class DashboardBody extends Component {
     this.setState({
       active: e.target.value
     });
-    // console.log("a");
+  };
+
+  //handle the active level of the pet
+  handleAttachment = e => {
+    this.setState({
+      attachment: e.target.value
+    });
+    console.log(e.target.value);
   };
 
   handleGender = e => {
@@ -226,10 +234,17 @@ export default class DashboardBody extends Component {
                               return pet;
                             }
                           })
+                          .filter(pet => {
+                            if (this.state.attachment === pet.attachment) {
+                              return pet;
+                            } else if (this.state.attachment === "0") {
+                              return pet;
+                            }
+                          })
                           .map(pet => {
                             return (
                               <PetCard
-                                id = {pet.id}
+                                id={pet.id}
                                 name={pet.name}
                                 species={pet.species}
                                 breed={pet.breed}
@@ -239,6 +254,7 @@ export default class DashboardBody extends Component {
                                 zipcode={pet.zipcode}
                                 key={pet.id}
                                 energy={pet.energy}
+                                attachment={pet.attachment}
                               />
                             );
                           })
@@ -251,17 +267,19 @@ export default class DashboardBody extends Component {
 
             <div className="col-md-3">
               <SearchingCriterias
-                handleSort={this.handleSort}
-                handleSelection={this.handleSelection}
-                handleControl={this.handleControl}
-                handleGender={this.handleGender}
                 data={this.state.data}
-                breed={this.state.breed}
-                active={this.state.active}
+                handleSort={this.handleSort}
                 dog={this.state.dog}
                 cat={this.state.cat}
+                handleSelection={this.handleSelection}
+                breed={this.state.breed}
+                handleControl={this.handleControl}
+                active={this.state.active}
+                handleGender={this.handleGender}
                 male={this.state.male}
                 female={this.state.female}
+                handleAttachment={this.handleAttachment}
+                attachment={this.state.attachment}
               />
               <LikedPets />
             </div>

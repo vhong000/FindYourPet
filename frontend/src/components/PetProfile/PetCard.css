@@ -21,3 +21,12 @@ ul li {
 .ItemList{
     text-align: left;
  }
+
+ h1{
+  font-size: 32px;
+  text-align: center;
+ }
+
+.centerElement{
+  text-align: center;
+}

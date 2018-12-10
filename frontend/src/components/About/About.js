@@ -62,7 +62,7 @@ export default class About extends React.Component {
         <div className="row">
           <Card
             name={"Joel Franco"}
-            desc={"City College"}
+            desc={"Brooklyn College"}
             job={"Working on the back-end and front-end"}
             imgSrc={
               "https://media.licdn.com/dms/image/C4D03AQHlMvK4cVc1UQ/profile-displayphoto-shrink_800_800/0?e=1548892800&v=beta&t=qBb6oFls84J4g0rw5xj_JBxwrEt0nTgk1eKdndAQTVw"
@@ -82,7 +82,7 @@ export default class About extends React.Component {
           />
           <Card
             name={"Victor Hong"}
-            desc={"Brooklyn College"}
+            desc={"City College"}
             job={
               "Working on the back-end using Sequelize, PostgreSQL, and Express"
             }

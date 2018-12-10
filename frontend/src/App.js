@@ -18,6 +18,7 @@ import Register from "./components/Login/Register";
 import PostPet from "./components/PostPet/PostPet";
 // import LogOut from "./LogOut";
 import About from "./components/About/About";
+import PetProfile from "./components/PetProfile/PetProfile"
 
 class App extends React.Component {
   state = {
@@ -41,6 +42,7 @@ class App extends React.Component {
           <Route exact path="/" component={MainBody} />
           <Route path="/FindPetPage" component={FindPetPage} />
           <Route path="/About" component={About} />
+          <Route path="/pet/:id" component={PetProfile} />
           <Route
             path="/PostPet"
             render={props => (

@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import './ZipcodeSetter.css';
+import React, { Component } from "react";
+import "./ZipcodeSetter.css";
 
 export default class ZipcodeSetter extends Component {
-
-
   render() {
     return (     
           <div className="card my-4" id="some">
@@ -16,7 +14,9 @@ export default class ZipcodeSetter extends Component {
                 <div className="col-md-2"><button type="submit">Set!</button></div>              
               </div>                       
             </div>
-          </div>      
-    )
+          </div>
+        </div>
+      </div>
+    );
   }
 }

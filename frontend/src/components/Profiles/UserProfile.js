@@ -1,12 +1,35 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import isEmpty from 'lodash/isEmpty';
 import data from "../../auth";
 import UpdateDelete from "./Common/UpdateDelete/UpdateDelete";
 import PetImages from "./AdopteeProfile/PetImages";
 import Settings from "./Settings/Settings";
+import photoDefault from "../../Images/paw.png";
+import { getUserPets, getInterestedPets } from '../../fetches';
+import PetCard from '../PetProfile/PetCard';
 
 export default class UserProfile extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			userPets: [],
+			userInterestedPets: [],
+		}
+	}
+
+	componentDidMount() {
+		getUserPets().then(response => { 
+			this.setState({ userPets: response }) 
+		});
+		getInterestedPets().then(response => {
+			this.setState({ userInterestedPets: response })
+		});
+	}
+
   render() {
+		const { userPets, userInterestedPets } = this.state;
+
     if (this.props.auth === false) {
       return <Redirect to={"/"} />;
     }
@@ -36,8 +59,38 @@ export default class UserProfile extends React.Component {
                                         <p>Zipcode: {data.zipcode}</p>
                                         <p>PhoneNumber: {data.phoneNumber}</p>
                                         <p>Email: {data.email}</p>
-                                        <p>Pets I'm Interested in:{" "}</p>                                             
-                                        <p>People interested in my pet:</p>
+                                        <p>My pets:</p>
+                                          { !isEmpty(userPets) ? (
+                                            userPets.map(pet => {
+                                              return (
+                                                <PetCard 
+                                                  name={pet.name}
+                                                  species={pet.species}
+                                                  breed={pet.breed}
+                                                  dob={pet.dob}
+                                                  gender={pet.gender}
+                                                  description={pet.description}
+                                                />
+                                              )
+                                            })
+                                          ) : ( <p>No Pets</p> ) }
+                                        <p>Pets I'm Interested in:{" "}</p>
+                                          { !isEmpty(userInterestedPets) ? (
+                                            userInterestedPets.map(pet => {
+                                              return (
+                                                <PetCard 
+                                                  id={pet.id}
+                                                  name={pet.name}
+                                                  species={pet.species}
+                                                  breed={pet.breed}
+                                                  dob={pet.dob}
+                                                  gender={pet.gender}
+                                                  description={pet.description}
+                                                />
+                                              )
+                                            })
+                                          ) : ( <p>No Interested Pets</p> ) }
+                                       
                                       </div>
                                     </div>                                    
                                 </div>

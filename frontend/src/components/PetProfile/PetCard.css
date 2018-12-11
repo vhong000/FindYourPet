@@ -1,5 +1,34 @@
-#cardbody{
-    width: 100%;
+#cardbody {
+  width: 100%;
+}
+#petpicture {
+  width: 100%;
+  margin: auto;
+
+  padding-bottom: 5px;
+}
+#exit {
+  float: right;
+  width: 7%;
+  background-color: orangered;
+  border: solid lightgrey 1px;
+}
+
+ul li {
+  text-decoration: none;
+  list-style-type: none;
+} 
+.ItemList{
+    text-align: left;
+ }
+
+ h1{
+  font-size: 32px;
+  text-align: center;
+ }
+
+.centerElement{
+  text-align: center;
 }
 #petpicture{
     width: 100%;

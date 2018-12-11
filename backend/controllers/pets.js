@@ -6,6 +6,7 @@ const User = models.User;
 
 const router = express.Router();
 
+//getting all the pets
 router.get('/', (req, res) => {
 	Pet.findAll({
 		attributes: { exclude: ['createdAt', 'updatedAt'] }
@@ -14,16 +15,17 @@ router.get('/', (req, res) => {
 	}).catch(e => res.sendStatus(500))
 })
 
-router.get('/user/:user', (req, res) => {
+router.get('/user', (req, res) => {
 	Pet.findAll({
 		where: {
-			userId: req.params.user,
+			userId: req.user.id,
 		},
 		attributes: { exclude: ['createdAt', 'updatedAt'] }
 	}).then((pets) => { res.json(pets); })
 		.catch(e => res.sendStatus(500))
 })
 
+//getting all the pets based on zipcode
 router.get('/zipcode/:zipcode', (req, res) => {
 	Pet.findAll({
 		where: {
@@ -34,6 +36,7 @@ router.get('/zipcode/:zipcode', (req, res) => {
 		.catch(e => res.sendStatus(500))
 })
 
+
 router.post('/', (req, res) => {
 	Pet.create({
 		userId: req.user.id,
@@ -43,10 +46,13 @@ router.post('/', (req, res) => {
 		dob: req.body.dob,
 		description: req.body.description,
 		gender: req.body.gender,
-		zipcode: req.user.zipcode
+		zipcode: req.user.zipcode,
+		energy: req.body.energy,
+		attachment: req.body.attachment
 	}).then((newPet) => {
 	res.json({ msg: "pet posted" });
-	}).catch(e => res.sendStatus(500));
+	}).catch(e => 
+		res.sendStatus(500));
 });
 
 router.get('/owner/:pet_id', (req, res) => {
@@ -56,6 +62,15 @@ router.get('/owner/:pet_id', (req, res) => {
 		attributes: { exclude: ['createdAt', 'updatedAt', 'password_hash'] }
 	}).then(user => { res.json(user); })
 		.catch(e => { res.sendStatus(500) })
+})
+
+router.get('/:pet_id', (req, res) => {
+	Pet.find({
+		where: { id : req.params.pet_id },
+		attributes: { exclude: ['createdAt', 'updatedAt'] }
+	}).then(pet => {
+		res.json(pet);
+	}).catch(e => { res.sendStatus(500) })
 })
 
 module.exports = router;

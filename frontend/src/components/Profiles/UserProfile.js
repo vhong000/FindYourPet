@@ -1,52 +1,121 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import isEmpty from 'lodash/isEmpty';
 import data from "../../auth";
-import UpdateDelete from "./Common/UpdateDelete/UpdateDelete";
-import PetImages from "./AdopteeProfile/PetImages";
-import Settings from "./Settings/Settings";
+import photoDefault from "../../Images/paw.png";
+import { getUserPets, getInterestedPets } from '../../fetches';
+import PetCard from '../PetProfile/PetCard';
 
 export default class UserProfile extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			userPets: [],
+			userInterestedPets: [],
+		}
+	}
+
+	componentDidMount() {
+		getUserPets().then(response => { 
+			this.setState({ userPets: response }) 
+		});
+		getInterestedPets().then(response => {
+			this.setState({ userInterestedPets: response })
+		});
+	}
+
   render() {
+		const { userPets, userInterestedPets } = this.state;
+
     if (this.props.auth === false) {
       return <Redirect to={"/"} />;
     }
     return (
       <div className="container">
-        <div class="container">
-        <br/>
-        <h2>{data.firstName} {data.lastName}'s Profile</h2>
-            <div class="row">
-                <div class="col-md-3 ">
-                    <Settings/>
-                </div>
-                <div class="col-md-9">
-                    <div class="card">
-                        <div class="card-body">              
-                            <div class="row">
-                                <div class="col-md-12">                                                       
-                                                                 
-                                    <div className="row">
-                                      <div className="col">                                    
-                                        <h3>About me</h3>
-                                        <p>First name: {data.firstName}</p>
-                                        <p>Last name: {data.lastName}</p>
-                                        <p>Address: {data.address}</p>
-                                        <p>City: {data.city}</p>
-                                        <p>State: {data.state}</p>
-                                        <p>Zipcode: {data.zipcode}</p>
-                                        <p>PhoneNumber: {data.phoneNumber}</p>
-                                        <p>Email: {data.email}</p>
-                                        <p>Pets I'm Interested in:{" "}</p>                                             
-                                        <p>People interested in my pet:</p>
-                                      </div>
-                                    </div>                                    
-                                </div>
-                            </div>                
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>        
+        <div className="row">
+          <div className="col text-center p-3">
+            <h2>
+              {data.firstName} {data.lastName}'s Profile
+            </h2>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col">
+            <img src={photoDefault} alt="User profile" />
+            <h3>About me</h3>
+            <p>
+              <strong>First name</strong>: {data.firstName}
+            </p>
+            <p>
+              <strong>Last name</strong>: {data.lastName}
+            </p>
+            <p>
+              <strong>Address</strong>: {data.address}
+            </p>
+            <p>
+              <strong>City</strong>: {data.city}
+            </p>
+            <p>
+              <strong>State</strong>: {data.state}
+            </p>
+            <p>
+              <strong>Zipcode</strong>: {data.zipcode}
+            </p>
+            <p>
+              <strong>PhoneNumber</strong>: {data.phoneNumber}
+            </p>
+            <p>
+              <strong>Email</strong>: {data.email}
+            </p>
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="row">
+            <p>
+              <strong>My Pets</strong>
+							{ !isEmpty(userPets) ? (
+								userPets.map(pet => {
+									return (
+										<PetCard 
+											name={pet.name}
+											species={pet.species}
+											breed={pet.breed}
+											dob={pet.dob}
+											gender={pet.gender}
+											description={pet.description}
+										/>
+									)
+								})
+							) : ( <p>No Pets</p> ) }
+            </p>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col">
+            <p>
+              <strong>Pets I'm Interested in</strong>:{" "}
+							{ !isEmpty(userInterestedPets) ? (
+								userInterestedPets.map(pet => {
+									return (
+										<PetCard 
+                      id={pet.id}
+											name={pet.name}
+											species={pet.species}
+											breed={pet.breed}
+											dob={pet.dob}
+											gender={pet.gender}
+											description={pet.description}
+										/>
+									)
+								})
+							) : ( <p>No Interested Pets</p> ) }
+            </p>
+          </div>
+        </div>
+
       </div>
     );
   }

@@ -30,3 +30,15 @@ ul li {
 .centerElement{
   text-align: center;
 }
+#petpicture{
+    width: 100%;
+    margin: auto;   
+    padding-bottom: 5px;
+  }
+  #exit{
+      float: right;
+      width: 7%;
+      background-color: orangered;
+      border: solid lightgrey 1px;
+  }
+ 

@@ -20,11 +20,23 @@
 .left-float {
   float: left;
 }
+#register{
+  background-color: #ffcc66;
+  color: black;
+  border: solid black 2px;
+}
 
-button {
-  background-color: lightseagreen;
+#loginbutton {
+  background-color: #ffcc66;
   color: white;
+  color: black;
+  border: solid black 2px;
+  margin-top: 30px;
 }
 #register {
   margin-bottom: 15%;
 }
+
+.text-focus-in{-webkit-animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both;animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both}
+
+ @-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}

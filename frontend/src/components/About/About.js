@@ -56,7 +56,7 @@ export default class About extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col text-center p-5">
-            <h2>Meet the team</h2>
+            <h2  className="text-focus-in">Meet the team</h2>
           </div>
         </div>
         <div className="row">

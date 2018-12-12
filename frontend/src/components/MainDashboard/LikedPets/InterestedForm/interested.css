@@ -7,3 +7,9 @@
 #infosmall{
     font-size: 60%;
 }
+#option2{
+    background-color: rgb(240, 95, 119);
+    color: white;
+    border-radius: 50px; 
+    font-size: 80%;  
+}

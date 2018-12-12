@@ -12,11 +12,19 @@ export default function PetCard(props) {
         </Link>
         <div className="card-body text-center">
           <hr className="my-4" />
-          <img
-            className="img-fluid mb-5 d-block mx-auto"
-            src={cardphoto}
-            alt="usercard"
-          />
+					{ props.imageUrl ? (
+						<img
+							className="img-fluid mb-5 d-block mx-auto"
+							src={props.imageUrl}
+							alt="usercard"
+						/>
+					) : ( 
+						<img
+							className="img-fluid mb-5 d-block mx-auto"
+							src={cardphoto}
+							alt="usercard"
+						/>
+					)}
           <div className="small text-black-50 text-left">
             <ul className="">
               <li> Species: {props.species}</li>

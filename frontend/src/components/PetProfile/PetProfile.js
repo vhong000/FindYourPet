@@ -118,7 +118,11 @@ export default class PetProfile extends React.Component{
               <div className="row">         
                   <div className="col-md-7"> 
                     <div className="card border-dark">
-                      <img className="card-img-top" src={cardphoto} alt="Pet Image"/>
+											{ this.state.pet.imageUrl ? (
+												<img className="card-img-top" src={this.state.pet.imageUrl} alt="Pet Image"/>
+											) : ( 
+												<img className="card-img-top" src={cardphoto} alt="Pet Image"/>
+											)}
                       <div className="card-body">
                         <h5 className="card-title">{this.state.pet.name}</h5>
                       </div>

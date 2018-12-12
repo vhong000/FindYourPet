@@ -101,9 +101,9 @@ export default class SearchingCriterias extends Component {
               value={this.props.breed}
               onChange={this.props.handleSelection}
             >
-              <option selected>Choose...</option>
-              <option value="Poodle">Poodle</option>
-              <option value="Booldog">Booldog</option>
+              <option value="" selected>
+                Choose...
+              </option>
               {breed
                 ? breed.map(curr => {
                     return <option value={curr}>{curr}</option>;
@@ -147,7 +147,6 @@ export default class SearchingCriterias extends Component {
               <h5>
                 Pet Energy
                 <span id="defaultValue">
-                  {" "}
                   <br />
                   (0 for default value):
                 </span>
@@ -155,7 +154,7 @@ export default class SearchingCriterias extends Component {
             </label>
             <input
               type="range"
-              className="form-control-range"
+              className="slider"
               id="formControlRange"
               min="0"
               max="5"
@@ -172,7 +171,7 @@ export default class SearchingCriterias extends Component {
             </label>
             <input
               type="range"
-              className="form-control-range"
+              className="slider"
               id="formControlRange"
               min="0"
               max="5"

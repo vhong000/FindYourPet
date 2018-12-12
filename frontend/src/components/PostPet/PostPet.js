@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Settings from "../Profiles/Settings/Settings";
 //import PetImages from "../Profiles/AdopteeProfile/PetImages";
 import PostButton from "./PostButton";
-import "./postpet.css";
+import "./PostPet.css";
 import PetInformation from "./PetInformation";
 import EnergyLevel from "./EnergyLevel";
 import { Redirect } from "react-router-dom";

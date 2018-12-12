@@ -256,6 +256,7 @@ export default class DashboardBody extends Component {
                                 key={pet.id}
                                 energy={pet.energy}
                                 attachment={pet.attachment}
+																imageUrl={pet.imageUrl}
                               />
                             );
                           })

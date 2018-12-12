@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import InputRange from "react-input-range";
+import ImageUploader from 'react-images-upload';
 import "react-input-range/lib/css/index.css";
 
 const PostPet = {
+	image: "",
   petName: "",
   petType: "",
   petBreed: "",
@@ -13,6 +15,7 @@ const PostPet = {
   petAttachment: "",
 
   send(
+		image,
     petName,
     petType,
     petBreed,
@@ -23,22 +26,22 @@ const PostPet = {
     petAttachment,
     history
   ) {
+		const data = new FormData();
+		data.append('image', image[0]);
+		data.append('name', petName);
+		data.append('species', petType);
+		data.append('breed', petBreed);
+		data.append('dob', petAge);
+		data.append('gender', petGender);
+		data.append('description', petInfo);
+		data.append('energy', petEnergy);
+		data.append('attachment', petAttachment);
+		console.log('data', data);
+
     fetch("api/pet/", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8"
-      },
-      body: JSON.stringify({
-        name: petName,
-        species: petType,
-        breed: petBreed,
-        dob: petAge,
-        gender: petGender,
-        description: petInfo,
-        energy: petEnergy,
-        attachment: petAttachment
-      })
-    })
+			body: data,
+		})
       .then(response => {
         console.log(response.status);
         if (response.status === 200) {
@@ -59,14 +62,15 @@ const PostPet = {
 
 export default class PetInformation extends Component {
   state = {
+		image: "",
     petName: "",
-    petType: "",
+    petType: "Dog",
     petBreed: "",
     petAge: "",
-    petGender: "",
+    petGender: "Male",
     petInfo: "",
-    petEnergy: "",
-    petAttachment: ""
+    petEnergy: "3",
+    petAttachment: "3"
   };
 
   handlePetNameChange = event => {
@@ -103,8 +107,13 @@ export default class PetInformation extends Component {
     });
   };
 
+	onDrop = picture => {
+		this.setState({ image: picture });
+	};
+
   submit = () => {
     PostPet.send(
+			this.state.image,
       this.state.petName,
       this.state.petType,
       this.state.petBreed,
@@ -120,6 +129,15 @@ export default class PetInformation extends Component {
   render() {
     return (
       <div>
+				<h4>Photos</h4>
+				<ImageUploader
+					withIcon={true}
+					buttonText='Choose images'
+					onChange={this.onDrop}
+					imgExtension={['.jpg', '.gif', '.png', '.gif']}
+					maxFileSize={5242880}
+					singleImage
+				/>        
         <hr />
         <h4>Pet Information</h4>
         <div className="row">

@@ -69,16 +69,19 @@ export default class Login extends Component {
             </div>
 
             <div className="row">
-              <div className="col-7">
-                <Link to="/SignUp">Don't have an account? Register here.</Link>
-              </div>
-              <div className="col-5">
-                <Link to="/Reset">Forgot password?</Link>
+              <div className="col text-left">
+                <Link className="link" to="/SignUp">
+                  Don't have an account? Register here.
+                </Link>
               </div>
             </div>
           </form>
           <div className="div p-2">
-            <button type="submit" className="btn btn" onClick={this.submit}>
+            <button
+              type="submit"
+              className="btn btn-warning"
+              onClick={this.submit}
+            >
               Login
             </button>
           </div>

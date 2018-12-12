@@ -71,14 +71,11 @@ export default class NavBar extends Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-							{sendData.firstName}
-						</div>
+              {sendData.firstName}
+            </div>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link className="dropdown-item" to="/ViewProfile">
                 View profile
-              </Link>
-              <Link className="dropdown-item" to="/Settings">
-                Settings (placeholder)
               </Link>
               <div className="dropdown-divider" />
               <button className="dropdown-item" onClick={this.logMeOut}>

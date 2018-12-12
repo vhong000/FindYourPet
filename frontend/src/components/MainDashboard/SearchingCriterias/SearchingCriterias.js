@@ -146,7 +146,7 @@ export default class SearchingCriterias extends Component {
             </label>
             <input
               type="range"
-              className="form-control-range"
+              className="slider"
               id="formControlRange"
               min="0"
               max="5"
@@ -163,7 +163,7 @@ export default class SearchingCriterias extends Component {
             </label>
             <input
               type="range"
-              className="form-control-range"
+              className="slider"
               id="formControlRange"
               min="0"
               max="5"

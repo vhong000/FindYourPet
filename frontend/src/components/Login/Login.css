@@ -28,3 +28,12 @@ button {
 #register {
   margin-bottom: 15%;
 }
+
+.link {
+  color: rgb(160, 116, 27);
+}
+
+.link:hover {
+  color: rgb(100, 69, 8);
+  text-decoration: none;
+}

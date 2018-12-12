@@ -1,31 +1,31 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import isEmpty from 'lodash/isEmpty';
+import isEmpty from "lodash/isEmpty";
 import data from "../../auth";
 import photoDefault from "../../Images/paw.png";
-import { getUserPets, getInterestedPets } from '../../fetches';
-import PetCard from '../PetProfile/PetCard';
+import { getUserPets, getInterestedPets } from "../../fetches";
+import PetCard from "../PetProfile/PetCard";
 
 export default class UserProfile extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			userPets: [],
-			userInterestedPets: [],
-		}
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      userPets: [],
+      userInterestedPets: []
+    };
+  }
 
-	componentDidMount() {
-		getUserPets().then(response => { 
-			this.setState({ userPets: response }) 
-		});
-		getInterestedPets().then(response => {
-			this.setState({ userInterestedPets: response })
-		});
-	}
+  componentDidMount() {
+    getUserPets().then(response => {
+      this.setState({ userPets: response });
+    });
+    getInterestedPets().then(response => {
+      this.setState({ userInterestedPets: response });
+    });
+  }
 
   render() {
-		const { userPets, userInterestedPets } = this.state;
+    const { userPets, userInterestedPets } = this.state;
 
     if (this.props.auth === false) {
       return <Redirect to={"/"} />;
@@ -73,23 +73,27 @@ export default class UserProfile extends React.Component {
 
         <div className="container">
           <div className="row">
-            <p>
-              <strong>My Pets</strong>
-							{ !isEmpty(userPets) ? (
-								userPets.map(pet => {
-									return (
-										<PetCard 
-											name={pet.name}
-											species={pet.species}
-											breed={pet.breed}
-											dob={pet.dob}
-											gender={pet.gender}
-											description={pet.description}
-										/>
-									)
-								})
-							) : ( <p>No Pets</p> ) }
-            </p>
+            <div className="col">
+              <p>
+                <strong>My Pets</strong>
+                {!isEmpty(userPets) ? (
+                  userPets.map(pet => {
+                    return (
+                      <PetCard
+                        name={pet.name}
+                        species={pet.species}
+                        breed={pet.breed}
+                        dob={pet.dob}
+                        gender={pet.gender}
+                        description={pet.description}
+                      />
+                    );
+                  })
+                ) : (
+                  <p>No Pets</p>
+                )}
+              </p>
+            </div>
           </div>
         </div>
 
@@ -97,25 +101,26 @@ export default class UserProfile extends React.Component {
           <div className="col">
             <p>
               <strong>Pets I'm Interested in</strong>:{" "}
-							{ !isEmpty(userInterestedPets) ? (
-								userInterestedPets.map(pet => {
-									return (
-										<PetCard 
+              {!isEmpty(userInterestedPets) ? (
+                userInterestedPets.map(pet => {
+                  return (
+                    <PetCard
                       id={pet.id}
-											name={pet.name}
-											species={pet.species}
-											breed={pet.breed}
-											dob={pet.dob}
-											gender={pet.gender}
-											description={pet.description}
-										/>
-									)
-								})
-							) : ( <p>No Interested Pets</p> ) }
+                      name={pet.name}
+                      species={pet.species}
+                      breed={pet.breed}
+                      dob={pet.dob}
+                      gender={pet.gender}
+                      description={pet.description}
+                    />
+                  );
+                })
+              ) : (
+                <p>No Interested Pets</p>
+              )}
             </p>
           </div>
         </div>
-
       </div>
     );
   }

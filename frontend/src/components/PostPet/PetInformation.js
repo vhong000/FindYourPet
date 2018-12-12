@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
+import "./postpet.css";
 
 const PostPet = {
   petName: "",
@@ -272,33 +273,41 @@ export default class PetInformation extends Component {
                   />
                 </div>
               </div>
-              <div className="form-group-row">
-                <label for="formControlRange">Pet Energy</label>
-                <input
-                  type="range"
-                  className="form-control-range"
-                  id="formControlRange"
-                  min="1"
-                  max="5"
-                  step="1"
-                  value={this.value}
-                  onChange={this.handlePetEnergyChange}
-                />
-                {this.state.petEnergy}
+
+              <div className="form-group row">
+                <label htmlFor="publicinfo" className="col-4 col-form-label">
+                  Pet Energy: {this.state.petEnergy}
+                </label>
+                <div className="col-8">
+                  <input
+                    type="range"
+                    className="slider"
+                    id="formControlRange"
+                    min="1"
+                    max="5"
+                    step="1"
+                    value={this.value}
+                    onChange={this.handlePetEnergyChange}
+                  />
+                </div>
               </div>
-              <div className="form-group-row">
-                <label for="formControlRange">Pet Attachment</label>
-                <input
-                  type="range"
-                  className="form-control-range"
-                  id="formControlRange"
-                  min="1"
-                  max="5"
-                  step="1"
-                  value={this.value}
-                  onChange={this.handlePetAttachment}
-                />
-                {this.state.petAttachment}
+
+              <div className="form-group row">
+                <label htmlFor="publicinfo" className="col-4 col-form-label">
+                  Pet Attachment: {this.state.petAttachment}
+                </label>
+                <div className="col-8">
+                  <input
+                    type="range"
+                    className="slider"
+                    id="formControlRange"
+                    min="1"
+                    max="5"
+                    step="1"
+                    value={this.value}
+                    onChange={this.handlePetAttachment}
+                  />
+                </div>
               </div>
             </form>
           </div>

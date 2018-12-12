@@ -7,16 +7,16 @@
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #00b2ee;
-  border-color: #00b2ee;
+  background-color: rgb(248, 204, 118);
+  border-color: rgb(248, 204, 118);
   box-shadow: none;
   outline: none;
 }
 
 .btn-primary {
   color: #fff;
-  background-color: #00b2ee;
-  border-color: #00b2ee;
+  background-color: rgb(248, 204, 118);
+  border-color: rgb(248, 204, 118);
 }
 
 #team .card {
@@ -103,12 +103,12 @@
 
 .backside .card a {
   font-size: 18px;
-  color: #00b2ee !important;
+  color: rgb(248, 204, 118) !important;
 }
 
 .frontside .card .card-title,
 .backside .card .card-title {
-  color: #00b2ee !important;
+  color: rgb(248, 204, 118) !important;
 }
 
 .frontside .card .card-body img {

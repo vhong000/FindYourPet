@@ -17,16 +17,25 @@
 ul li {
   text-decoration: none;
   list-style-type: none;
-} 
-.ItemList{
-    text-align: left;
- }
+}
+.ItemList {
+  text-align: left;
+}
 
- h1{
+h1 {
   font-size: 32px;
   text-align: center;
- }
+}
 
-.centerElement{
+.centerElement {
   text-align: center;
+}
+
+.link {
+  color: rgb(207, 150, 35);
+}
+
+.link:hover {
+  color: rgb(100, 69, 8);
+  text-decoration: none;
 }

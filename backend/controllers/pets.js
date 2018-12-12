@@ -1,10 +1,18 @@
 
 const express = require('express');
+require('dotenv').config();
+const cloudinary = require('cloudinary')
 const models = require('../models');
 const Pet = models.Pet;
 const User = models.User;
 
 const router = express.Router();
+
+cloudinary.config({
+	cloud_name: process.env.CLOUD_NAME,
+	api_key: process.env.CLOUD_KEY,
+	api_secret: process.env.CLOUD_SECRET,
+})
 
 //getting all the pets
 router.get('/', (req, res) => {
@@ -12,7 +20,7 @@ router.get('/', (req, res) => {
 		attributes: { exclude: ['createdAt', 'updatedAt'] }
 	}).then(pets => {
 		res.json(pets);
-	}).catch(e => res.sendStatus(500))
+	}).catch(e => {console.log(e); res.sendStatus(500) })
 })
 
 router.get('/user', (req, res) => {
@@ -36,8 +44,15 @@ router.get('/zipcode/:zipcode', (req, res) => {
 		.catch(e => res.sendStatus(500))
 })
 
+router.post('/cloud', (req, res) => {
+	//console.log(Object.values(Object.values(req.files)[0])[0].path);
+	console.log(Object.values(Object.values(req.files))[0].path);
+	const path = Object.values(Object.values(req.files))[0].path;
+	cloudinary.uploader.upload(path).then(image => res.json([image]))
+})
 
 router.post('/', (req, res) => {
+	
 	Pet.create({
 		userId: req.user.id,
 		species: req.body.species,
@@ -48,7 +63,7 @@ router.post('/', (req, res) => {
 		gender: req.body.gender,
 		zipcode: req.user.zipcode,
 		energy: req.body.energy,
-		attachment: req.body.attachment
+		attachment: req.body.attachment,
 	}).then((newPet) => {
 	res.json({ msg: "pet posted" });
 	}).catch(e => 
@@ -56,12 +71,16 @@ router.post('/', (req, res) => {
 });
 
 router.get('/owner/:pet_id', (req, res) => {
-	User.find({
-		through: User.InterestedPets,
-		where: { id: req.params.pet_id },
-		attributes: { exclude: ['createdAt', 'updatedAt', 'password_hash'] }
-	}).then(user => { res.json(user); })
-		.catch(e => { res.sendStatus(500) })
+	// User.find({
+	// 	through: User.InterestedPets,
+	// 	where: { petId: req.params.pet_id },
+	// 	attributes: { exclude: ['createdAt', 'updatedAt', 'password_hash'] }
+	// }).then(user => { res.json(user); })
+	// 	.catch(e => { res.sendStatus(500) })
+	Pet.findByPk(req.params.pet_id).then(pet => {
+		User.findByPk(pet.userId).then(user => { res.json(user); })
+			.catch(e => { res.sendStatus(500) })
+	})
 })
 
 router.get('/:pet_id', (req, res) => {

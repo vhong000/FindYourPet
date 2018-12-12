@@ -7,10 +7,12 @@ const passport = require('./middlewares/auth');
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
+const formData = require('express-form-data');
 
 const app = express()
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(formData.parse());
 app.use(cookieParser());
 app.use(expressSession(({
   secret: 'asdf',

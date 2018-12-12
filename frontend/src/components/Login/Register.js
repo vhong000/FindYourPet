@@ -238,7 +238,7 @@ export default class Register extends Component {
         </form>
         <button
           type="submit"
-          className="btn btn"
+          className="btn btn-warning"
           id="register"
           onClick={this.submit}
         >

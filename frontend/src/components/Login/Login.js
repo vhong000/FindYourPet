@@ -10,7 +10,6 @@ import {
 import "./Login.css";
 import sendData from "../../auth";
 
-
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -44,7 +43,7 @@ export default class Login extends Component {
       return (
         <div className="panel">
           <form id="loginform">
-            <h2  className="text-focus-in">Login</h2>
+            <h2 className="text-focus-in">Login</h2>
             <br />
 
             <div className="form-group">
@@ -70,16 +69,20 @@ export default class Login extends Component {
             </div>
 
             <div className="row">
-              <div className="col-7">
-                <Link to="/SignUp">Don't have an account? Register here.</Link>
-              </div>
-              <div className="col-5">
-                <Link to="/Reset">Forgot password?</Link>
+              <div className="col text-left">
+                <Link className="link" to="/SignUp">
+                  Don't have an account? Register here.
+                </Link>
               </div>
             </div>
           </form>
           <div className="div p-2">
-            <button type="submit" className="btn btn" onClick={this.submit} id="loginbutton">
+            <button
+              type="submit"
+              className="btn btn"
+              onClick={this.submit}
+              id="loginbutton"
+            >
               <span>Login</span>
             </button>
           </div>

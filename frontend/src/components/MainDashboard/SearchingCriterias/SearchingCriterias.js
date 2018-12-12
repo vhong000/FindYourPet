@@ -102,8 +102,6 @@ export default class SearchingCriterias extends Component {
             onChange={this.props.handleSelection}
           >
             <option selected>Choose...</option>
-            <option value="Poodle">Poodle</option>              
-            <option value="Booldog">Booldog</option>
             {breed ? breed.map(curr => {
                   return <option value={curr}>{curr}</option>;
                 }): null}            

@@ -71,52 +71,61 @@ export default class UserProfile extends React.Component {
           </div>
         </div>
 
-        <div className="container">
-          <div className="row">
-            <p>
-              <strong>My Pets</strong>
-							{ !isEmpty(userPets) ? (
-								userPets.map(pet => {
-									return (
-										<PetCard 
-											name={pet.name}
-											species={pet.species}
-											breed={pet.breed}
-											dob={pet.dob}
-											gender={pet.gender}
-											description={pet.description}
-										/>
-									)
-								})
-							) : ( <p>No Pets</p> ) }
-            </p>
-          </div>
+				<strong>My Pets</strong>
+				<div className="row">
+					<div className="col-md-9">
+						<div className="card my-4">
+							<div className="container">
+								<div className="row">
+									{ !isEmpty(userPets) ? (
+										userPets.map(pet => {
+											return (
+												<PetCard 
+													imageUrl={pet.imageUrl}
+													name={pet.name}
+													species={pet.species}
+													breed={pet.breed}
+													dob={pet.dob}
+													gender={pet.gender}
+													description={pet.description}
+												/>
+											)
+										})
+									) : ( <p>No Pets</p> ) }
+								</div>
+							</div>
+						</div>
+					</div>
         </div>
 
-        <div className="row">
-          <div className="col">
-            <p>
-              <strong>Pets I'm Interested in</strong>:{" "}
-							{ !isEmpty(userInterestedPets) ? (
-								userInterestedPets.map(pet => {
-									return (
-										<PetCard 
-                      id={pet.id}
-											name={pet.name}
-											species={pet.species}
-											breed={pet.breed}
-											dob={pet.dob}
-											gender={pet.gender}
-											description={pet.description}
-										/>
-									)
-								})
-							) : ( <p>No Interested Pets</p> ) }
-            </p>
-          </div>
-        </div>
-
-      </div>
+			<strong>Pets I'm Interested in</strong>
+			<div className="row">
+				<div className="col-md-9">
+					<div className="card my-4">
+						<div className="container">
+							<div className="row">
+								{ !isEmpty(userInterestedPets) ? (
+									userInterestedPets.map(pet => {
+										return (
+											<PetCard 
+												imageUrl={pet.imageUrl}
+												id={pet.id}
+												name={pet.name}
+												species={pet.species}
+												breed={pet.breed}
+												dob={pet.dob}
+												gender={pet.gender}
+												description={pet.description}
+											/>
+										)
+									})
+								) : ( <p>No Interested Pets</p> ) }
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     );
   }
 }

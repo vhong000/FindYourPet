@@ -52,31 +52,32 @@ router.post('/cloud', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-	
-	Pet.create({
-		userId: req.user.id,
-		species: req.body.species,
-		breed: req.body.breed,
-		name: req.body.name,
-		dob: req.body.dob,
-		description: req.body.description,
-		gender: req.body.gender,
-		zipcode: req.user.zipcode,
-		energy: req.body.energy,
-		attachment: req.body.attachment,
-	}).then((newPet) => {
-	res.json({ msg: "pet posted" });
-	}).catch(e => 
-		res.sendStatus(500));
+	if (req.files) {
+		const path = Object.values(Object.values(req.files))[0].path;
+		cloudinary.uploader.upload(path).then((image) => {
+			Pet.create({
+				userId: req.user.id,
+				species: req.body.species,
+				breed: req.body.breed,
+				name: req.body.name,
+				dob: req.body.dob,
+				description: req.body.description,
+				gender: req.body.gender,
+				zipcode: req.user.zipcode,
+				energy: req.body.energy,
+				attachment: req.body.attachment,
+				imageUrl: image.url,
+			}).then(newPet => { 
+				res.json({msg: 'pet posted' })
+			})
+		}).catch(e => res.sendStatus(500));
+
+	} else {
+		res.sendStatus(400);
+	}
 });
 
 router.get('/owner/:pet_id', (req, res) => {
-	// User.find({
-	// 	through: User.InterestedPets,
-	// 	where: { petId: req.params.pet_id },
-	// 	attributes: { exclude: ['createdAt', 'updatedAt', 'password_hash'] }
-	// }).then(user => { res.json(user); })
-	// 	.catch(e => { res.sendStatus(500) })
 	Pet.findByPk(req.params.pet_id).then(pet => {
 		User.findByPk(pet.userId).then(user => { res.json(user); })
 			.catch(e => { res.sendStatus(500) })

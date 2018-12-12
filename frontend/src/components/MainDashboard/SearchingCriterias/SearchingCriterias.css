@@ -1,6 +1,3 @@
-#option1 {
-}
-
 #cardbody {
   border: solid black 2px;
   box-shadow: 10px 10px 2px lightgray;
@@ -9,3 +6,14 @@
 #defaultValue {
   font-size: 0.1em;
 }
+#option1{
+  background-color:  #ffcc66;
+}
+#box{
+  color: black;
+}
+#checked{
+  width: 30px;
+}
+
+

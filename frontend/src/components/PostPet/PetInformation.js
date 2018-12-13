@@ -131,9 +131,10 @@ export default class PetInformation extends Component {
   render() {
     return (
       <div>
-        <h4>Photos</h4>
+        <h4 className="text-center py-1">Photos</h4>
         <ImageUploader
           withIcon={true}
+          buttonClassName="btn-secondary active"
           buttonText="Choose images"
           onChange={this.onDrop}
           imgExtension={[".jpg", ".gif", ".png", ".gif"]}
@@ -141,7 +142,7 @@ export default class PetInformation extends Component {
           singleImage
         />
         <hr />
-        <h4>Pet Information</h4>
+        <h4 className="text-center py-3">Pet Information</h4>
         <div className="row">
           <div className="col-md-12">
             <form id="AdopteePetInfo">
@@ -172,7 +173,7 @@ export default class PetInformation extends Component {
                     data-toggle="buttons"
                   >
                     <label
-                      className="btn btn-secondary active"
+                      className="btn btn-secondary"
                       value="Dog"
                       onClick={this.handlePetTypeChange}
                     >
@@ -246,7 +247,7 @@ export default class PetInformation extends Component {
                     data-toggle="buttons"
                   >
                     <label
-                      className="btn btn-secondary active"
+                      className="btn btn-secondary "
                       value="Male"
                       onClick={this.handlePetGenderChange}
                     >

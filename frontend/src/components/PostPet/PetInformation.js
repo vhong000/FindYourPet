@@ -66,10 +66,10 @@ export default class PetInformation extends Component {
   state = {
     image: "",
     petName: "",
-    petType: "Dog",
+    petType: "",
     petBreed: "",
     petAge: "",
-    petGender: "Male",
+    petGender: "",
     petInfo: "",
     petEnergy: "3",
     petAttachment: "3"

@@ -1,0 +1,8 @@
+.page-link {
+  color: black !important;
+}
+
+.page-link:hover {
+  color: rgb(207, 150, 35) !important;
+  transition: 1s;
+}

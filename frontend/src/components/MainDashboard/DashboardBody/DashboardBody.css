@@ -13,3 +13,8 @@
   background: rgb(207, 150, 35) !important;
   transition: 1s;
 }
+
+.zipcode {
+  /* color: red !important; */
+  background-color: #ffcc66;
+}

@@ -10,23 +10,23 @@ export default function PetCard(props) {
         <Link className="link" to={`/pet/${props.id}`}>
           <h4 className="text-uppercase m-0 card-header">{props.name}</h4>
         </Link>
-        <div className="card-body text-center">
-          <hr className="my-4" />
+        <div className="card-body ">
           {props.imageUrl ? (
             <img
-              className="img-fluid mb-5 d-block mx-auto"
+              className="img-fluid mb d-block mx-auto"
               src={props.imageUrl}
               alt="usercard"
             />
           ) : (
             <img
-              className="img-fluid mb-5 d-block mx-auto"
+              className="img-fluid mb d-block mx-auto"
               src={cardphoto}
               alt="usercard"
             />
           )}
+          <hr />
           <div className="small text-black-50 text-left">
-            <ul className="">
+            <ul className="test">
               <li> Species: {props.species}</li>
               <li> Breed: {props.breed}</li>
               <li> Gender: {props.gender}</li>

@@ -40,3 +40,9 @@
   background: rgb(207, 150, 35) !important;
   transition: 1s;
 }
+
+.btn-secondary.active {
+  background: #ffcc66 !important;
+  color: black !important;
+  transition: 0.5s;
+}

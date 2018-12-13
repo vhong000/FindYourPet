@@ -18,7 +18,7 @@ import Register from "./components/Login/Register";
 import PostPet from "./components/PostPet/PostPet";
 // import LogOut from "./LogOut";
 import About from "./components/About/About";
-import PetProfile from "./components/PetProfile/PetProfile"
+import PetProfile from "./components/PetProfile/PetProfile";
 
 class App extends React.Component {
   state = {
@@ -37,7 +37,6 @@ class App extends React.Component {
     return (
       <div>
         <Navbar auth={this.state.auth} logout={this.logout} />
-
         <Switch>
           <Route exact path="/" component={MainBody} />
           <Route path="/FindPetPage" component={FindPetPage} />

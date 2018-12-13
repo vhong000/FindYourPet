@@ -172,7 +172,7 @@ export default class DashboardBody extends Component {
       <div>
         <div className="container">
           <div className="card my-4">
-            <h5 className="card-header">Search by zip code:</h5>
+            <h5 className="card-header zipcode">Search by zip code:</h5>
             <div className="card-body">
               <div className="row">
                 <div className="col-md-10">
@@ -197,7 +197,7 @@ export default class DashboardBody extends Component {
           </div>
           <div className="row">
             <div className="col-md-9">
-              <div className="card my-4">
+              <div className="my-4">
                 <div className="container">
                   <div className="row">
                     {data

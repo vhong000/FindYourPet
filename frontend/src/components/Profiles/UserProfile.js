@@ -24,19 +24,21 @@ export default class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    getUserPets().then(response => {
-      this.setState({ userPets: response });
-			return response;
-		}).then(pets => {
-			pets.forEach(pet => {
-				getInterestedUsers(pet.id).then(response => {
-					console.log('interested users', response);
-					this.setState({
-						interestedUsers: [...this.state.interestedUsers, response],
-					})
-				})
-			})
-		});
+    getUserPets()
+      .then(response => {
+        this.setState({ userPets: response });
+        return response;
+      })
+      .then(pets => {
+        pets.forEach(pet => {
+          getInterestedUsers(pet.id).then(response => {
+            console.log("interested users", response);
+            this.setState({
+              interestedUsers: [...this.state.interestedUsers, response]
+            });
+          });
+        });
+      });
     getInterestedPets().then(response => {
       this.setState({ userInterestedPets: response });
     });

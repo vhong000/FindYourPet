@@ -6,7 +6,8 @@ import photoDefault from "../../Images/paw.png";
 import {
   getUserPets,
   getInterestedPets,
-  getInterestedUsers
+  getInterestedUsers,
+	removePet
 } from "../../fetches";
 import PetCard from "../PetProfile/PetCard";
 
@@ -19,6 +20,7 @@ export default class UserProfile extends React.Component {
       interestedUsers: []
     };
     this.displayUsers = this.displayUsers.bind(this);
+		this.acceptUser = this.acceptUser.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +42,28 @@ export default class UserProfile extends React.Component {
     });
   }
 
+	acceptUser(e, petId) {
+		e.preventDefault();
+		console.log('removing pet');
+		removePet(petId)
+		.then(() => {
+			getUserPets().then(response => {
+				this.setState({ userPets: response });
+				return response;
+			}).then(pets => {
+				pets.forEach(pet => {
+					getInterestedUsers(pet.id).then(response => {
+						console.log('interested users', response);
+						this.setState({
+							interestedUsers: [...this.state.interestedUsers, response],
+						})
+					})
+				})
+			})
+		})
+	}
+	
+
   displayUsers(user, petId) {
     for (var i = 0; i < this.state.userPets.length; i++) {
       if (this.state.userPets[i].id == petId) {
@@ -53,6 +77,9 @@ export default class UserProfile extends React.Component {
               {this.state.userPets[i].name}.<br />
               Their email is {user.email}.
             </div>
+						<button onClick={(e) => {this.acceptUser(e, petId)}}>
+							Accept User
+						</button>
           </div>
         );
       }

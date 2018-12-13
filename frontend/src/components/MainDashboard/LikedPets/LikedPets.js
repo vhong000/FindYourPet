@@ -24,8 +24,8 @@ export default class LikedPets extends Component {
     return (
       <div>
         <div className="card my-4" id="boxstyle">
-          <h5 className="card-header" id="maincolor">
-            Liked Pets
+          <h5 className="card-header color" id="maincolor">
+            Interested Pets
           </h5>
           <div className="card-body">
             {!isEmpty(userInterestedPets) ? (

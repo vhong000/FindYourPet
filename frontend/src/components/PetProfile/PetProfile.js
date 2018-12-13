@@ -17,7 +17,7 @@ export default class PetProfile extends React.Component{
   }
 
   componentDidMount(){
-    // Have to use promise.all to make multiple fetches
+    //Have to use promise.all to make multiple fetches
     Promise.all([
             fetch(`/api/pet/${this.props.match.params.id}`),
             fetch(`/api/pet/owner/${this.props.match.params.id}`)
@@ -27,6 +27,32 @@ export default class PetProfile extends React.Component{
             pet: jsonData1, 
             owner: jsonData2
         }));
+
+    // //Getting the pet's owner
+    // fetch(`/api/pet/owner/${this.props.match.params.id}`, {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json; charset=utf-8"
+    //   }
+    // })
+    //   .then(response => {
+    //     if (response.status === 200) {
+    //       console.log(response.status)
+    //       console.log(response.json())
+    //       return response.json();
+    //     } else {
+    //       console.log("Something went wrong");
+    //     }
+    //   })
+    //   .then(jsonData => {
+    //     console.log(jsonData);
+    //     this.setState({ owner: jsonData });
+    //     console.log(this.state.owner + " hello")
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+   
 
     //Getting the Pet's info
     // fetch(`/api/pet/${this.props.match.params.id}`, {
@@ -52,32 +78,7 @@ export default class PetProfile extends React.Component{
     //     console.log(error);
     //   });
   }
-  // getPetOwner(){
-  //   //Getting the pet's owner
-  //   fetch(`/api/pet/owner/${this.props.match.params.id}`, {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8"
-  //     }
-  //   })
-  //     .then(response => {
-  //       if (response.status === 200) {
-  //         console.log(response.status)
-  //         console.log(response.json())
-  //         return response.json();
-  //       } else {
-  //         console.log("Something went wrong");
-  //       }
-  //     })
-  //     .then(jsonData => {
-  //       console.log(jsonData);
-  //       this.setState({ owner: jsonData });
-  //       console.log(this.state.owner + " hello")
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }
+  
 
   setInterested(){
     fetch("/api/user/interested/", {

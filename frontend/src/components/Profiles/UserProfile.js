@@ -3,29 +3,62 @@ import { Redirect } from "react-router-dom";
 import isEmpty from "lodash/isEmpty";
 import data from "../../auth";
 import photoDefault from "../../Images/paw.png";
-import { getUserPets, getInterestedPets } from "../../fetches";
-import PetCard from "../PetProfile/PetCard";
-import './UserProfile.css'
+import { getUserPets, getInterestedPets, getInterestedUsers } from '../../fetches';
+import PetCard from '../PetProfile/PetCard';
 
 export default class UserProfile extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userPets: [],
-      userInterestedPets: []
-    };
-  }
-  componentDidMount() {
-    getUserPets().then(response => {
-      this.setState({ userPets: response });
-    });
-    getInterestedPets().then(response => {
-      this.setState({ userInterestedPets: response });
-    });
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			userPets: [],
+			userInterestedPets: [],
+      		interestedUsers: []
+		}
+		this.checkInterest = this.checkInterest.bind(this)
+		this.displayUsers = this.displayUsers.bind(this)
+	}
 
-  render() {
-    const { userPets, userInterestedPets } = this.state;
+	componentDidMount() {
+		getUserPets().then(response => { 
+			this.setState({ userPets: response }) 
+		});
+		getInterestedPets().then(response => {
+			this.setState({ userInterestedPets: response })
+		});
+	}
+
+	checkInterest(){
+		this.state.userPets.forEach(pet =>{
+			getInterestedUsers(pet.id).then(response =>{
+			if(response.length !== 0 ){
+				// response.forEach(user => {
+				// 	this.setState({ interestedUsers: [...this.state.interestedUsers,  user] })
+				// })
+				this.setState({ interestedUsers: [...this.state.interestedUsers,  response] })
+			}else{
+				//console.log("No one is interested")
+			}
+		 })
+		})
+	}
+
+	displayUsers(user, petId){
+		for(var i = 0; i < this.state.userPets.length; i++){
+			if( this.state.userPets[i].id == petId){
+				return <div className="card border-dark mb-3 ml-5">
+					<div className="card-header bg-dark text-white">! Someone is interested in your pet !</div>
+					<div className="card-body">
+					{user.firstName} {user.lastName} is interested in {this.state.userPets[i].name}.<br></br>
+					Their email is {user.email}. 
+					</div>
+					</div>
+			}
+		}
+	}
+
+	render() {
+    // 
+	const { userPets, userInterestedPets, interestedUsers } = this.state;
 
     if (this.props.auth === false) {
       return <Redirect to={"/"} />;
@@ -120,6 +153,7 @@ export default class UserProfile extends React.Component {
                                 userPets.map(pet => {
                                   return (
                                     <PetCard
+                                      id={pet.id}
                                       imageUrl={pet.imageUrl}
                                       name={pet.name}
                                       species={pet.species}
@@ -152,6 +186,7 @@ export default class UserProfile extends React.Component {
                             userInterestedPets.map(pet => {
                               return (
                                 <PetCard
+                                  id={pet.id}
                                   imageUrl={pet.imageUrl}
                                   id={pet.id}
                                   name={pet.name}
@@ -171,6 +206,28 @@ export default class UserProfile extends React.Component {
                     </div>
                   </div>
                 </div>
+                <h3> Users interested in your pets </h3>
+				<div className="row">
+					<div className="text-center">
+						<button type="button" className="btn btn-primary" onClick={this.checkInterest}>
+							"Check Interest"
+						</button>
+						{ !isEmpty(interestedUsers) ? (
+									interestedUsers.map(element => {
+										return element.map(user => {
+												return (
+													<div>
+														{ this.displayUsers(user,user.interested_pets.petId) }
+													</div>
+												)}
+											)
+										
+									})
+								) : ( <p>No one is interested in your pets</p> ) }
+
+					</div>
+				</div>
+
               </div>
             </div>
           </div>
@@ -214,7 +271,6 @@ export default class UserProfile extends React.Component {
             </p>
           </div>
         </div>
-
 				<strong>My Pets</strong>
 				<div className="row">
 					<div className="col-md-9">
@@ -225,6 +281,7 @@ export default class UserProfile extends React.Component {
 										userPets.map(pet => {
 											return (
 												<PetCard 
+													id = {pet.id}
 													imageUrl={pet.imageUrl}
 													name={pet.name}
 													species={pet.species}
@@ -270,7 +327,8 @@ export default class UserProfile extends React.Component {
 				</div>
 			</div>
 			*/}
-      </div>
+
+		</div>
     );
   }
 }

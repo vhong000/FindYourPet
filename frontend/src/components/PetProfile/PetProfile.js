@@ -151,6 +151,15 @@ export default class PetProfile extends React.Component {
                       {this.state.pet.name}'s description:{" "}
                       {this.state.pet.description}
                     </li>
+                    <li className="list-group-item">
+                      Zipcode: {this.state.pet.zipcode}
+                    </li>
+                    <li className="list-group-item">
+                      Energy Level: {this.state.pet.Energy}
+                    </li>
+                    <li className="list-group-item">
+                      Attachment: {this.state.pet.attachment}
+                    </li>
                   </ul>
                 </div>
               </div>

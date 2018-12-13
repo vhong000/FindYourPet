@@ -7,24 +7,24 @@ export default function PetCard(props) {
   return (
     <div className="col-md-4 mb-3 mb-md-0" id="usercard">
       <div className="card h-100">
-        <Link to={`/pet/${props.id}`}>
+        <Link className="link" to={`/pet/${props.id}`}>
           <h4 className="text-uppercase m-0 card-header">{props.name}</h4>
         </Link>
         <div className="card-body text-center">
           <hr className="my-4" />
-					{ props.imageUrl ? (
-						<img
-							className="img-fluid mb-5 d-block mx-auto"
-							src={props.imageUrl}
-							alt="usercard"
-						/>
-					) : ( 
-						<img
-							className="img-fluid mb-5 d-block mx-auto"
-							src={cardphoto}
-							alt="usercard"
-						/>
-					)}
+          {props.imageUrl ? (
+            <img
+              className="img-fluid mb-5 d-block mx-auto"
+              src={props.imageUrl}
+              alt="usercard"
+            />
+          ) : (
+            <img
+              className="img-fluid mb-5 d-block mx-auto"
+              src={cardphoto}
+              alt="usercard"
+            />
+          )}
           <div className="small text-black-50 text-left">
             <ul className="">
               <li> Species: {props.species}</li>

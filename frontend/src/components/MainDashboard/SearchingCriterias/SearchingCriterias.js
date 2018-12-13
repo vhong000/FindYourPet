@@ -33,149 +33,155 @@ export default class SearchingCriterias extends Component {
 
     return (
       <div>
-      <div className="card my-4" id="cardbody">
-        <h5 className="card-header" id="option1">
-          Searching criterias:
-        </h5>
-        <div className="card-body">
-          <h5>Species:</h5>
-          <div className="form-check form-check-inline" id="box">
-            <label className="form-check-label">
+        <div className="card my-4" id="cardbody">
+          <h5 className="card-header" id="option1">
+            Searching criterias:
+          </h5>
+          <div className="card-body">
+            <h5>Species:</h5>
+            <div className="form-check form-check-inline" id="box">
+              <label className="form-check-label">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckboxDog"
+                  value="Dog"
+                  onChange={this.props.handleSort}
+                />
+                Dog
+              </label>
+            </div>
+            <div className="form-check form-check-inline" id="box">
+              <label className="form-check-label">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckboxDog"
+                  value="Cat"
+                  onChange={this.props.handleSort}
+                />
+                Cat
+              </label>
+            </div>
+          </div>
+
+          <div className="card-body pt-0" id="box">
+            <h5>Gender:</h5>
+            <div className="form-check form-check-inline">
+              <label className="form-check-label">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckboxDog"
+                  value="Male"
+                  onChange={this.props.handleSort}
+                />
+                Male
+              </label>
+            </div>
+
+            <div className="form-check form-check-inline" id="box">
+              <label className="form-check-label">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="inlineCheckboxDog"
+                  value="Female"
+                  onChange={this.props.handleSort}
+                />
+                Female
+              </label>
+            </div>
+          </div>
+
+          <div className="card-body pt-0">
+            <h5>Breed:</h5>
+            <select
+              classNmae="form-control"
+              value={this.props.breed}
+              onChange={this.props.handleSelection}
+            >
+              <option selected>Choose...</option>
+              {breed
+                ? breed.map(curr => {
+                    return <option value={curr}>{curr}</option>;
+                  })
+                : null}
+            </select>
+          </div>
+
+          <div className="card-body pt-0">
+            <h5> Age: </h5>
+            <div className="form-check">
               <input
                 className="form-check-input"
-                type="checkbox"
-                id="inlineCheckboxDog"
-                value="Dog"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio1"
+                value="yto"
                 onChange={this.props.handleSort}
               />
-              Dog
-            </label>
-          </div>
-          <div className="form-check form-check-inline" id="box">
-            <label className="form-check-label">
+              <label className="form-check-label" htmlFor="inlineRadio1">
+                Youngest to Oldest
+              </label>
+            </div>
+            <div className="form-check">
               <input
                 className="form-check-input"
-                type="checkbox"
-                id="inlineCheckboxDog"
-                value="Cat"
+                type="radio"
+                name="inlineRadioOptions"
+                id="inlineRadio2"
+                value="oty"
                 onChange={this.props.handleSort}
               />
-              Cat
-            </label>
+              <label className="form-check-label" htmlFor="inlineRadio2">
+                Oldest to Youngest
+              </label>
+            </div>
           </div>
-        </div>
 
-        <div className="card-body pt-0" id="box">
-          <h5>Gender:</h5>
-          <div className="form-check form-check-inline">
-            <label className="form-check-label">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id="inlineCheckboxDog"
-                value="Male"
-                onChange={this.props.handleSort}
-              />
-              Male
+          <div className="card-body pt-0">
+            <label htmlFor="formControlRange">
+              <h5>
+                Pet Energy
+                <span id="defaultValue">
+                  {" "}
+                  <br />
+                  (0 for default value):
+                </span>
+              </h5>
             </label>
-          </div>
-         
-          <div className="form-check form-check-inline" id="box">
-            <label className="form-check-label">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id="inlineCheckboxDog"
-                value="Female"
-                onChange={this.props.handleSort}
-              />                
-              Female
-            </label>
-          </div>            
-        </div>
-
-        <div className="card-body pt-0">
-          <h5>Breed:</h5>
-          <select
-            classNmae="form-control"
-            value={this.props.breed}
-            onChange={this.props.handleSelection}
-          >
-            <option selected>Choose...</option>
-            {breed ? breed.map(curr => {
-                  return <option value={curr}>{curr}</option>;
-                }): null}            
-          
-          </select>
-        </div>
-
-        <div className="card-body pt-0">
-          <h5> Age: </h5>
-          <div className="form-check">
             <input
-              className="form-check-input"
-              type="radio"
-              name="inlineRadioOptions"
-              id="inlineRadio1"
-              value="yto"
-              onChange={this.props.handleSort}
+              type="range"
+              className="slider"
+              id="formControlRange"
+              min="0"
+              max="5"
+              step="1"
+              value={this.props.active}
+              onChange={this.props.handleControl}
             />
-            <label className="form-check-label" htmlFor="inlineRadio1">
-              Youngest to Oldest
-            </label>
+            {this.props.active}
           </div>
-          <div className="form-check">
+
+          <div className="card-body pt-0">
+            <label htmlFor="formControlRange">
+              <h5>Attachment level:</h5>
+            </label>
             <input
-              className="form-check-input"
-              type="radio"
-              name="inlineRadioOptions"
-              id="inlineRadio2"
-              value="oty"
-              onChange={this.props.handleSort}
+              type="range"
+              className="slider"
+              id="formControlRange"
+              min="0"
+              max="5"
+              step="1"
+              value={this.props.attachment}
+              onChange={this.props.handleAttachment}
             />
-            <label className="form-check-label" htmlFor="inlineRadio2">
-              Oldest to Youngest
-            </label>
+            {this.props.attachment}
           </div>
-        </div>
-
-        <div className="card-body pt-0">
-          <label htmlFor="formControlRange">
-            <h5>
-              Pet Energy<span id="defaultValue"> <br/>(0 for default value):</span>
-            </h5>
-          </label>
-          <input
-            type="range"
-            className="form-control-range"
-            id="formControlRange"
-            min="0"
-            max="5"
-            step="1"
-            value={this.props.active}
-            onChange={this.props.handleControl}
-          />
-          {this.props.active}
-        </div>
-
-        <div className="card-body pt-0">
-          <label htmlFor="formControlRange">
-            <h5>Attachment level:</h5>
-          </label>
-          <input
-            type="range"
-            className="form-control-range"
-            id="formControlRange"
-            min="0"
-            max="5"
-            step="1"
-            value={this.props.attachment}
-            onChange={this.props.handleAttachment}
-          />
-          {this.props.attachment}
-        </div>
-        {/* I find the code below quite difficult to work around, so I just comment it in case we want to use it later on */}
-        {/* <div className="card-body">
+          {/* I find the code below quite difficult to work around, so I just comment it in case we want to use it later on */}
+          {/* <div className="card-body">
           <div className="input-group">
             <div className="btn-group btn-group-toggle" data-toggle="buttons">
               <label className="btn btn-secondary active">
@@ -226,8 +232,8 @@ export default class SearchingCriterias extends Component {
             </div>
           </div>
         </div> */}
+        </div>
       </div>
-    </div>
     );
   }
 }

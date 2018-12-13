@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route,  Link,  Redirect,  withRouter} from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter
+} from "react-router-dom";
 import "./Login.css";
 import sendData from "../../auth";
 import PetProfile from "../PetProfile/PetProfile";
@@ -66,26 +72,24 @@ export default class Login extends Component {
 
               <div className="row">
                 <div className="col-7">
-                  <Link to="/SignUp">
+                  <Link className="link" to="/SignUp">
                     Don't have an account? Register here.
                   </Link>
                 </div>
-                <div className="col-5">
-                  <Link to="/Reset">Forgot password?</Link>
-                </div>
+                <div className="col-5" />
               </div>
             </form>
             <div className="div p-2">
               <button
                 type="submit"
-                className="btn btn"
+                className="btn btn buttons"
                 onClick={this.submit}
                 id="loginbutton"
               >
                 <span>Login</span>
               </button>
             </div>
-          </div>                      
+          </div>
         </div>
       );
     }

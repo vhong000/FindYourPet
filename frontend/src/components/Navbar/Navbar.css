@@ -42,19 +42,20 @@ ul.topnav li.right {
     float: none;
   }
 }
- #logo {
+#logo {
   width: 8%;
- padding-bottom: 5px;
+  padding-bottom: 5px;
   padding-right: 10px;
 }
 
-.nav{
+.nav {
   font-weight: 900;
-} 
-li{font-weight: 90;
+}
+li {
+  font-weight: 90;
 }
 
-#heart{
+#heart {
   float: left;
   padding-top: 10px;
   padding-right: 10px;
@@ -88,7 +89,7 @@ li{font-weight: 90;
   display: block;
   width: 13px;
   height: 13px;
-  background:rgb(240, 95, 119);;
+  background: rgb(240, 95, 119);
 }
 .lds-heart div:before {
   left: -8px;
@@ -118,4 +119,3 @@ li{font-weight: 90;
     transform: scale(0.9);
   }
 }
-

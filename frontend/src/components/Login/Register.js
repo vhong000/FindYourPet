@@ -69,7 +69,7 @@ export default class Register extends Component {
   render() {
     return (
       <div className="panel">
-        <h2  className="text-focus-in">Register</h2>
+        <h2 className="text-focus-in">Register</h2>
         <br />
         <form id="loginform" className="text-right">
           <div className="form-group row">
@@ -238,7 +238,7 @@ export default class Register extends Component {
         </form>
         <button
           type="submit"
-          className="btn btn"
+          className="btn btn buttons"
           id="register"
           onClick={this.submit}
         >

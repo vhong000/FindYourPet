@@ -40,7 +40,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "prettier": "^1.15.2"
+    "prettier": "^1.15.3"
   },
   "proxy": "http://localhost:8000"
 }

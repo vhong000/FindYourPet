@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import isEmpty from 'lodash/isEmpty';
+import isEmpty from "lodash/isEmpty";
 import data from "../../auth";
 import photoDefault from "../../Images/paw.png";
 import { getUserPets, getInterestedPets, getInterestedUsers } from '../../fetches';
@@ -45,9 +45,12 @@ export default class UserProfile extends React.Component {
 	displayUsers(user, petId){
 		for(var i = 0; i < this.state.userPets.length; i++){
 			if( this.state.userPets[i].id == petId){
-				return <div>
+				return <div className="card border-dark mb-3 ml-5">
+					<div className="card-header bg-dark text-white">! Someone is interested in your pet !</div>
+					<div className="card-body">
 					{user.firstName} {user.lastName} is interested in {this.state.userPets[i].name}.<br></br>
 					Their email is {user.email}. 
+					</div>
 					</div>
 			}
 		}
@@ -61,7 +64,175 @@ export default class UserProfile extends React.Component {
       return <Redirect to={"/"} />;
     }
     return (
-      <div className="container">
+      <div className="container" id="space">
+        <div class="row">
+          <div class="col-md-3 ">
+            <div class="list-group ">
+              <a href="#" class="list-group-item list-group-item-action" id="side" >
+                <p>{data.firstName} {data.lastName} <b>'s Profile</b> </p>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <img src={photoDefault} alt="User profile" id="imageprof"/>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h3>About me</h3>
+                    <hr />
+                  </div>
+                </div>
+
+                <div class="row text-left">
+                  <div class="col-md-12">
+                    <div>
+                      <div class="form-group row">
+                        <label for="username" class="col-4 col-form-label">
+                          <b>First name: </b>
+                        </label>
+                        <div class="col-8"><span id="data">{data.firstName}</span></div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="username" class="col-4 col-form-label">
+                          <b>Last name: </b>
+                        </label>
+                        <div class="col-8"><span id="data">{data.lastName}</span></div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="username" class="col-4 col-form-label">
+                          <b>Address: </b>
+                        </label>
+                        <div class="col-8"><span id="data">{data.address}</span></div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="username" class="col-4 col-form-label">
+                          <b>City: </b>
+                        </label>
+                        <div class="col-8"><span id="data">{data.city}</span></div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="username" class="col-4 col-form-label">
+                          <b>State:</b>{" "}
+                        </label>
+                        <div class="col-8"><span id="data">{data.state}</span></div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="username" class="col-4 col-form-label">
+                          <b>Zipcode:</b>{" "}
+                        </label>
+                        <div class="col-8"><span id="data">{data.zipcode}</span></div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="username" class="col-4 col-form-label">
+                          <b>PhoneNumber:</b>{" "}
+                        </label>
+                        <div class="col-8"><span id="data">{data.phoneNumber}</span></div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="username" class="col-4 col-form-label">
+                          <b>Email:</b>
+                        </label>
+                        <div class="col-8"><span id="data">{data.email}</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <h3>My Pets</h3>
+                    <hr />
+                    <div className="row">
+                      <div className="col-md-9">
+                        <div className="card my-4">
+                          <div className="container">
+                            <div className="row">
+                              {!isEmpty(userPets) ? (
+                                userPets.map(pet => {
+                                  return (
+                                    <PetCard
+                                      id={pet.id}
+                                      imageUrl={pet.imageUrl}
+                                      name={pet.name}
+                                      species={pet.species}
+                                      breed={pet.breed}
+                                      dob={pet.dob}
+                                      gender={pet.gender}
+                                      description={pet.description}
+                                    />
+                                  );
+                                })
+                              ) : (
+                                <p>No Pets</p>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h3>Pets I'm Interested in</h3>
+                <hr />
+
+                <div className="row">
+                  <div className="col-md-9">
+                    <div className="card my-4">
+                      <div className="container">
+                        <div className="row">
+                          {!isEmpty(userInterestedPets) ? (
+                            userInterestedPets.map(pet => {
+                              return (
+                                <PetCard
+                                  id={pet.id}
+                                  imageUrl={pet.imageUrl}
+                                  id={pet.id}
+                                  name={pet.name}
+                                  species={pet.species}
+                                  breed={pet.breed}
+                                  dob={pet.dob}
+                                  gender={pet.gender}
+                                  description={pet.description}
+                                />
+                              );
+                            })
+                          ) : (
+                            <p>No Interested Pets</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h3> Users interested in your pets </h3>
+				<div className="row">
+					<div className="text-center">
+						<button type="button" className="btn btn-primary" onClick={this.checkInterest}>
+							"Check Interest"
+						</button>
+						{ !isEmpty(interestedUsers) ? (
+									interestedUsers.map(element => {
+										return element.map(user => {
+												return (
+													<div>
+														{ this.displayUsers(user,user.interested_pets.petId) }
+													</div>
+												)}
+											)
+										
+									})
+								) : ( <p>No one is interested in your pets</p> ) }
+
+					</div>
+				</div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        {/*
         <div className="row">
           <div className="col text-center p-3">
             <h2>
@@ -155,28 +326,7 @@ export default class UserProfile extends React.Component {
 					</div>
 				</div>
 			</div>
-
-			<h4> Users interested in your pets </h4>
-			<div className="row">
-				<div className="col-md-auto">
-					<button type="button" className="btn btn-primary" onClick={this.checkInterest}>
-						"Check Interest"
-					</button>
-					{ !isEmpty(interestedUsers) ? (
-									interestedUsers.map(element => {
-										return element.map(user => {
-												return (
-													<div>
-														{ this.displayUsers(user,user.interested_pets.petId) }
-													</div>
-												)}
-											)
-										
-									})
-								) : ( <p>No one is interested in your pets</p> ) }
-
-				</div>
-			</div>
+			*/}
 
 		</div>
     );

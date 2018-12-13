@@ -70,9 +70,11 @@ export default class DashboardBody extends Component {
   //handle getting the pet breed
   handleSelection = e => {
     const value = e.target.value;
-		if (value === "Choose...") {
-			this.setState({ breed: '' })
-		} else { this.setState({ breed: value }) }
+    if (value === "Choose...") {
+      this.setState({ breed: "" });
+    } else {
+      this.setState({ breed: value });
+    }
   };
 
   //handle the active level of the pet
@@ -183,7 +185,7 @@ export default class DashboardBody extends Component {
                 <div className="col-md-2">
                   <button
                     type="submit"
-                    className="btn btn-outline-warning"
+                    className="btn btn-outline-warning buttons"
                     id="setbutton"
                     onClick={e => this.handleSubmit(e)}
                   >
@@ -192,7 +194,7 @@ export default class DashboardBody extends Component {
                 </div>
               </div>
             </div>
-          </div>         
+          </div>
           <div className="row">
             <div className="col-md-9">
               <div className="card my-4">
@@ -255,7 +257,7 @@ export default class DashboardBody extends Component {
                                 key={pet.id}
                                 energy={pet.energy}
                                 attachment={pet.attachment}
-																imageUrl={pet.imageUrl}
+                                imageUrl={pet.imageUrl}
                               />
                             );
                           })

@@ -10,28 +10,12 @@ export default class Interested extends Component {
             <p className="card-title">Pet Name</p>
           </b>
           <p id="info">Pet Type</p>
-          <p className="card-text" id="infosmall">
-            Description Description Description Description
-          </p>
-          <div className="btn-group btn-group-toggle" data-toggle="buttons">
-            <label className="btn btn-secondary">
-              <input
-                type="radio"
-                name="options"
-                id="option2"
-                autoComplete="off"
-              />
-              Show
+          <p className="card-text" id="infosmall">Description Description Description Description</p>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons" >
+            <label class="btn btn-secondary" id="option2">
+            <input type="radio" name="options"  autocomplete="off"/> Interested
             </label>
-            <label className="btn btn-secondary">
-              <input
-                type="radio"
-                name="options"
-                id="option3"
-                autoComplete="off"
-              />
-              Contact
-            </label>
+
           </div>
         </div>
       </div>

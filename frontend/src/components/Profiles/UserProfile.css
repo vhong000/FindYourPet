@@ -1,0 +1,17 @@
+#side{
+  background-color: #ffcc66;
+  border: solid black 2px;
+}
+
+#imageprof{
+margin: auto;
+padding: auto;
+}
+
+#space{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+#data{
+  margin-left: 10px;
+}

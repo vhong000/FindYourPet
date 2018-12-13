@@ -18,33 +18,25 @@ export default class UserProfile extends React.Component {
       userInterestedPets: [],
       interestedUsers: []
     };
-    this.checkInterest = this.checkInterest.bind(this);
     this.displayUsers = this.displayUsers.bind(this);
   }
 
   componentDidMount() {
     getUserPets().then(response => {
       this.setState({ userPets: response });
-    });
+			return response;
+		}).then(pets => {
+			pets.forEach(pet => {
+				getInterestedUsers(pet.id).then(response => {
+					console.log('interested users', response);
+					this.setState({
+						interestedUsers: [...this.state.interestedUsers, response],
+					})
+				})
+			})
+		});
     getInterestedPets().then(response => {
       this.setState({ userInterestedPets: response });
-    });
-  }
-
-  checkInterest() {
-    this.state.userPets.forEach(pet => {
-      getInterestedUsers(pet.id).then(response => {
-        if (response.length !== 0) {
-          // response.forEach(user => {
-          // 	this.setState({ interestedUsers: [...this.state.interestedUsers,  user] })
-          // })
-          this.setState({
-            interestedUsers: [...this.state.interestedUsers, response]
-          });
-        } else {
-          //console.log("No one is interested")
-        }
-      });
     });
   }
 
@@ -245,13 +237,6 @@ export default class UserProfile extends React.Component {
                 <h3> Users interested in your pets </h3>
                 <div className="row">
                   <div className="text-center">
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={this.checkInterest}
-                    >
-                      "Check Interest"
-                    </button>
                     {!isEmpty(interestedUsers) ? (
                       interestedUsers.map(element => {
                         return element.map(user => {

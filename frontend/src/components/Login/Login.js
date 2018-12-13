@@ -85,7 +85,7 @@ export default class Login extends Component {
                 <span>Login</span>
               </button>
             </div>
-          </div>             
+          </div>                      
         </div>
       );
     }

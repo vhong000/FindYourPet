@@ -15,39 +15,47 @@ export default class UserProfile extends React.Component {
       		interestedUsers: []
 		}
 		this.checkInterest = this.checkInterest.bind(this)
+		this.displayUsers = this.displayUsers.bind(this)
 	}
 
 	componentDidMount() {
 		getUserPets().then(response => { 
 			this.setState({ userPets: response }) 
-		})
+		});
 		getInterestedPets().then(response => {
 			this.setState({ userInterestedPets: response })
 		});
 	}
 
-	checkInterest(event){
-		getInterestedUsers(event.target.value).then(response =>{
+	checkInterest(){
+		this.state.userPets.forEach(pet =>{
+			getInterestedUsers(pet.id).then(response =>{
 			if(response.length !== 0 ){
-				var temp = response
-				console.log(temp)
-				this.setState({ interestedUsers:  temp })
+				// response.forEach(user => {
+				// 	this.setState({ interestedUsers: [...this.state.interestedUsers,  user] })
+				// })
+				this.setState({ interestedUsers: [...this.state.interestedUsers,  response] })
 			}else{
-				console.log("No one is interested")
+				//console.log("No one is interested")
 			}
+		 })
 		})
 	}
 
-	//I guess here I would iterate through interestedUsers and display all of them 
-	showInterested(){
-		if(this.state.interestedUsers.length === 0){
-			return <div> No one is interested </div>
+	displayUsers(user, petId){
+		for(var i = 0; i < this.state.userPets.length; i++){
+			if( this.state.userPets[i].id == petId){
+				return <div>
+					{user.firstName} {user.lastName} is interested in {this.state.userPets[i].name}.<br></br>
+					Their email is {user.email}. 
+					</div>
+			}
 		}
 	}
 
 	render() {
-    
-	const { userPets, userInterestedPets } = this.state;
+    // 
+	const { userPets, userInterestedPets, interestedUsers } = this.state;
 
     if (this.props.auth === false) {
       return <Redirect to={"/"} />;
@@ -101,7 +109,6 @@ export default class UserProfile extends React.Component {
 									{ !isEmpty(userPets) ? (
 										userPets.map(pet => {
 											return (
-												<div>
 												<PetCard 
 													id = {pet.id}
 													imageUrl={pet.imageUrl}
@@ -112,10 +119,6 @@ export default class UserProfile extends React.Component {
 													gender={pet.gender}
 													description={pet.description}
 												/>
-												<button type="button" className="btn btn-primary" value={pet.id} onClick={this.checkInterest}>
-                              						"Check interest"
-                            					</button>
-                            					</div>
 											)
 										})
 									) : ( <p>No Pets</p> ) }
@@ -153,6 +156,27 @@ export default class UserProfile extends React.Component {
 				</div>
 			</div>
 
+			<h4> Users interested in your pets </h4>
+			<div className="row">
+				<div className="col-md-auto">
+					<button type="button" className="btn btn-primary" onClick={this.checkInterest}>
+						"Check Interest"
+					</button>
+					{ !isEmpty(interestedUsers) ? (
+									interestedUsers.map(element => {
+										return element.map(user => {
+												return (
+													<div>
+														{ this.displayUsers(user,user.interested_pets.petId) }
+													</div>
+												)}
+											)
+										
+									})
+								) : ( <p>No one is interested in your pets</p> ) }
+
+				</div>
+			</div>
 
 		</div>
     );

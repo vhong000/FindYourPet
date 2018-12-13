@@ -15,12 +15,10 @@ export default class PostPet extends Component {
       return (
         <div className="container">
           <br />
-          <h2>Post a Pet</h2>
+          <h2 className="text-center">Post a Pet</h2>
           <div className="row">
-            <div className="col-md-3 ">
-              <Settings />
-            </div>
-            <div className="col-md-9">
+            <div className="col-md-1 ">{/* <Settings /> */}</div>
+            <div className="col-md-10">
               <div className="card">
                 <div className="card-body">
                   <div className="row">
@@ -35,6 +33,8 @@ export default class PostPet extends Component {
                 </div>
               </div>
             </div>
+
+            <div className="col-md-1 ">{/* <Settings /> */}</div>
           </div>
         </div>
       );

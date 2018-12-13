@@ -311,6 +311,22 @@ export default class PetInformation extends Component {
                   />
                 </div>
               </div>
+              <div className="form-group row">
+                <label htmlFor="publicinfo" className="col-4 col-form-label">
+                  Pet Description
+                </label>
+                <div className="col-8">
+                  <textarea
+                    id="publicinfo"
+                    name="publicinfo"
+                    cols="40"
+                    rows="4"
+                    className="form-control"
+                    onChange={this.handlePetInfoChange}
+                    value={this.state.petInfo}
+                  />
+                </div>
+              </div>
             </form>
           </div>
         </div>

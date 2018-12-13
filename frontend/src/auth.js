@@ -41,7 +41,7 @@ module.exports = {
         this.phoneNumber = jsonData.phoneNumber;
         this.address = jsonData.address;
         this.email = jsonData.email;
-        console.log(jsonData);
+        //console.log(jsonData);
       })
       .catch(err => {
         console.log(err);

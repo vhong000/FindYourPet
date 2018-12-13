@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import isEmpty from 'lodash/isEmpty';
 import data from "../../auth";
 import photoDefault from "../../Images/paw.png";
-import { getUserPets, getInterestedPets } from '../../fetches';
+import { getUserPets, getInterestedPets, getInterestedUsers } from '../../fetches';
 import PetCard from '../PetProfile/PetCard';
 
 export default class UserProfile extends React.Component {
@@ -12,20 +12,42 @@ export default class UserProfile extends React.Component {
 		this.state = {
 			userPets: [],
 			userInterestedPets: [],
+      		interestedUsers: []
 		}
+		this.checkInterest = this.checkInterest.bind(this)
 	}
 
 	componentDidMount() {
 		getUserPets().then(response => { 
 			this.setState({ userPets: response }) 
-		});
+		})
 		getInterestedPets().then(response => {
 			this.setState({ userInterestedPets: response })
 		});
 	}
 
-  render() {
-		const { userPets, userInterestedPets } = this.state;
+	checkInterest(event){
+		getInterestedUsers(event.target.value).then(response =>{
+			if(response.length !== 0 ){
+				var temp = response
+				console.log(temp)
+				this.setState({ interestedUsers:  temp })
+			}else{
+				console.log("No one is interested")
+			}
+		})
+	}
+
+	//I guess here I would iterate through interestedUsers and display all of them 
+	showInterested(){
+		if(this.state.interestedUsers.length === 0){
+			return <div> No one is interested </div>
+		}
+	}
+
+	render() {
+    
+	const { userPets, userInterestedPets } = this.state;
 
     if (this.props.auth === false) {
       return <Redirect to={"/"} />;
@@ -70,7 +92,6 @@ export default class UserProfile extends React.Component {
             </p>
           </div>
         </div>
-
 				<strong>My Pets</strong>
 				<div className="row">
 					<div className="col-md-9">
@@ -80,7 +101,9 @@ export default class UserProfile extends React.Component {
 									{ !isEmpty(userPets) ? (
 										userPets.map(pet => {
 											return (
+												<div>
 												<PetCard 
+													id = {pet.id}
 													imageUrl={pet.imageUrl}
 													name={pet.name}
 													species={pet.species}
@@ -89,6 +112,10 @@ export default class UserProfile extends React.Component {
 													gender={pet.gender}
 													description={pet.description}
 												/>
+												<button type="button" className="btn btn-primary" value={pet.id} onClick={this.checkInterest}>
+                              						"Check interest"
+                            					</button>
+                            					</div>
 											)
 										})
 									) : ( <p>No Pets</p> ) }
@@ -125,6 +152,8 @@ export default class UserProfile extends React.Component {
 					</div>
 				</div>
 			</div>
+
+
 		</div>
     );
   }

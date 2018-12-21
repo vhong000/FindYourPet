@@ -1,69 +1,37 @@
 # FindYourPet
-CTP Project Fall 2018
 
-## Git Commands
-[http://rogerdudler.github.io/git-guide/](http://rogerdudler.github.io/git-guide/)
+FindYourPet is a web application for posting and adopting pets. Unlike other pet adoption sites that tend to be exclusive to shelters and organizations, FindYourPet allows for individual breeders or owners that would prefer a more personal adoption procedure for their pets. 
 
-List of git commands that will be most used:
+The application allows for various search criterias to find your perfect pet. Some of these include the age, breed, species, attachment level, and even energy levels depending on how active of a pet the user wants. 
 
-**Create a branch:** *while on master...* `git checkout -b <branch name>`
+The user can be interested in a pet by clicking a button that will alert the owner of their interest. A profile page is available to users which will list the pets that they posted, the pets that they are interested in, and the people that are interested in their pet(s). From this page the owner of a pet can choose an interested adopter.
 
-**Checkout to branch:** `git checkout <branch name>`
+## Running the application
+FindYourPet is created on an ExpressJS/Sequelize and React/Bootstrap stack. Running the application requires both the React and Express server to be available.
 
-**Add changes:** `git add <file name>` or `git add . ` for all changed files
+Required:
+- Node v8.11+
+- Web Browser
 
-**Checkout changes:** `git checkout <file name>` or `git checkout .` for all changed files
+To run the application:
+- Install NPM packages in both `backend/` and `frontend/` directories: `npm install`
+- Run the backend server from the `backend/` directory: `npm start`
+- Run the frontend server from the `frontend/` directory: `npm start`
 
-**Check status:** `git status`
+Documentation for the FindYourPet API can be found [here](https://github.com/vhong000/FindYourPet/wiki/FindYourPet-Backend-API-Documentation).
 
-**Pull from remote:** `git pull`
+## Project Members
+- Daniel Constantine 
+([Github](https://github.com/daniel-constantine), [LinkedIn](https://www.linkedin.com/in/danielconstantine/))
+- Victor Hong
+([Github](https://github.com/vhong000), [LInkedIn](https://www.linkedin.com/in/vhong000/))
+- Joel Franco
+([Github](https://github.com/FrancoJ101), [LInkedIn](https://www.linkedin.com/in/joelfranco18/))
+- Irina Federova
+([Github](https://github.com/irinafedorovacisc), [LInkedIn](https://www.linkedin.com/in/irinafedorovany/))
 
-**Commit changes:** `git commit -m "<commit message>"`
+## Screenshots
 
-**Push commited changes:** `git push`
+![homepage](./images/homepage.png)
 
-**Merge with master branch:** *while not on master...* `git merge master`
-
-**Compare changes:** `git diff <file name>` or `git diff . ` for all changes
-
-### Common git usage
-To update current branch
-
-```
-git checkout master
-git pull
-git checkout <branch name>
-git merge master
-git push // to push to own remote branch
-```
-
-To push changes to current branch
-
-```
-git status
-git add .
-git commit -m '<message>'
-git push
-```
-
-To merge with master *(Be careful with this. PR recommended)*
-
-*on own branch*
-```
-git checkout master
-git pull
-git checkout <branch name>
-git merge master // merge local with current master
-git push
-git checkout master
-git merge <branch name> // merge master with local
-```
-
-To create pull request
-
-1. push changes to own branch
-2. go to github project page
-3. "new pull request"
-4. select your branch
-5. give info on code changes
-6. wait for code review
+![post-pet](./images/post_pet.png)

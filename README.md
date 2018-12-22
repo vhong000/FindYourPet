@@ -32,6 +32,8 @@ Documentation for the FindYourPet API can be found [here](https://github.com/vho
 
 ## Screenshots
 
-![homepage](./images/homepage.png)
+<img src="./images/homepage.png" style="border: 3px solid; border-radius: 10px"/> 
 
-![post-pet](./images/post_pet.png)
+<img src="./images/post_pet.png" width="48%" style="float: left; border: 3px solid; border-radius: 10px" />
+
+<img src="./images/browse_pets.png" width="48%" style="float: right; border: 3px solid; border-radius: 10px"/>

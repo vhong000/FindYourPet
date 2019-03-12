@@ -24,10 +24,11 @@ app.use(passport.session());
 
 app.use(methodOverride('_method'));
 app.use(flash());
-// app.use(express.static('./public'));
+app.use(express.static('./public'));
+// put contents of biu
 
 // app.get(URL, REQUEST_HANDLER);
-app.get('/', (req, res) => res.send("FindYourPet"))
+//app.get('/', (req, res) => res.send("FindYourPet"))
 
 app.use(require('./controllers/'));
 

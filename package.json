@@ -1,0 +1,46 @@
+{
+  "name": "latest-app-2",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "autobind-decorator": "^2.3.1",
+    "axios": "^0.18.0",
+    "babel-runtime": "^6.26.0",
+    "ember-cli-htmlbars": "^3.0.1",
+    "ember-favourite-heart": "0.0.4",
+    "lodash": "^4.17.11",
+    "prop-types": "^15.6.2",
+    "rc-slider": "^8.6.3",
+    "react": "^16.5.2",
+    "react-avatar-cropper": "^0.1.3",
+    "react-avatar-edit": "^0.6.0",
+    "react-dom": "^16.5.2",
+    "react-images-upload": "^1.2.3",
+    "react-input-range": "^1.3.0",
+    "react-router-dom": "4.3.1",
+    "react-scripts": "2.0.5",
+    "react-spinner-children": "^1.0.8",
+    "react-swipeable": "^4.3.0",
+    "styled-components": "^4.0.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "prettier": "^1.15.3"
+  },
+  "proxy": "http://localhost:8000"
+}

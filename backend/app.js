@@ -27,10 +27,10 @@ app.use(flash());
 app.use(express.static('./public'));
 
 // app.get(URL, REQUEST_HANDLER);
-//app.get('/', (req, res) => res.send("FindYourPet"))
-app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname, './public/index.html'))
-});
+app.get('/', (req, res) => res.send("FindYourPet"))
+// app.get('*', (req, res) => {
+// 	res.sendFile(path.join(__dirname, './public/index.html'))
+// });
 
 app.use(require('./controllers/'));
 

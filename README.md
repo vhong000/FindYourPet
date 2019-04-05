@@ -8,6 +8,7 @@ The user can be interested in a pet by clicking a button that will alert the own
 
 ## Running the application
 Link to FindYourPet on Heroku: https://findyourpet-cuny.herokuapp.com/
+
 FindYourPet is created on an ExpressJS/Sequelize and React/Bootstrap stack. Running the application requires both the React and Express server to be available.
 
 Required:

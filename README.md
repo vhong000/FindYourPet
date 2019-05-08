@@ -7,6 +7,8 @@ The application allows for various search criterias to find your perfect pet. So
 The user can be interested in a pet by clicking a button that will alert the owner of their interest. A profile page is available to users which will list the pets that they posted, the pets that they are interested in, and the people that are interested in their pet(s). From this page the owner of a pet can choose an interested adopter.
 
 ## Running the application
+Link to FindYourPet on Heroku: https://findyourpet-cuny.herokuapp.com/
+
 FindYourPet is created on an ExpressJS/Sequelize and React/Bootstrap stack. Running the application requires both the React and Express server to be available.
 
 Required:

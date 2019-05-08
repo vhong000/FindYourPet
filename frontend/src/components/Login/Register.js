@@ -10,9 +10,11 @@ export default class Register extends Component {
     address: "",
     phoneNumber: "",
     password: "",
+    passwordConfirm: "",
     city: "",
     state: "",
-    zipcode: ""
+    zipcode: "",
+    passwordsEqual: false
   };
 
   submit = () => {
@@ -26,9 +28,48 @@ export default class Register extends Component {
       this.state.phoneNumber,
       this.state.email,
       this.state.password,
+      this.state.passwordConfirm,
       this.props.history
     );
   };
+
+  passwordCheck(){
+    if(this.state.password === this.state.passwordConfirm){
+      this.setState({passwordsEqual: true});
+    }
+    else if(this.state.password !== this.state.passwordConfirm){
+      this.setState({passwordsEqual: false});
+    }
+  }
+
+  handleButton(){
+    if(this.state.password === this.state.passwordConfirm){
+      return <div>
+        <p> <br /> </p> 
+        <button
+          type="submit"
+          className="btn btn buttons"
+          id="register"
+          onClick={this.submit}
+        >
+          Register
+        </button> 
+        </div>
+    }
+    else if(this.state.password !== this.state.passwordConfirm){
+      return <div> 
+        <p> Please make sure the passwords match. </p>
+        <button
+            type="submit"
+            className="btn btn buttons"
+            id="register"
+            onClick={this.submit}
+        >
+          Register
+        </button> 
+      </div>
+    }
+  }
 
   handleFNChange = event => {
     this.setState({ firstName: event.target.value });
@@ -52,6 +93,12 @@ export default class Register extends Component {
 
   handlePassChange = event => {
     this.setState({ password: event.target.value });
+    this.passwordCheck();
+  };
+
+  handlePassConfirmChange = event => {
+    this.setState({ passwordConfirm: event.target.value });
+    this.passwordCheck();
   };
 
   handleCityChange = event => {
@@ -232,18 +279,13 @@ export default class Register extends Component {
                 className="form-control"
                 id="inputPassword"
                 placeholder="Confirm Password"
+                onChange={this.handlePassConfirmChange}
+                value={this.state.passwordConfirm}
               />
             </div>
           </div>
         </form>
-        <button
-          type="submit"
-          className="btn btn buttons"
-          id="register"
-          onClick={this.submit}
-        >
-          Register
-        </button>
+        {this.handleButton()}
         <br />
       </div>
     );

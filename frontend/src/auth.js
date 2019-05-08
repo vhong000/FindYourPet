@@ -28,6 +28,8 @@ module.exports = {
           return response.json();
         } else {
           console.log(response.status);
+          console.log(email);
+          console.log(password);
           throw new Error("Sign-in failed");
         }
       })

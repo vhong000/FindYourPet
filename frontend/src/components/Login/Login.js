@@ -14,12 +14,16 @@ import UserProfile from "../Profiles/UserProfile";
 export default class Login extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+    emailChildren: "",
+    passwordChildren: "",
+    loginFail: false
+  };
+    this.send = this.send.bind(this);
+    this.showMessage = this.showMessage.bind(this);
   }
 
-  state = {
-    emailChildren: "",
-    passwordChildren: ""
-  };
+  
 
   submit = () => {
     sendData.send(
@@ -27,7 +31,34 @@ export default class Login extends Component {
       this.state.passwordChildren,
       this.props.authenticated
     );
+    this.send();
   };
+
+  send() {
+    fetch("/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      body: JSON.stringify({
+        email: this.state.emailChildren,
+        password: this.state.passwordChildren
+      })
+    })
+      .then(response => {
+        if (response.status === 200) {
+          console.log("Successful login");
+        } else {
+          this.setState({loginFail: true})
+          console.log(response.status);
+
+          throw new Error("Sign-in failed");
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   handleEmailChange = event => {
     this.setState({ emailChildren: event.target.value });
@@ -36,6 +67,15 @@ export default class Login extends Component {
   handlePassChange = event => {
     this.setState({ passwordChildren: event.target.value });
   };
+
+  showMessage(){
+    if(this.state.loginFail === true ){
+      return <div className="message"> Wrong Email or Password </div>
+    }
+    else if(this.state.loginFail === false){
+      return <div> <br /> </div>
+    }
+  }
 
   render() {
     if (this.props.auth) {
@@ -80,6 +120,7 @@ export default class Login extends Component {
               </div>
             </form>
             <div className="div p-2">
+              {this.showMessage()}
               <button
                 type="submit"
                 className="btn btn buttons"

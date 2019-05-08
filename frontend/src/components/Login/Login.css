@@ -77,6 +77,10 @@
   transition: 1s;
 }
 
+.message{
+  color: rgb(200,0,0);
+}
+
 .button:hover {
   background: rgb(207, 150, 35);
 }

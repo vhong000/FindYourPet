@@ -7,6 +7,9 @@
 
   padding-bottom: 5px;
 }
+#option1 {
+  background-color: #ffcc66;
+}
 #exit {
   float: right;
   width: 7%;
@@ -42,11 +45,10 @@ h1 {
   border: solid lightgrey 1px;
 }
 
-.link {
-  color: rgb(207, 150, 35);
-}
-
-.link:hover {
+.cardLink {
   color: rgb(100, 69, 8);
+}
+.cardLink:hover {
+  color: rgb(50, 33, 4);
   text-decoration: none;
 }

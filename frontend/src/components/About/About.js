@@ -1,8 +1,14 @@
 import React from "react";
 import "./About.css";
 import Victor from "../../Images/victor.JPG";
+import Joel from "../../Images/Joel.jpg"
+import Daniel from "../../Images/Daniel.png"
+import irina from "../../Images/irina.jpeg"
 
 function Card(props) {
+  // imgSrc={ 
+  //             "https://media.licdn.com/dms/image/C4D03AQH75_OyZk3IKw/profile-displayphoto-shrink_800_800/0?e=1548892800&v=beta&t=f-yQll6HfCUJnqICakdZkaWGu9QiYWsdlG9by3bPGaA"
+  //           } 
   return (
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
@@ -40,6 +46,16 @@ function Card(props) {
                       <i class="fa fa-github" />
                     </a>
                   </li>
+                  <br></br>
+                  <li class="list-inline-item">
+                    <a
+                      class="social-icon text-xs-center"
+                      target="_blank"
+                      href={props.linkedInLink}
+                    >
+                      <i class="fa fa-linkedin"></i>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -64,20 +80,18 @@ export default class About extends React.Component {
             name={"Joel Franco"}
             desc={"Brooklyn College"}
             job={"Working on the back-end and front-end"}
-            imgSrc={
-              "https://media.licdn.com/dms/image/C4D03AQHlMvK4cVc1UQ/profile-displayphoto-shrink_800_800/0?e=1548892800&v=beta&t=qBb6oFls84J4g0rw5xj_JBxwrEt0nTgk1eKdndAQTVw"
-            }
+            imgSrc={Joel}
             githubLink={"https://github.com/FrancoJ101"}
+            linkedInLink={"https://www.linkedin.com/in/joelfranco18/"}
             imgAlt={"Joel photo"}
           />
           <Card
             name={"Daniel Constantine"}
             desc={"Queens College"}
             job={"Working on the back-end and front-end"}
-            imgSrc={
-              "https://media.licdn.com/dms/image/C4E03AQE-iIenirJDGw/profile-displayphoto-shrink_200_200/0?e=1548892800&v=beta&t=pz8-tcB84NNMnt8mWhekhjXDRUDhpRV0Wtqc3x15eEs"
-            }
+            imgSrc={Daniel}
             githubLink={"https://github.com/daniel-constantine"}
+            linkedInLink={"https://www.linkedin.com/in/danielconstantine/"}
             imgAlt={"Daniel photo"}
           />
           <Card
@@ -88,16 +102,16 @@ export default class About extends React.Component {
             }
             imgSrc={Victor}
             githubLink={"https://github.com/vhong000"}
+            linkedInLink={"https://www.linkedin.com/in/vhong000/"}
             imgAlt={"Victor photo"}
           />
           <Card
             name={"Irina Fedorova"}
             desc={"Brooklyn College"}
             job={"Working on the front-end using React and Bootstrap"}
-            imgSrc={
-              "https://media.licdn.com/dms/image/C4D03AQH75_OyZk3IKw/profile-displayphoto-shrink_800_800/0?e=1548892800&v=beta&t=f-yQll6HfCUJnqICakdZkaWGu9QiYWsdlG9by3bPGaA"
-            }
+            imgSrc={irina}
             githubLink={"https://github.com/irinafedorovacisc"}
+            linkedInLink={"https://www.linkedin.com/in/irinafedorovany"}
             imgAlt={"Irina photo"}
           />
         </div>

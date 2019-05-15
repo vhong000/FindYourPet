@@ -134,6 +134,7 @@ export default class PetInformation extends Component {
         <h4 className="text-center py-1">Photos</h4>
         <ImageUploader
           withIcon={true}
+          withPreview={true}
           buttonClassName="btn-secondary active"
           buttonText="Choose images"
           onChange={this.onDrop}
